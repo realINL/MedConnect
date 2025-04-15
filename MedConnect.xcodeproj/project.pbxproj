@@ -11,6 +11,15 @@
 		11C13E242D527E57007040E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E232D527E57007040E3 /* ContentView.swift */; };
 		11C13E262D527E59007040E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C13E252D527E59007040E3 /* Assets.xcassets */; };
 		11C13E292D527E59007040E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C13E282D527E59007040E3 /* Preview Assets.xcassets */; };
+		11C13E332D527EAC007040E3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E322D527EAC007040E3 /* LoginView.swift */; };
+		11C13E352D5280E7007040E3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E342D5280E7007040E3 /* LoginViewModel.swift */; };
+		11C13E372D5282A7007040E3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E362D5282A7007040E3 /* HomeView.swift */; };
+		11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E382D52836B007040E3 /* HomeViewModel.swift */; };
+		11C13E3B2D528433007040E3 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E3A2D528433007040E3 /* Patient.swift */; };
+		11C13E3D2D52868B007040E3 /* PatientScrollCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E3C2D52868B007040E3 /* PatientScrollCardView.swift */; };
+		11C13E3F2D528D8D007040E3 /* PatientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E3E2D528D8D007040E3 /* PatientCardView.swift */; };
+		11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E402D529EE4007040E3 /* SideMenuView.swift */; };
+		11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E422D52A93C007040E3 /* SideMenuHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,15 @@
 		11C13E232D527E57007040E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		11C13E252D527E59007040E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11C13E282D527E59007040E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		11C13E322D527EAC007040E3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		11C13E342D5280E7007040E3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		11C13E362D5282A7007040E3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		11C13E382D52836B007040E3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		11C13E3A2D528433007040E3 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		11C13E3C2D52868B007040E3 /* PatientScrollCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientScrollCardView.swift; sourceTree = "<group>"; };
+		11C13E3E2D528D8D007040E3 /* PatientCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCardView.swift; sourceTree = "<group>"; };
+		11C13E402D529EE4007040E3 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		11C13E422D52A93C007040E3 /* SideMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +69,9 @@
 		11C13E202D527E57007040E3 /* MedConnect */ = {
 			isa = PBXGroup;
 			children = (
+				11C13E312D527E92007040E3 /* ViewModel */,
+				11C13E302D527E8C007040E3 /* View */,
+				11C13E2F2D527E7F007040E3 /* Model */,
 				11C13E212D527E57007040E3 /* MedConnectApp.swift */,
 				11C13E232D527E57007040E3 /* ContentView.swift */,
 				11C13E252D527E59007040E3 /* Assets.xcassets */,
@@ -65,6 +86,36 @@
 				11C13E282D527E59007040E3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		11C13E2F2D527E7F007040E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				11C13E3A2D528433007040E3 /* Patient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11C13E302D527E8C007040E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11C13E322D527EAC007040E3 /* LoginView.swift */,
+				11C13E362D5282A7007040E3 /* HomeView.swift */,
+				11C13E3C2D52868B007040E3 /* PatientScrollCardView.swift */,
+				11C13E3E2D528D8D007040E3 /* PatientCardView.swift */,
+				11C13E422D52A93C007040E3 /* SideMenuHeaderView.swift */,
+				11C13E402D529EE4007040E3 /* SideMenuView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11C13E312D527E92007040E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				11C13E342D5280E7007040E3 /* LoginViewModel.swift */,
+				11C13E382D52836B007040E3 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +188,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11C13E352D5280E7007040E3 /* LoginViewModel.swift in Sources */,
+				11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */,
+				11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */,
+				11C13E3D2D52868B007040E3 /* PatientScrollCardView.swift in Sources */,
+				11C13E332D527EAC007040E3 /* LoginView.swift in Sources */,
+				11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */,
 				11C13E242D527E57007040E3 /* ContentView.swift in Sources */,
+				11C13E3F2D528D8D007040E3 /* PatientCardView.swift in Sources */,
+				11C13E3B2D528433007040E3 /* Patient.swift in Sources */,
+				11C13E372D5282A7007040E3 /* HomeView.swift in Sources */,
 				11C13E222D527E57007040E3 /* MedConnectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +340,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +370,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

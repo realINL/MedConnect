@@ -2,7 +2,7 @@
 //  MedConnectApp.swift
 //  MedConnect
 //
-//  Created by Илья Лебедев on 04.02.2025.
+//  Created by Илья Лебедев on 15.01.2025.
 //
 
 import SwiftUI

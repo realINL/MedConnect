@@ -2,14 +2,30 @@
 //  SideMenuHeaderView.swift
 //  MedConnect
 //
-//  Created by Илья Лебедев on 04.02.2025.
+//  Created by Илья Лебедев on 20.01.2025.
 //
 
 import SwiftUI
 
 struct SideMenuHeaderView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Image(systemName: "person.circle.fill")
+            .imageScale (.large)
+            .foregroundStyle(.white)
+            .frame (width: 48, height: 48) .background(.gray)
+            .clipShape (RoundedRectangle (cornerRadius: 10))
+            .padding (.vertical)
+            
+            VStack(alignment: .leading, spacing: 6) {
+                Text ("Айболит Айболитов")
+                    .font(.subheadline)
+                Text ("aibolit@gmail.com")
+                    .font(.footnote)
+                    .tint(.gray)
+            }
+        }
+        
     }
 }
 
