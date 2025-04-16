@@ -20,6 +20,13 @@
 		11C13E3F2D528D8D007040E3 /* PatientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E3E2D528D8D007040E3 /* PatientCardView.swift */; };
 		11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E402D529EE4007040E3 /* SideMenuView.swift */; };
 		11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E422D52A93C007040E3 /* SideMenuHeaderView.swift */; };
+		857993442DAFD6A800AE07F3 /* PatienHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857993432DAFD6A800AE07F3 /* PatienHeaderInfo.swift */; };
+		857993462DAFD6DD00AE07F3 /* PatientCaprini.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857993452DAFD6DD00AE07F3 /* PatientCaprini.swift */; };
+		857993482DAFD6EC00AE07F3 /* PatientCharlson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857993472DAFD6EC00AE07F3 /* PatientCharlson.swift */; };
+		8579934A2DAFD70800AE07F3 /* PatientDiagnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857993492DAFD70800AE07F3 /* PatientDiagnos.swift */; };
+		8579934C2DAFD71000AE07F3 /* PatientHW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579934B2DAFD71000AE07F3 /* PatientHW.swift */; };
+		8579934E2DAFD71900AE07F3 /* PatientMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579934D2DAFD71900AE07F3 /* PatientMetric.swift */; };
+		857993502DAFD72600AE07F3 /* PatientMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579934F2DAFD72600AE07F3 /* PatientMetrics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +44,13 @@
 		11C13E3E2D528D8D007040E3 /* PatientCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCardView.swift; sourceTree = "<group>"; };
 		11C13E402D529EE4007040E3 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		11C13E422D52A93C007040E3 /* SideMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderView.swift; sourceTree = "<group>"; };
+		857993432DAFD6A800AE07F3 /* PatienHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatienHeaderInfo.swift; sourceTree = "<group>"; };
+		857993452DAFD6DD00AE07F3 /* PatientCaprini.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCaprini.swift; sourceTree = "<group>"; };
+		857993472DAFD6EC00AE07F3 /* PatientCharlson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCharlson.swift; sourceTree = "<group>"; };
+		857993492DAFD70800AE07F3 /* PatientDiagnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDiagnos.swift; sourceTree = "<group>"; };
+		8579934B2DAFD71000AE07F3 /* PatientHW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientHW.swift; sourceTree = "<group>"; };
+		8579934D2DAFD71900AE07F3 /* PatientMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientMetric.swift; sourceTree = "<group>"; };
+		8579934F2DAFD72600AE07F3 /* PatientMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientMetrics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +83,7 @@
 		11C13E202D527E57007040E3 /* MedConnect */ = {
 			isa = PBXGroup;
 			children = (
+				857993422DAFD68500AE07F3 /* Components */,
 				11C13E312D527E92007040E3 /* ViewModel */,
 				11C13E302D527E8C007040E3 /* View */,
 				11C13E2F2D527E7F007040E3 /* Model */,
@@ -116,6 +131,20 @@
 				11C13E382D52836B007040E3 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		857993422DAFD68500AE07F3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				857993432DAFD6A800AE07F3 /* PatienHeaderInfo.swift */,
+				857993452DAFD6DD00AE07F3 /* PatientCaprini.swift */,
+				857993472DAFD6EC00AE07F3 /* PatientCharlson.swift */,
+				857993492DAFD70800AE07F3 /* PatientDiagnos.swift */,
+				8579934B2DAFD71000AE07F3 /* PatientHW.swift */,
+				8579934D2DAFD71900AE07F3 /* PatientMetric.swift */,
+				8579934F2DAFD72600AE07F3 /* PatientMetrics.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,16 +218,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				11C13E352D5280E7007040E3 /* LoginViewModel.swift in Sources */,
+				857993482DAFD6EC00AE07F3 /* PatientCharlson.swift in Sources */,
 				11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */,
 				11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */,
 				11C13E3D2D52868B007040E3 /* PatientScrollCardView.swift in Sources */,
 				11C13E332D527EAC007040E3 /* LoginView.swift in Sources */,
+				8579934A2DAFD70800AE07F3 /* PatientDiagnos.swift in Sources */,
 				11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */,
 				11C13E242D527E57007040E3 /* ContentView.swift in Sources */,
+				857993462DAFD6DD00AE07F3 /* PatientCaprini.swift in Sources */,
 				11C13E3F2D528D8D007040E3 /* PatientCardView.swift in Sources */,
+				857993502DAFD72600AE07F3 /* PatientMetrics.swift in Sources */,
 				11C13E3B2D528433007040E3 /* Patient.swift in Sources */,
+				8579934E2DAFD71900AE07F3 /* PatientMetric.swift in Sources */,
 				11C13E372D5282A7007040E3 /* HomeView.swift in Sources */,
 				11C13E222D527E57007040E3 /* MedConnectApp.swift in Sources */,
+				8579934C2DAFD71000AE07F3 /* PatientHW.swift in Sources */,
+				857993442DAFD6A800AE07F3 /* PatienHeaderInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

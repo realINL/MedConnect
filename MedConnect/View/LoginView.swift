@@ -28,7 +28,7 @@ struct LoginView: View {
             .padding()
         
         Button("Войти") {
-            
+            loginViewModel.logIn()
         }
         .foregroundColor(.white)
         .padding()
