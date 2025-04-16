@@ -1,0 +1,12 @@
+.DS_Store
+*.xcuserstate
+*.xcworkspace
+*.xccheckout
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcscmblueprint
+*.xcuserdata/
+*.xcworkspace/xcuserdata/
+
