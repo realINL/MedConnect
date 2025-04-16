@@ -14,6 +14,16 @@ struct Patient: Identifiable, Hashable, Codable {
     let patronymic: String
     let age: Int
     let disease: String
+    
+    var hospital: String = ""
+    var hospitalPart: String = ""
+    var weight: Double = 0.0
+    var height: Int = 0
+    var asaIndex: Int = 0
+    var ecogIndex: Int = 0
+    var karnoskiyIndex: Int = 0
+    var capriniIndex: Int = 0
+    var chrlsonIndex: Int = 0
 }
 
 extension Patient {
