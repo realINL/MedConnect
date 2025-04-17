@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PatientCardView: View {
-    //    let patient: Patient
+        let patient: Patient
     var body: some View {
         //        VStack {
         //            Text("Катра пациента")
@@ -48,9 +48,17 @@ struct PatientCardView: View {
             PatientCharlson()
             PatientDiagnos()
         }
+        .onAppear() {
+            var originalArray = [1, 2, 3]
+            var copiedArray = originalArray  // Копия originalArray
+            copiedArray.append(4)            // Изменение copiedArray
+
+            print(originalArray)  // Выводит [1, 2, 3]
+            print(copiedArray) 
+        }
     }
 }
 
 #Preview {
-    PatientCardView()
+    PatientCardView(patient: Patient.MOCK_Patients.first!)
 }

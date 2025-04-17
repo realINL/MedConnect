@@ -31,7 +31,7 @@ struct HomeView: View {
                         Divider()
                     }
                 }
-                .navigationDestination(for: Patient.self, destination:  { patient in PatientCardView() })
+                .navigationDestination(for: Patient.self, destination:  { patient in PatientCardView(patient: patient) })
                 .buttonStyle(PlainButtonStyle())
                 
                 SideMenuView(isShownig: $showMenu)

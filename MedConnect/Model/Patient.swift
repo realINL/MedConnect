@@ -27,5 +27,7 @@ struct Patient: Identifiable, Hashable, Codable {
 }
 
 extension Patient {
-    static let MOCK_Patients = [Patient(id: "0", name: "Иван", surname: "Иванов", patronymic: "Иванович", age: 57, disease: "Рак желудка"), Patient(id: "1", name: "Петр", surname: "Петров", patronymic: "Петрович", age: 43, disease: "Шизофрения"), Patient(id: "2", name: "John", surname: "Doe", patronymic: "", age: 53, disease: "Шизофрения")]
+    static let MOCK_Patients = [Patient(id: "0", name: "Иван", surname: "Иванов", patronymic: "Иванович", age: 57, disease: "Рак желудка", hospital: "МНИОИ им. П.А. Герцена", hospitalPart: "Торакальное отделение", weight: 82.0, height: 178, asaIndex: 3, ecogIndex: 2, karnoskiyIndex: 60, capriniIndex: 2, chrlsonIndex: 90),
+                                Patient(id: "1", name: "Петр", surname: "Петров", patronymic: "Петрович", age: 43, disease: "Шизофрения"),
+                                Patient(id: "2", name: "John", surname: "Doe", patronymic: "", age: 53, disease: "Шизофрения")]
 }
