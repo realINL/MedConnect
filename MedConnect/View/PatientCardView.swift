@@ -47,14 +47,8 @@ struct PatientCardView: View {
             PatientCaprini()
             PatientCharlson()
             PatientDiagnos()
-        }
-        .onAppear() {
-            var originalArray = [1, 2, 3]
-            var copiedArray = originalArray  // Копия originalArray
-            copiedArray.append(4)            // Изменение copiedArray
-
-            print(originalArray)  // Выводит [1, 2, 3]
-            print(copiedArray) 
+//            Text()
+            Spacer()
         }
     }
 }

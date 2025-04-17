@@ -18,6 +18,13 @@ struct PatientHW: View {
                         Text("82 кг")
                         Text("•")
                         Text("178 см")
+                        HStack {
+                            Group {
+                                Image(systemName: "exclamationmark.triangle")
+                                Text("weightloss")
+                            }
+                            .foregroundStyle(Color.yellow)
+                        }
                     }
                     .font(.subheadline)
                     .foregroundStyle(Color.secondary)

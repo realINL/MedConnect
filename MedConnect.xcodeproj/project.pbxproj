@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1192962E2DB194D700E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296302DB194D700E2ED21 /* Localizable.strings */; };
+		119296332DB1954800E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296352DB1954800E2ED21 /* Localizable.strings */; };
 		11C13E222D527E57007040E3 /* MedConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E212D527E57007040E3 /* MedConnectApp.swift */; };
 		11C13E242D527E57007040E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E232D527E57007040E3 /* ContentView.swift */; };
 		11C13E262D527E59007040E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C13E252D527E59007040E3 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1192962F2DB194D700E2ED21 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		119296342DB1954800E2ED21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		11C13E1E2D527E57007040E3 /* MedConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C13E212D527E57007040E3 /* MedConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedConnectApp.swift; sourceTree = "<group>"; };
 		11C13E232D527E57007040E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 		11C13E152D527E57007040E3 = {
 			isa = PBXGroup;
 			children = (
+				119296302DB194D700E2ED21 /* Localizable.strings */,
+				119296352DB1954800E2ED21 /* Localizable.strings */,
 				11C13E202D527E57007040E3 /* MedConnect */,
 				11C13E1F2D527E57007040E3 /* Products */,
 			);
@@ -184,11 +190,12 @@
 			};
 			buildConfigurationList = 11C13E192D527E57007040E3 /* Build configuration list for PBXProject "MedConnect" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 11C13E152D527E57007040E3;
 			productRefGroup = 11C13E1F2D527E57007040E3 /* Products */;
@@ -206,6 +213,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				11C13E292D527E59007040E3 /* Preview Assets.xcassets in Resources */,
+				119296332DB1954800E2ED21 /* Localizable.strings in Resources */,
+				1192962E2DB194D700E2ED21 /* Localizable.strings in Resources */,
 				11C13E262D527E59007040E3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +248,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		119296302DB194D700E2ED21 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1192962F2DB194D700E2ED21 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		119296352DB1954800E2ED21 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				119296342DB1954800E2ED21 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		11C13E2A2D527E59007040E3 /* Debug */ = {
