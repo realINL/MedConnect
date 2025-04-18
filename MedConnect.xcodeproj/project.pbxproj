@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1192962E2DB194D700E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296302DB194D700E2ED21 /* Localizable.strings */; };
 		119296332DB1954800E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296352DB1954800E2ED21 /* Localizable.strings */; };
+		119296372DB2828C00E2ED21 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296362DB2828C00E2ED21 /* Operation.swift */; };
 		11C13E222D527E57007040E3 /* MedConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E212D527E57007040E3 /* MedConnectApp.swift */; };
 		11C13E242D527E57007040E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E232D527E57007040E3 /* ContentView.swift */; };
 		11C13E262D527E59007040E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C13E252D527E59007040E3 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		1192962F2DB194D700E2ED21 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296342DB1954800E2ED21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		119296362DB2828C00E2ED21 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		11C13E1E2D527E57007040E3 /* MedConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C13E212D527E57007040E3 /* MedConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedConnectApp.swift; sourceTree = "<group>"; };
 		11C13E232D527E57007040E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				11C13E3A2D528433007040E3 /* Patient.swift */,
+				119296362DB2828C00E2ED21 /* Operation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				11C13E332D527EAC007040E3 /* LoginView.swift in Sources */,
 				8579934A2DAFD70800AE07F3 /* PatientDiagnos.swift in Sources */,
 				11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */,
+				119296372DB2828C00E2ED21 /* Operation.swift in Sources */,
 				11C13E242D527E57007040E3 /* ContentView.swift in Sources */,
 				857993462DAFD6DD00AE07F3 /* PatientCaprini.swift in Sources */,
 				11C13E3F2D528D8D007040E3 /* PatientCardView.swift in Sources */,
