@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CardiacConditions: Codable {
+struct CardiacConditions: Codable, Hashable {
     var ibs: IschemicHeartDisease
     var hypertension: Hypertension
     var conductionDisorders: ConductionDisorders

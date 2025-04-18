@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PulmonaryDiseases: String, Codable {
+enum PulmonaryDiseases: String, Codable, Hashable {
     case none = "Нет"
     case copd = "ХОБЛ"
     case bronchialAsthma = "Бронхиальная астма"

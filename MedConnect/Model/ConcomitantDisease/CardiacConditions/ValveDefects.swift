@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ValveDefects: String, Codable {
+enum ValveDefects: String, Codable, Hashable {
     case none = "Нет"
     case moderateSevereAorticStenosis = "Умеренный или тяжелый аортальный стеноз"
     case severeValveRegurgitation = "Тяжелая недостаточность клапанов (любых)"

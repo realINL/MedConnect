@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AorticAneurysm: String, Codable {
+enum AorticAneurysm: String, Codable, Hashable {
     case none = "Нет"
     case chronicWithoutRepair = "Хроническая аневризма без пластики"
     case repaired = "Протезирование аневризмы в анамнезе"

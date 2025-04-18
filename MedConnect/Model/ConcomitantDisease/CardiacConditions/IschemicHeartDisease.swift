@@ -7,10 +7,11 @@
 
 import Foundation
 
-enum IschemicHeartDisease: String, Codable {
+enum IschemicHeartDisease: String, Codable, Hashable {
     case none = "Нет"
     case pixNoRevascularization = "ПИКС БЕЗ реваскуляризации"
     case pixWithRevascularization = "ПИКС, стентирование/шунтирование коронарных артерий в анамнезе"
     case anginaNoRevascularization = "Стенокардия напряжения БЕЗ реваскуляризации"
     case anginaWithRevascularization = "Стенокардия напряжения + стентирование/шунтирование коронарных артерий в анамнезе"
 }
+

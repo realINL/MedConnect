@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum ConductionDisorders: String, Codable {
+enum ConductionDisorders: String, Codable, Hashable {
     case none = "Нет"
     case saAvBlockWithoutPacemaker = "Любая СА/АВ блокада 2 и 3 степени БЕЗ имплантации ЭКС"
     case saAvBlockWithPacemaker = "Любая СА/АВ блокада 2 и 3 степени + имплантация ЭКС"
     case leftBundleBranchBlock = "ПБЛНПГ (блокада левой ножки пучка Гиса)"
-    case other
+//    case other
 }
