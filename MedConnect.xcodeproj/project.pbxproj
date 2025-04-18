@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		1192962E2DB194D700E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296302DB194D700E2ED21 /* Localizable.strings */; };
 		119296332DB1954800E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296352DB1954800E2ED21 /* Localizable.strings */; };
+		119296392DB286C500E2ED21 /*  CardiacConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296382DB286C500E2ED21 /*  CardiacConditions.swift */; };
+		1192963C2DB2DBDD00E2ED21 /* IschemicHeartDisease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192963B2DB2DBDD00E2ED21 /* IschemicHeartDisease.swift */; };
+		1192963E2DB2DC9E00E2ED21 /* Hypertension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192963D2DB2DC9E00E2ED21 /* Hypertension.swift */; };
+		119296402DB2DD0200E2ED21 /* ConductionDisorders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192963F2DB2DD0200E2ED21 /* ConductionDisorders.swift */; };
+		119296422DB2DDA100E2ED21 /* PeripheralAtherosclerosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296412DB2DDA100E2ED21 /* PeripheralAtherosclerosis.swift */; };
+		119296442DB2DDDF00E2ED21 /* AorticAneurysm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296432DB2DDDF00E2ED21 /* AorticAneurysm.swift */; };
+		119296462DB2DE1900E2ED21 /* HeartFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296452DB2DE1900E2ED21 /* HeartFailure.swift */; };
+		119296482DB2DE5600E2ED21 /* ValveDefects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296472DB2DE5600E2ED21 /* ValveDefects.swift */; };
+		1192964A2DB2E2B800E2ED21 /* ConcomitantDisease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296492DB2E2B800E2ED21 /* ConcomitantDisease.swift */; };
+		1192964D2DB2E38900E2ED21 /* PulmonaryDiseasesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192964C2DB2E38900E2ED21 /* PulmonaryDiseasesEnum.swift */; };
+		1192964F2DB2E77800E2ED21 /* EndocrineDiseases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192964E2DB2E77800E2ED21 /* EndocrineDiseases.swift */; };
+		119296512DB2E81B00E2ED21 /* Diabetes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296502DB2E81B00E2ED21 /* Diabetes.swift */; };
 		11C13E222D527E57007040E3 /* MedConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E212D527E57007040E3 /* MedConnectApp.swift */; };
 		11C13E242D527E57007040E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13E232D527E57007040E3 /* ContentView.swift */; };
 		11C13E262D527E59007040E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C13E252D527E59007040E3 /* Assets.xcassets */; };
@@ -34,6 +46,18 @@
 /* Begin PBXFileReference section */
 		1192962F2DB194D700E2ED21 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296342DB1954800E2ED21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		119296382DB286C500E2ED21 /*  CardiacConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CardiacConditions.swift"; sourceTree = "<group>"; };
+		1192963B2DB2DBDD00E2ED21 /* IschemicHeartDisease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IschemicHeartDisease.swift; sourceTree = "<group>"; };
+		1192963D2DB2DC9E00E2ED21 /* Hypertension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hypertension.swift; sourceTree = "<group>"; };
+		1192963F2DB2DD0200E2ED21 /* ConductionDisorders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConductionDisorders.swift; sourceTree = "<group>"; };
+		119296412DB2DDA100E2ED21 /* PeripheralAtherosclerosis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralAtherosclerosis.swift; sourceTree = "<group>"; };
+		119296432DB2DDDF00E2ED21 /* AorticAneurysm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AorticAneurysm.swift; sourceTree = "<group>"; };
+		119296452DB2DE1900E2ED21 /* HeartFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartFailure.swift; sourceTree = "<group>"; };
+		119296472DB2DE5600E2ED21 /* ValveDefects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValveDefects.swift; sourceTree = "<group>"; };
+		119296492DB2E2B800E2ED21 /* ConcomitantDisease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcomitantDisease.swift; sourceTree = "<group>"; };
+		1192964C2DB2E38900E2ED21 /* PulmonaryDiseasesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulmonaryDiseasesEnum.swift; sourceTree = "<group>"; };
+		1192964E2DB2E77800E2ED21 /* EndocrineDiseases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndocrineDiseases.swift; sourceTree = "<group>"; };
+		119296502DB2E81B00E2ED21 /* Diabetes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diabetes.swift; sourceTree = "<group>"; };
 		11C13E1E2D527E57007040E3 /* MedConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C13E212D527E57007040E3 /* MedConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedConnectApp.swift; sourceTree = "<group>"; };
 		11C13E232D527E57007040E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +92,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1192963A2DB2DBD000E2ED21 /* CardiacConditions */ = {
+			isa = PBXGroup;
+			children = (
+				1192963B2DB2DBDD00E2ED21 /* IschemicHeartDisease.swift */,
+				1192963D2DB2DC9E00E2ED21 /* Hypertension.swift */,
+				1192963F2DB2DD0200E2ED21 /* ConductionDisorders.swift */,
+				119296412DB2DDA100E2ED21 /* PeripheralAtherosclerosis.swift */,
+				119296432DB2DDDF00E2ED21 /* AorticAneurysm.swift */,
+				119296452DB2DE1900E2ED21 /* HeartFailure.swift */,
+				119296472DB2DE5600E2ED21 /* ValveDefects.swift */,
+			);
+			path = CardiacConditions;
+			sourceTree = "<group>";
+		};
+		119296522DB2E9AD00E2ED21 /* ConcomitantDisease */ = {
+			isa = PBXGroup;
+			children = (
+				119296382DB286C500E2ED21 /*  CardiacConditions.swift */,
+				119296492DB2E2B800E2ED21 /* ConcomitantDisease.swift */,
+				1192963A2DB2DBD000E2ED21 /* CardiacConditions */,
+				119296502DB2E81B00E2ED21 /* Diabetes.swift */,
+				1192964E2DB2E77800E2ED21 /* EndocrineDiseases.swift */,
+				1192964C2DB2E38900E2ED21 /* PulmonaryDiseasesEnum.swift */,
+			);
+			path = ConcomitantDisease;
+			sourceTree = "<group>";
+		};
 		11C13E152D527E57007040E3 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +163,7 @@
 		11C13E2F2D527E7F007040E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				119296522DB2E9AD00E2ED21 /* ConcomitantDisease */,
 				11C13E3A2D528433007040E3 /* Patient.swift */,
 			);
 			path = Model;
@@ -226,7 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1192964F2DB2E77800E2ED21 /* EndocrineDiseases.swift in Sources */,
+				1192963C2DB2DBDD00E2ED21 /* IschemicHeartDisease.swift in Sources */,
+				119296422DB2DDA100E2ED21 /* PeripheralAtherosclerosis.swift in Sources */,
+				1192964A2DB2E2B800E2ED21 /* ConcomitantDisease.swift in Sources */,
 				11C13E352D5280E7007040E3 /* LoginViewModel.swift in Sources */,
+				119296482DB2DE5600E2ED21 /* ValveDefects.swift in Sources */,
 				857993482DAFD6EC00AE07F3 /* PatientCharlson.swift in Sources */,
 				11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */,
 				11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */,
@@ -235,13 +292,20 @@
 				8579934A2DAFD70800AE07F3 /* PatientDiagnos.swift in Sources */,
 				11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */,
 				11C13E242D527E57007040E3 /* ContentView.swift in Sources */,
+				1192963E2DB2DC9E00E2ED21 /* Hypertension.swift in Sources */,
 				857993462DAFD6DD00AE07F3 /* PatientCaprini.swift in Sources */,
+				119296442DB2DDDF00E2ED21 /* AorticAneurysm.swift in Sources */,
 				11C13E3F2D528D8D007040E3 /* PatientCardView.swift in Sources */,
+				119296512DB2E81B00E2ED21 /* Diabetes.swift in Sources */,
+				119296462DB2DE1900E2ED21 /* HeartFailure.swift in Sources */,
 				857993502DAFD72600AE07F3 /* PatientMetrics.swift in Sources */,
 				11C13E3B2D528433007040E3 /* Patient.swift in Sources */,
 				8579934E2DAFD71900AE07F3 /* PatientMetric.swift in Sources */,
+				1192964D2DB2E38900E2ED21 /* PulmonaryDiseasesEnum.swift in Sources */,
+				119296392DB286C500E2ED21 /*  CardiacConditions.swift in Sources */,
 				11C13E372D5282A7007040E3 /* HomeView.swift in Sources */,
 				11C13E222D527E57007040E3 /* MedConnectApp.swift in Sources */,
+				119296402DB2DD0200E2ED21 /* ConductionDisorders.swift in Sources */,
 				8579934C2DAFD71000AE07F3 /* PatientHW.swift in Sources */,
 				857993442DAFD6A800AE07F3 /* PatienHeaderInfo.swift in Sources */,
 			);

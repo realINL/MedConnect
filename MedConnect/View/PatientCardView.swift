@@ -47,7 +47,7 @@ struct PatientCardView: View {
             PatientCaprini()
             PatientCharlson()
             PatientDiagnos()
-//            Text()
+            Text("Сопутсвующие заболевания")
             Spacer()
         }
     }
