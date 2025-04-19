@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PatienHeaderInfo: View {
     let patient: Patient
+    let formatString : String = NSLocalizedString("age",
+                                                          comment: "Johns pineapples count string format to be found in Localized.stringsdict")
     var body: some View {
         HStack{
             Image("patient")
@@ -22,7 +24,7 @@ struct PatienHeaderInfo: View {
                     .fontWeight(.bold)
                 HStack() {
                     Group {
-                        Text("\(patient.age) года")
+                        Text(patient.age.ageCount)
                         Text("•")
                         Text(String(patient.sex.prefix(1)))
                     }

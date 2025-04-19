@@ -63,11 +63,17 @@ struct PatientMetrics: View {
 //                }
 //            }
             
-            PatientMetric(metric: "ASA \(patient.asaIndex)", description: "Тяжелое системное заболевание", icon: "a.circle.fill")
+            PatientMetric(metric: "ASA \(patient.asaIndex)", description:
+                                "", //                            "Тяжелое системное заболевание",
+                          icon: "a.circle.fill")
             Spacer()
-            PatientMetric(metric: "ECOG \(patient.ecogIndex)", description: "Лечится амбулаторно", icon: "e.circle.fill")
+            PatientMetric(metric: "ECOG \(patient.ecogIndex)", description:
+                            "", // "Лечится амбулаторно",
+                          icon: "e.circle.fill")
             Spacer()
-            PatientMetric(metric: "\(patient.karnofskyIndex) %", description: "Индекс Карновского", icon: "k.circle.fill")
+            PatientMetric(metric: "\(patient.karnofskyIndex) %", description:
+                            "", // "Индекс Карновского",
+                          icon: "k.circle.fill")
         }
         .frame(maxWidth: .infinity)
         .padding()
