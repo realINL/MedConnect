@@ -26,7 +26,7 @@ struct PatienHeaderInfo: View {
                     Group {
                         Text(patient.age.ageCount)
                         Text("•")
-                        Text(String(patient.sex.prefix(1)))
+                        Text(patient.sex.firstLetter)
                     }
                     .font(.subheadline)
                     .foregroundStyle(Color.secondary)

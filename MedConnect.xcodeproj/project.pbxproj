@@ -42,7 +42,8 @@
 		8579934E2DAFD71900AE07F3 /* PatientMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579934D2DAFD71900AE07F3 /* PatientMetric.swift */; };
 		857993502DAFD72600AE07F3 /* PatientMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579934F2DAFD72600AE07F3 /* PatientMetrics.swift */; };
 		85E76EC72DB3E2B9004F37CA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 85E76EC52DB3E2B9004F37CA /* Localizable.stringsdict */; };
-		85E76ECA2DB3E7A0004F37CA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EC92DB3E7A0004F37CA /* String+Extension.swift */; };
+		85E76ECA2DB3E7A0004F37CA /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EC92DB3E7A0004F37CA /* Int+Extension.swift */; };
+		85E76ECC2DB3EB70004F37CA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76ECB2DB3EB70004F37CA /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +83,8 @@
 		8579934D2DAFD71900AE07F3 /* PatientMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientMetric.swift; sourceTree = "<group>"; };
 		8579934F2DAFD72600AE07F3 /* PatientMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientMetrics.swift; sourceTree = "<group>"; };
 		85E76EC62DB3E2B9004F37CA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		85E76EC92DB3E7A0004F37CA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		85E76EC92DB3E7A0004F37CA /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		85E76ECB2DB3EB70004F37CA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +216,8 @@
 		85E76EC82DB3E789004F37CA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				85E76EC92DB3E7A0004F37CA /* String+Extension.swift */,
+				85E76EC92DB3E7A0004F37CA /* Int+Extension.swift */,
+				85E76ECB2DB3EB70004F37CA /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -300,7 +303,7 @@
 				11C13E352D5280E7007040E3 /* LoginViewModel.swift in Sources */,
 				119296482DB2DE5600E2ED21 /* ValveDefects.swift in Sources */,
 				857993482DAFD6EC00AE07F3 /* PatientCharlson.swift in Sources */,
-				85E76ECA2DB3E7A0004F37CA /* String+Extension.swift in Sources */,
+				85E76ECA2DB3E7A0004F37CA /* Int+Extension.swift in Sources */,
 				11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */,
 				11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */,
 				11C13E3D2D52868B007040E3 /* PatientScrollCardView.swift in Sources */,
@@ -309,6 +312,7 @@
 				11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */,
 				11C13E242D527E57007040E3 /* ContentView.swift in Sources */,
 				1192963E2DB2DC9E00E2ED21 /* Hypertension.swift in Sources */,
+				85E76ECC2DB3EB70004F37CA /* String+Extension.swift in Sources */,
 				857993462DAFD6DD00AE07F3 /* PatientCaprini.swift in Sources */,
 				119296442DB2DDDF00E2ED21 /* AorticAneurysm.swift in Sources */,
 				11C13E3F2D528D8D007040E3 /* PatientCardView.swift in Sources */,

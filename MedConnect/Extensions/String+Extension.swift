@@ -6,13 +6,10 @@
 //
 
 import Foundation
-
-extension Int {
-    var ageCount: String {
-        let formatString: String = NSLocalizedString("age", comment: "Count age")
-        
-        let resultString: String = String.localizedStringWithFormat(formatString, self)
-        
-        return resultString
+ 
+extension String {
+    var firstLetter: String {
+        guard let firstChar = self.first else { return "" }
+        return String(firstChar)
     }
 }
