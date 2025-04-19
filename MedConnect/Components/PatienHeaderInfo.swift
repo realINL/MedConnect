@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PatienHeaderInfo: View {
+    let patient: Patient
     var body: some View {
         HStack{
             Image("patient")
@@ -21,18 +22,18 @@ struct PatienHeaderInfo: View {
                     .fontWeight(.bold)
                 HStack() {
                     Group {
-                        Text("52 года")
+                        Text("\(patient.age) года")
                         Text("•")
-                        Text("М")
+                        Text(String(patient.sex.prefix(1)))
                     }
                     .font(.subheadline)
                     .foregroundStyle(Color.secondary)
                 }
                 HStack() {
                     Group {
-                        Text("МНИОИ им. П.А. Герцена")
+                        Text(patient.hospital)
                         Text("•")
-                        Text("Торакальное отделение")
+                        Text(patient.hospitalDepartment)
                     }
                     .font(.subheadline)
                     .foregroundStyle(Color.secondary)
@@ -55,5 +56,5 @@ struct PatienHeaderInfo: View {
 }
 
 #Preview {
-    PatienHeaderInfo()
+    PatienHeaderInfo(patient: Patient.MOCK_Patients.first!)
 }

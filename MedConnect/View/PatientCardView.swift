@@ -41,11 +41,11 @@ struct PatientCardView: View {
         //            
         //    }
         VStack(spacing: 10) {
-            PatienHeaderInfo()
-            PatientHW()
-            PatientMetrics()
-            PatientCaprini()
-            PatientCharlson()
+            PatienHeaderInfo(patient: patient)
+            PatientHW(patient: patient)
+            PatientMetrics(patient: patient)
+            PatientCaprini(patient: patient)
+            PatientCharlson(patient: patient)
             PatientDiagnos()
             Text("Сопутсвующие заболевания")
             Spacer()

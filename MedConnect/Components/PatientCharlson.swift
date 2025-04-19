@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct PatientCharlson: View {
-    let v = 50.0
+    let patient: Patient
     var body: some View {
         HStack {
-            PatientMetric(metric: "90 % ", description: "Индекс Чарльсона", icon: "gauge.with.dots.needle.100percent", iconColor: .green)
+            PatientMetric(metric: "\(patient.chrlsonIndex) % ", description: "Индекс Чарльсона", icon: "gauge.with.dots.needle.100percent", iconColor: .green)
             Spacer()
             Button {
                 
@@ -36,5 +36,5 @@ struct PatientCharlson: View {
 }
 
 #Preview {
-    PatientCharlson()
+    PatientCharlson(patient: Patient.MOCK_Patients.first!)
 }

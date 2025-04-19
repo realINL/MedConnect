@@ -10,10 +10,10 @@ import SwiftUI
 import SwiftUI
 
 struct PatientCaprini: View {
-    let v = 50.0
+    let patient: Patient
     var body: some View {
         HStack {
-            PatientMetric(metric: "2 балла", description: "Шкала Caprini", icon: "gauge.with.dots.needle.33percent")
+            PatientMetric(metric: "\(patient.capriniIndex) балла", description: "Шкала Caprini", icon: "gauge.with.dots.needle.33percent")
             Spacer()
             Button {
                 
@@ -39,5 +39,5 @@ struct PatientCaprini: View {
 }
 
 #Preview {
-    PatientCaprini()
+    PatientCaprini(patient: Patient.MOCK_Patients.first!)
 }
