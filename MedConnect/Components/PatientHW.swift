@@ -16,7 +16,7 @@ struct PatientHW: View {
                     Group {
                         Text("ИМТ 25,9")
                         Text("•")
-                        Text("\(String(format: "%.1f" , patient.weight)) кг")
+                        Text("\(patient.weight.dotOne) кг")
                         Text("•")
                         Text("\(patient.height) см")
                         if patient.weightLoss {

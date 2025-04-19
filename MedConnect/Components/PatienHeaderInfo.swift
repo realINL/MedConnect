@@ -9,28 +9,29 @@ import SwiftUI
 
 struct PatienHeaderInfo: View {
     let patient: Patient
-    let formatString : String = NSLocalizedString("age",
-                                                          comment: "Johns pineapples count string format to be found in Localized.stringsdict")
     var body: some View {
         HStack{
             Image("patient")
                 .resizable()
                 .scaledToFit()
-                .frame(maxHeight: 100)
+                .frame(height: 100)
                 .cornerRadius(5)
+            
             VStack(alignment: .leading, spacing: 8) {
-                Text("Иванов И. И.")
+                Text("\(patient.surname) \(patient.name.firstLetter). \(patient.patronymic.firstLetter).")
                     .font(.title)
                     .fontWeight(.bold)
+                
                 HStack() {
                     Group {
-                        Text(patient.age.ageCount)
-                        Text("•")
                         Text(patient.sex.firstLetter)
+                        Text("•")
+                        Text(patient.age.ageCount)
                     }
                     .font(.subheadline)
                     .foregroundStyle(Color.secondary)
                 }
+                
                 HStack() {
                     Group {
                         Text(patient.hospital)
@@ -41,10 +42,10 @@ struct PatienHeaderInfo: View {
                     .foregroundStyle(Color.secondary)
                     
                 }
-                    
+                
             }
             
-            Spacer()
+//            Spacer()
         }
         .frame(maxWidth: .infinity)
         .padding()

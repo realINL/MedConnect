@@ -10,15 +10,18 @@ import SwiftUI
 struct PatientCardView: View {
         let patient: Patient
     var body: some View {
-        VStack(spacing: 10) {
+        VStack{
             PatienHeaderInfo(patient: patient)
-            PatientHW(patient: patient)
-            PatientMetrics(patient: patient)
-            PatientCaprini(patient: patient)
-            PatientCharlson(patient: patient)
-            PatientDisease()
-            Text("Сопутсвующие заболевания")
-            Spacer()
+            ScrollView {
+                VStack(spacing: 10) {
+                    PatientHW(patient: patient)
+                    PatientMetrics(patient: patient)
+                    PatientMetrics2(patient: patient)
+                    PatientDisease()
+                    Text("Сопутсвующие заболевания")
+                    //                Spacer()
+                }
+            }
         }
     }
 }
