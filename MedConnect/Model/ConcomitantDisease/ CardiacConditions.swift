@@ -15,9 +15,9 @@ struct CardiacConditions: Codable, Hashable {
     var aorticAneurysm: AorticAneurysm
     var chf: HeartFailure
     var valveDefects: ValveDefects
-    var cardiomyopathy: Bool
+    var cardiomyopathy: YesNo
 }
 
 extension CardiacConditions {
-    static let MOCK_CardiacConditions = CardiacConditions(ibs: .none, hypertension: .stage1, conductionDisorders: .leftBundleBranchBlock, peripheralAtherosclerosis: .legArteryStenosisOver70NoRevasc, aorticAneurysm: .chronicWithoutRepair, chf: .lvef50andAbove, valveDefects: .none, cardiomyopathy: false)
+    static let MOCK_CardiacConditions = CardiacConditions(ibs: .none, hypertension: .stage1, conductionDisorders: .leftBundleBranchBlock, peripheralAtherosclerosis: .legArteryStenosisOver70NoRevasc, aorticAneurysm: .chronicWithoutRepair, chf: .lvef50andAbove, valveDefects: .none, cardiomyopathy:. no)
 }

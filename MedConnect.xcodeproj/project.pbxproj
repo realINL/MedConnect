@@ -50,6 +50,8 @@
 		85E76ED42DB4E5A8004F37CA /* PatientRT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76ED32DB4E5A8004F37CA /* PatientRT.swift */; };
 		85E76ED62DB4E7EC004F37CA /* ConcomitantDiseaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76ED52DB4E7EC004F37CA /* ConcomitantDiseaseView.swift */; };
 		85E76ED82DB4EAD2004F37CA /* LabeledValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76ED72DB4EAD2004F37CA /* LabeledValueRow.swift */; };
+		85E76EDC2DB54993004F37CA /* PatientDetailsCardTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EDB2DB54993004F37CA /* PatientDetailsCardTitle.swift */; };
+		85E76EDE2DB5761C004F37CA /* YesNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EDD2DB5761C004F37CA /* YesNo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,8 @@
 		85E76ED32DB4E5A8004F37CA /* PatientRT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRT.swift; sourceTree = "<group>"; };
 		85E76ED52DB4E7EC004F37CA /* ConcomitantDiseaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcomitantDiseaseView.swift; sourceTree = "<group>"; };
 		85E76ED72DB4EAD2004F37CA /* LabeledValueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledValueRow.swift; sourceTree = "<group>"; };
+		85E76EDB2DB54993004F37CA /* PatientDetailsCardTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDetailsCardTitle.swift; sourceTree = "<group>"; };
+		85E76EDD2DB5761C004F37CA /* YesNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesNo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 				119296502DB2E81B00E2ED21 /* Diabetes.swift */,
 				1192964E2DB2E77800E2ED21 /* EndocrineDiseases.swift */,
 				1192964C2DB2E38900E2ED21 /* PulmonaryDiseasesEnum.swift */,
+				85E76EDD2DB5761C004F37CA /* YesNo.swift */,
 			);
 			path = ConcomitantDisease;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				85E76ED32DB4E5A8004F37CA /* PatientRT.swift */,
 				85E76ED52DB4E7EC004F37CA /* ConcomitantDiseaseView.swift */,
 				85E76ED72DB4EAD2004F37CA /* LabeledValueRow.swift */,
+				85E76EDB2DB54993004F37CA /* PatientDetailsCardTitle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -325,10 +331,12 @@
 				119296482DB2DE5600E2ED21 /* ValveDefects.swift in Sources */,
 				857993482DAFD6EC00AE07F3 /* PatientCharlson.swift in Sources */,
 				85E76ED42DB4E5A8004F37CA /* PatientRT.swift in Sources */,
+				85E76EDE2DB5761C004F37CA /* YesNo.swift in Sources */,
 				85E76ECA2DB3E7A0004F37CA /* Int+Extension.swift in Sources */,
 				11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */,
 				11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */,
 				11C13E3D2D52868B007040E3 /* PatientScrollCardView.swift in Sources */,
+				85E76EDC2DB54993004F37CA /* PatientDetailsCardTitle.swift in Sources */,
 				11C13E332D527EAC007040E3 /* LoginView.swift in Sources */,
 				8579934A2DAFD70800AE07F3 /* PatientDisease.swift in Sources */,
 				11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */,

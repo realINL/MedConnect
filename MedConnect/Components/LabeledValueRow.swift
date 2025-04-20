@@ -23,7 +23,7 @@ struct LabeledValueRow: View {
                 .font(.subheadline)
                 .foregroundColor(.secondary)
         }
-        .padding(.vertical, 4) // Стандартный отступ Apple
+        .padding(.vertical, 4)
     }
 }
 

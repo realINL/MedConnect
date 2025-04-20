@@ -45,7 +45,7 @@ struct PatienHeaderInfo: View {
                 
             }
             
-//            Spacer()
+            Spacer()
         }
         .frame(maxWidth: .infinity)
         .padding()

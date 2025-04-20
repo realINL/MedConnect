@@ -21,8 +21,18 @@ struct PatientCardView: View {
                     PatientCT()
                     PatientRT()
                     ConcomitantDiseaseView()
-                    Text("Сопутсвующие заболевания")
+//                    Text("Сопутсвующие заболевания")
                     //                Spacer()
+                }
+            }
+        }
+        .navigationTitle("Карта пациента")
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "pencil.circle")
                 }
             }
         }

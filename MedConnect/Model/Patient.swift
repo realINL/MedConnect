@@ -43,5 +43,5 @@ extension Patient {
                                         age: 43),
                                 Patient(id: "2", name: "John", surname: "Doe", patronymic: "", birthDate: Date.now, disease: "Шизофрения",
                                         concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
-                                        age: 53)]
+                                        age: 41)]
 }
