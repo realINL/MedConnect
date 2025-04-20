@@ -15,6 +15,8 @@ struct PatientCaprini: View {
         HStack {
             PatientMetric(metric: "\(patient.capriniIndex) балла", description: "Шкала Caprini", icon: "gauge.with.dots.needle.33percent")
 //                .padding(.trailing)
+            
+            Spacer()
 
             Button {
                 
@@ -34,7 +36,7 @@ struct PatientCaprini: View {
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 12)
-                .fill(.white)
+                .fill(.background)
                 .shadow(radius: 5)
         }
         .padding(.leading)

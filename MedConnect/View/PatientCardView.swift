@@ -18,6 +18,9 @@ struct PatientCardView: View {
                     PatientMetrics(patient: patient)
                     PatientMetrics2(patient: patient)
                     PatientDisease()
+                    PatientCT()
+                    PatientRT()
+                    ConcomitantDiseaseView()
                     Text("Сопутсвующие заболевания")
                     //                Spacer()
                 }

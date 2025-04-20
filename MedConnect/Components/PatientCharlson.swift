@@ -13,7 +13,7 @@ struct PatientCharlson: View {
         HStack {
             PatientMetric(metric: "\(patient.chrlsonIndex) % ", description: "Индекс Чарльсона", icon: "gauge.with.dots.needle.100percent", iconColor: .green)
 //                .padding(.trailing)
-//            Spacer()
+            Spacer()
             Button {
                 
             } label: {
@@ -31,7 +31,7 @@ struct PatientCharlson: View {
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 12)
-                .fill(.white)
+                .fill(.background)
                 .shadow(radius: 5)
         }
         .padding(.trailing)

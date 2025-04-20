@@ -77,7 +77,7 @@ struct PatientDisease: View {
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 12)
-                .fill(.white)
+                .fill(.background)
                 .shadow(radius: 5)
         }
         .padding(.horizontal)
