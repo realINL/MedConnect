@@ -38,7 +38,7 @@ struct PatientCharlson: View {
         }
         .padding(.trailing)
         .popover(isPresented: $charlosIsPresented2) {
-            CapriniCalculatorView()
+            CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(patient: patient))
         }
     }
     

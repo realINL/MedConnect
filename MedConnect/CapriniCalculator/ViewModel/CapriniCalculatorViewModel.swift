@@ -15,10 +15,10 @@ class CapriniCalculatorViewModel: ObservableObject {
         calculateScore()
     }
     
-    let patientId: Int // id пациента
+    let patient: Patient // id пациента
     
-    init(patientId: Int) {
-        self.patientId = patientId
+    init(patient: Patient) {
+        self.patient = patient
     }
     
     
@@ -35,7 +35,7 @@ class CapriniCalculatorViewModel: ObservableObject {
             .filter { selections[$0.id] == true }
             .reduce(0) { $0 + $1.points }
         
-        return organismScore + traumaScore
+        return organismScore + traumaScore + calculateAgeScore(age: patient.age)
     }
     
     func calculateAgeScore(age: Int) -> Int {

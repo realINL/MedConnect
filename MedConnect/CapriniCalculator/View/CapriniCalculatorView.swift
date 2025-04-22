@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CapriniCalculatorView: View {
-    @ObservedObject var viewModel: CapriniCalculatorViewModel = CapriniCalculatorViewModel(patientId: 0)
+    @ObservedObject var viewModel: CapriniCalculatorViewModel
     
     @State private var showResetConfirmation = false
     @State private var selections: [Int: Bool] = [:]
@@ -64,7 +64,7 @@ struct CapriniCalculatorView: View {
 }
 
 #Preview {
-    CapriniCalculatorView()
+    CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(patient: Patient.MOCK_Patients.first!))
 }
 
 

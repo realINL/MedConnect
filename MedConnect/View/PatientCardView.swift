@@ -27,7 +27,7 @@ struct PatientCardView: View {
             }
         }
         .popover(isPresented: $capriniIsPresented) {
-            CapriniCalculatorView()
+            CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(patient: patient))
         }
         .navigationTitle("Карта пациента")
         .toolbar {
