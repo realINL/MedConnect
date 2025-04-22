@@ -38,6 +38,15 @@ class CapriniCalculatorViewModel: ObservableObject {
         return organismScore + traumaScore
     }
     
+    func calculateAgeScore(age: Int) -> Int {
+        switch age {
+        case 0...41: return 0
+        case 41...60: return 1
+        case 61...74: return 2
+        default: return 3
+        }
+    }
+    
     func updatePatientCaprini() {
         
     }
