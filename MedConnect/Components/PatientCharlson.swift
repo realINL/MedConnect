@@ -9,13 +9,15 @@ import SwiftUI
 
 struct PatientCharlson: View {
     let patient: Patient
+    @Binding var charlosIsPresented: Bool
+    @State var charlosIsPresented2: Bool = false
     var body: some View {
         HStack {
             PatientMetric(metric: "\(patient.chrlsonIndex) % ", description: "Индекс Чарльсона", icon: "gauge.with.dots.needle.100percent", iconColor: .green)
 //                .padding(.trailing)
             Spacer()
             Button {
-                
+                charlosIsPresented2.toggle()
             } label: {
 //                 Text("Рассчитать")
                 Image(systemName: "plus.forwardslash.minus")
@@ -35,9 +37,13 @@ struct PatientCharlson: View {
                 .shadow(radius: 5)
         }
         .padding(.trailing)
+        .popover(isPresented: $charlosIsPresented2) {
+            CapriniCalculatorView()
+        }
     }
+    
 }
 
 #Preview {
-    PatientCharlson(patient: Patient.MOCK_Patients.first!)
+    PatientCharlson(patient: Patient.MOCK_Patients.first!, charlosIsPresented: .constant(false))
 }

@@ -9,15 +9,17 @@ import SwiftUI
 
 struct PatientMetrics2: View {
     let patient: Patient
+    @Binding var capriniIsPresented: Bool
+    @Binding var charlosIsPresented: Bool
     var body: some View {
         HStack {
-            PatientCaprini(patient: patient)
+            PatientCaprini(patient: patient, isPresentd: $capriniIsPresented)
             Spacer()
-            PatientCharlson(patient: patient)
+            PatientCharlson(patient: patient, charlosIsPresented: $charlosIsPresented)
         }
     }
 }
 
-#Preview {
-    PatientMetrics2(patient: Patient.MOCK_Patients.first!)
-}
+//#Preview {
+//    PatientMetrics2(patient: Patient.MOCK_Patients.first!)
+//}

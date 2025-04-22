@@ -11,6 +11,7 @@ import SwiftUI
 
 struct PatientCaprini: View {
     let patient: Patient
+    @Binding var isPresentd: Bool
     var body: some View {
         HStack {
             PatientMetric(metric: "\(patient.capriniIndex) балла", description: "Шкала Caprini", icon: "gauge.with.dots.needle.33percent")
@@ -19,7 +20,7 @@ struct PatientCaprini: View {
             Spacer()
 
             Button {
-                
+                isPresentd.toggle()
             } label: {
 //                 Text("Рассчитать")
                 Image(systemName: "plus.forwardslash.minus")
@@ -44,5 +45,5 @@ struct PatientCaprini: View {
 }
 
 #Preview {
-    PatientCaprini(patient: Patient.MOCK_Patients.first!)
+    PatientCaprini(patient: Patient.MOCK_Patients.first!, isPresentd: .constant(false))
 }
