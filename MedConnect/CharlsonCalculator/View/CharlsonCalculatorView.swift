@@ -1,36 +1,27 @@
 //
-//  CapriniCalculatorView.swift
+//  CharlsonCalculatorView.swift
 //  MedConnect
 //
-//  Created by Илья Лебедев on 20.04.2025.
+//  Created by Илья Лебедев on 23.04.2025.
 //
 
 import SwiftUI
 
-struct CapriniCalculatorView: View {
-    @ObservedObject var viewModel: CapriniCalculatorViewModel
-    
-    @State private var showResetConfirmation = false
-    @State private var selections: [Int: Bool] = [:]
-    @State private var totalScore = 0
+struct CharlsonCalculatorView: View {
+    @ObservedObject var viewModel: CharlsonCalculatorViewModel
+    @State var showResetConfirmation: Bool = false
     
     var body: some View {
         NavigationStack {
             List {
                 
-                OrganismStateFactorsView(binding: binding(for:))
-                TraumaFactrosView(binding: binding(for:))
-                
-                TotalScoreUIComponent(totalScore: viewModel.totalScore)
-                
-                RiskLevelsInfoIUComponent()
-                
-                
+                CharsonScoreUIComponent(survivalLevel: viewModel.survivalLevel)
+                CharlsonRiskFactorsUIComponent(binding: binding(key:))
                 
                 Section {
                     ListButtonCentredTextUIComponent(text: "Сохранить",
                                                      textColor: .blue,
-                                                     action: { viewModel.updatePatientCaprini() }
+                                                     action: { viewModel.updatePatientCharlson() }
                     )
                 }
                 
@@ -48,23 +39,20 @@ struct CapriniCalculatorView: View {
                         }
                     }
                 }
-                
             }
-            .navigationTitle("Калькулятор Каприни")
-            .listStyle(.insetGrouped)
+            .navigationTitle("Калькулятор Чарльсона")
+        .listStyle(.insetGrouped)
         }
     }
     
-    private func binding(for key: Int) -> Binding<Bool> {
+    private func binding(key: Int) -> Binding<Bool> {
         Binding(
-            get: { viewModel.selections[key] ?? false },
-            set: { viewModel.selections[key] = $0 }
+            get: {viewModel.selections[key] ?? false },
+            set: { viewModel.selections[key] = $0}
         )
     }
 }
 
 #Preview {
-    CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(patient: Patient.MOCK_Patients.first!))
+    CharlsonCalculatorView(viewModel: CharlsonCalculatorViewModel(patient: Patient.MOCK_Patients[2]))
 }
-
-

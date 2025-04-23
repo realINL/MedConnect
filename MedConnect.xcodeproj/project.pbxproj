@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		116E5D022DB8DB6200498DA4 /* CharlsonCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D012DB8DB6200498DA4 /* CharlsonCalculatorView.swift */; };
+		116E5D052DB8DBA900498DA4 /* CharsonRiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D042DB8DBA900498DA4 /* CharsonRiskFactor.swift */; };
+		116E5D072DB8DE6D00498DA4 /* CharlsonRiskFactorsUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D062DB8DE6D00498DA4 /* CharlsonRiskFactorsUIComponent.swift */; };
+		116E5D092DB8DFAF00498DA4 /* CharlsonCalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D082DB8DFAE00498DA4 /* CharlsonCalculatorViewModel.swift */; };
+		116E5D0B2DB8E2BF00498DA4 /* CharsonScoreUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D0A2DB8E2BF00498DA4 /* CharsonScoreUIComponent.swift */; };
+		116E5D0D2DB8E2F800498DA4 /* SurvivalLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D0C2DB8E2F800498DA4 /* SurvivalLevel.swift */; };
 		1192962E2DB194D700E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296302DB194D700E2ED21 /* Localizable.strings */; };
 		119296332DB1954800E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296352DB1954800E2ED21 /* Localizable.strings */; };
 		119296392DB286C500E2ED21 /*  CardiacConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296382DB286C500E2ED21 /*  CardiacConditions.swift */; };
@@ -60,12 +66,18 @@
 		85E76EEF2DB8540C004F37CA /* TraumaFactrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EEE2DB8540C004F37CA /* TraumaFactrosView.swift */; };
 		85E76EF12DB8546B004F37CA /* TotalScoreUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EF02DB8546B004F37CA /* TotalScoreUIComponent.swift */; };
 		85E76EF32DB854C9004F37CA /* RiskLevelUIComonent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EF22DB854C9004F37CA /* RiskLevelUIComonent.swift */; };
-		85E76EF52DB85525004F37CA /* RiskLevelIUComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EF42DB85525004F37CA /* RiskLevelIUComponent.swift */; };
+		85E76EF52DB85525004F37CA /* RiskLevelsInfoIUComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EF42DB85525004F37CA /* RiskLevelsInfoIUComponent.swift */; };
 		85E76EF72DB85577004F37CA /* InfoRowUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EF62DB85577004F37CA /* InfoRowUIComponent.swift */; };
 		85E76EF92DB85646004F37CA /* ListButtonCentredTextUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EF82DB85646004F37CA /* ListButtonCentredTextUIComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		116E5D012DB8DB6200498DA4 /* CharlsonCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharlsonCalculatorView.swift; sourceTree = "<group>"; };
+		116E5D042DB8DBA900498DA4 /* CharsonRiskFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharsonRiskFactor.swift; sourceTree = "<group>"; };
+		116E5D062DB8DE6D00498DA4 /* CharlsonRiskFactorsUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharlsonRiskFactorsUIComponent.swift; sourceTree = "<group>"; };
+		116E5D082DB8DFAE00498DA4 /* CharlsonCalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharlsonCalculatorViewModel.swift; sourceTree = "<group>"; };
+		116E5D0A2DB8E2BF00498DA4 /* CharsonScoreUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharsonScoreUIComponent.swift; sourceTree = "<group>"; };
+		116E5D0C2DB8E2F800498DA4 /* SurvivalLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvivalLevel.swift; sourceTree = "<group>"; };
 		1192962F2DB194D700E2ED21 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296342DB1954800E2ED21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296382DB286C500E2ED21 /*  CardiacConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CardiacConditions.swift"; sourceTree = "<group>"; };
@@ -120,7 +132,7 @@
 		85E76EEE2DB8540C004F37CA /* TraumaFactrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraumaFactrosView.swift; sourceTree = "<group>"; };
 		85E76EF02DB8546B004F37CA /* TotalScoreUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalScoreUIComponent.swift; sourceTree = "<group>"; };
 		85E76EF22DB854C9004F37CA /* RiskLevelUIComonent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskLevelUIComonent.swift; sourceTree = "<group>"; };
-		85E76EF42DB85525004F37CA /* RiskLevelIUComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskLevelIUComponent.swift; sourceTree = "<group>"; };
+		85E76EF42DB85525004F37CA /* RiskLevelsInfoIUComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskLevelsInfoIUComponent.swift; sourceTree = "<group>"; };
 		85E76EF62DB85577004F37CA /* InfoRowUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRowUIComponent.swift; sourceTree = "<group>"; };
 		85E76EF82DB85646004F37CA /* ListButtonCentredTextUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListButtonCentredTextUIComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +148,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		116E5CFD2DB8D93900498DA4 /* CharlsonCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				116E5D032DB8DB9100498DA4 /* Model */,
+				116E5D002DB8D96600498DA4 /* Components */,
+				116E5CFF2DB8D95E00498DA4 /* ViewModel */,
+				116E5CFE2DB8D95500498DA4 /* View */,
+			);
+			path = CharlsonCalculator;
+			sourceTree = "<group>";
+		};
+		116E5CFE2DB8D95500498DA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				116E5D012DB8DB6200498DA4 /* CharlsonCalculatorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		116E5CFF2DB8D95E00498DA4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				116E5D082DB8DFAE00498DA4 /* CharlsonCalculatorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		116E5D002DB8D96600498DA4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				116E5D062DB8DE6D00498DA4 /* CharlsonRiskFactorsUIComponent.swift */,
+				116E5D0A2DB8E2BF00498DA4 /* CharsonScoreUIComponent.swift */,
+				116E5D0C2DB8E2F800498DA4 /* SurvivalLevel.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		116E5D032DB8DB9100498DA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				116E5D042DB8DBA900498DA4 /* CharsonRiskFactor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1192963A2DB2DBD000E2ED21 /* CardiacConditions */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +243,7 @@
 		11C13E202D527E57007040E3 /* MedConnect */ = {
 			isa = PBXGroup;
 			children = (
+				116E5CFD2DB8D93900498DA4 /* CharlsonCalculator */,
 				85E76EE52DB8456C004F37CA /* CapriniCalculator */,
 				85E76EC82DB3E789004F37CA /* Extensions */,
 				857993422DAFD68500AE07F3 /* Components */,
@@ -213,7 +271,6 @@
 			children = (
 				119296522DB2E9AD00E2ED21 /* ConcomitantDisease */,
 				11C13E3A2D528433007040E3 /* Patient.swift */,
-				85E76EE32DB82DAA004F37CA /* RiskFactor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,7 +362,7 @@
 				85E76EEE2DB8540C004F37CA /* TraumaFactrosView.swift */,
 				85E76EF02DB8546B004F37CA /* TotalScoreUIComponent.swift */,
 				85E76EF22DB854C9004F37CA /* RiskLevelUIComonent.swift */,
-				85E76EF42DB85525004F37CA /* RiskLevelIUComponent.swift */,
+				85E76EF42DB85525004F37CA /* RiskLevelsInfoIUComponent.swift */,
 				85E76EF62DB85577004F37CA /* InfoRowUIComponent.swift */,
 				85E76EF82DB85646004F37CA /* ListButtonCentredTextUIComponent.swift */,
 			);
@@ -315,6 +372,7 @@
 		85E76EE92DB8518B004F37CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				85E76EE32DB82DAA004F37CA /* RiskFactor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,8 +459,10 @@
 				85E76EE42DB82DAA004F37CA /* RiskFactor.swift in Sources */,
 				1192964A2DB2E2B800E2ED21 /* ConcomitantDisease.swift in Sources */,
 				11C13E352D5280E7007040E3 /* LoginViewModel.swift in Sources */,
+				116E5D092DB8DFAF00498DA4 /* CharlsonCalculatorViewModel.swift in Sources */,
 				85E76ED62DB4E7EC004F37CA /* ConcomitantDiseaseView.swift in Sources */,
 				85E76ECE2DB40838004F37CA /* Double+Extension.swift in Sources */,
+				116E5D022DB8DB6200498DA4 /* CharlsonCalculatorView.swift in Sources */,
 				85E76EF12DB8546B004F37CA /* TotalScoreUIComponent.swift in Sources */,
 				119296482DB2DE5600E2ED21 /* ValveDefects.swift in Sources */,
 				857993482DAFD6EC00AE07F3 /* PatientCharlson.swift in Sources */,
@@ -411,13 +471,14 @@
 				85E76ECA2DB3E7A0004F37CA /* Int+Extension.swift in Sources */,
 				11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */,
 				11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */,
-				85E76EF52DB85525004F37CA /* RiskLevelIUComponent.swift in Sources */,
+				85E76EF52DB85525004F37CA /* RiskLevelsInfoIUComponent.swift in Sources */,
 				11C13E3D2D52868B007040E3 /* PatientScrollCardView.swift in Sources */,
 				85E76EDC2DB54993004F37CA /* PatientDetailsCardTitle.swift in Sources */,
 				85E76EF92DB85646004F37CA /* ListButtonCentredTextUIComponent.swift in Sources */,
 				11C13E332D527EAC007040E3 /* LoginView.swift in Sources */,
 				8579934A2DAFD70800AE07F3 /* PatientDisease.swift in Sources */,
 				11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */,
+				116E5D052DB8DBA900498DA4 /* CharsonRiskFactor.swift in Sources */,
 				11C13E242D527E57007040E3 /* ContentView.swift in Sources */,
 				1192963E2DB2DC9E00E2ED21 /* Hypertension.swift in Sources */,
 				85E76EEB2DB851E2004F37CA /* ToggleRow.swift in Sources */,
@@ -425,7 +486,10 @@
 				857993462DAFD6DD00AE07F3 /* PatientCaprini.swift in Sources */,
 				119296442DB2DDDF00E2ED21 /* AorticAneurysm.swift in Sources */,
 				85E76EF72DB85577004F37CA /* InfoRowUIComponent.swift in Sources */,
+				116E5D0B2DB8E2BF00498DA4 /* CharsonScoreUIComponent.swift in Sources */,
 				11C13E3F2D528D8D007040E3 /* PatientCardView.swift in Sources */,
+				116E5D0D2DB8E2F800498DA4 /* SurvivalLevel.swift in Sources */,
+				116E5D072DB8DE6D00498DA4 /* CharlsonRiskFactorsUIComponent.swift in Sources */,
 				85E76EEF2DB8540C004F37CA /* TraumaFactrosView.swift in Sources */,
 				85E76EED2DB852F9004F37CA /* OrganismStateFactorsView.swift in Sources */,
 				119296512DB2E81B00E2ED21 /* Diabetes.swift in Sources */,
