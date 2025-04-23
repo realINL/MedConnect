@@ -13,6 +13,13 @@
 		116E5D092DB8DFAF00498DA4 /* CharlsonCalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D082DB8DFAE00498DA4 /* CharlsonCalculatorViewModel.swift */; };
 		116E5D0B2DB8E2BF00498DA4 /* CharsonScoreUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D0A2DB8E2BF00498DA4 /* CharsonScoreUIComponent.swift */; };
 		116E5D0D2DB8E2F800498DA4 /* SurvivalLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D0C2DB8E2F800498DA4 /* SurvivalLevel.swift */; };
+		116E5D0F2DB9126A00498DA4 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D0E2DB9126A00498DA4 /* MedicalRecord.swift */; };
+		116E5D112DB914FF00498DA4 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D102DB914FF00498DA4 /* Disease.swift */; };
+		116E5D142DB9158000498DA4 /* DiseaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D132DB9158000498DA4 /* DiseaseType.swift */; };
+		116E5D162DB9161B00498DA4 /* StomachCancer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D152DB9161B00498DA4 /* StomachCancer.swift */; };
+		116E5D182DB9174D00498DA4 /* DiseaseEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D172DB9174D00498DA4 /* DiseaseEnums.swift */; };
+		116E5D1A2DB91B8F00498DA4 /* CTNM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D192DB91B8F00498DA4 /* CTNM.swift */; };
+		116E5D1C2DB91EDD00498DA4 /* TumorLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D1B2DB91EDD00498DA4 /* TumorLocalization.swift */; };
 		1192962E2DB194D700E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296302DB194D700E2ED21 /* Localizable.strings */; };
 		119296332DB1954800E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296352DB1954800E2ED21 /* Localizable.strings */; };
 		119296392DB286C500E2ED21 /*  CardiacConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296382DB286C500E2ED21 /*  CardiacConditions.swift */; };
@@ -78,6 +85,13 @@
 		116E5D082DB8DFAE00498DA4 /* CharlsonCalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharlsonCalculatorViewModel.swift; sourceTree = "<group>"; };
 		116E5D0A2DB8E2BF00498DA4 /* CharsonScoreUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharsonScoreUIComponent.swift; sourceTree = "<group>"; };
 		116E5D0C2DB8E2F800498DA4 /* SurvivalLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurvivalLevel.swift; sourceTree = "<group>"; };
+		116E5D0E2DB9126A00498DA4 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
+		116E5D102DB914FF00498DA4 /* Disease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
+		116E5D132DB9158000498DA4 /* DiseaseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseType.swift; sourceTree = "<group>"; };
+		116E5D152DB9161B00498DA4 /* StomachCancer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StomachCancer.swift; sourceTree = "<group>"; };
+		116E5D172DB9174D00498DA4 /* DiseaseEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseEnums.swift; sourceTree = "<group>"; };
+		116E5D192DB91B8F00498DA4 /* CTNM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTNM.swift; sourceTree = "<group>"; };
+		116E5D1B2DB91EDD00498DA4 /* TumorLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumorLocalization.swift; sourceTree = "<group>"; };
 		1192962F2DB194D700E2ED21 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296342DB1954800E2ED21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296382DB286C500E2ED21 /*  CardiacConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CardiacConditions.swift"; sourceTree = "<group>"; };
@@ -193,6 +207,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		116E5D122DB9152F00498DA4 /* Disease */ = {
+			isa = PBXGroup;
+			children = (
+				116E5D102DB914FF00498DA4 /* Disease.swift */,
+				116E5D132DB9158000498DA4 /* DiseaseType.swift */,
+				116E5D152DB9161B00498DA4 /* StomachCancer.swift */,
+				116E5D172DB9174D00498DA4 /* DiseaseEnums.swift */,
+				116E5D192DB91B8F00498DA4 /* CTNM.swift */,
+				116E5D1B2DB91EDD00498DA4 /* TumorLocalization.swift */,
+			);
+			path = Disease;
+			sourceTree = "<group>";
+		};
 		1192963A2DB2DBD000E2ED21 /* CardiacConditions */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +298,8 @@
 			children = (
 				119296522DB2E9AD00E2ED21 /* ConcomitantDisease */,
 				11C13E3A2D528433007040E3 /* Patient.swift */,
+				116E5D0E2DB9126A00498DA4 /* MedicalRecord.swift */,
+				116E5D122DB9152F00498DA4 /* Disease */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,19 +488,23 @@
 				85E76EE42DB82DAA004F37CA /* RiskFactor.swift in Sources */,
 				1192964A2DB2E2B800E2ED21 /* ConcomitantDisease.swift in Sources */,
 				11C13E352D5280E7007040E3 /* LoginViewModel.swift in Sources */,
+				116E5D0F2DB9126A00498DA4 /* MedicalRecord.swift in Sources */,
 				116E5D092DB8DFAF00498DA4 /* CharlsonCalculatorViewModel.swift in Sources */,
 				85E76ED62DB4E7EC004F37CA /* ConcomitantDiseaseView.swift in Sources */,
 				85E76ECE2DB40838004F37CA /* Double+Extension.swift in Sources */,
 				116E5D022DB8DB6200498DA4 /* CharlsonCalculatorView.swift in Sources */,
 				85E76EF12DB8546B004F37CA /* TotalScoreUIComponent.swift in Sources */,
 				119296482DB2DE5600E2ED21 /* ValveDefects.swift in Sources */,
+				116E5D182DB9174D00498DA4 /* DiseaseEnums.swift in Sources */,
 				857993482DAFD6EC00AE07F3 /* PatientCharlson.swift in Sources */,
 				85E76ED42DB4E5A8004F37CA /* PatientRT.swift in Sources */,
 				85E76EDE2DB5761C004F37CA /* YesNo.swift in Sources */,
 				85E76ECA2DB3E7A0004F37CA /* Int+Extension.swift in Sources */,
 				11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */,
+				116E5D1A2DB91B8F00498DA4 /* CTNM.swift in Sources */,
 				11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */,
 				85E76EF52DB85525004F37CA /* RiskLevelsInfoIUComponent.swift in Sources */,
+				116E5D112DB914FF00498DA4 /* Disease.swift in Sources */,
 				11C13E3D2D52868B007040E3 /* PatientScrollCardView.swift in Sources */,
 				85E76EDC2DB54993004F37CA /* PatientDetailsCardTitle.swift in Sources */,
 				85E76EF92DB85646004F37CA /* ListButtonCentredTextUIComponent.swift in Sources */,
@@ -491,11 +524,13 @@
 				116E5D0D2DB8E2F800498DA4 /* SurvivalLevel.swift in Sources */,
 				116E5D072DB8DE6D00498DA4 /* CharlsonRiskFactorsUIComponent.swift in Sources */,
 				85E76EEF2DB8540C004F37CA /* TraumaFactrosView.swift in Sources */,
+				116E5D162DB9161B00498DA4 /* StomachCancer.swift in Sources */,
 				85E76EED2DB852F9004F37CA /* OrganismStateFactorsView.swift in Sources */,
 				119296512DB2E81B00E2ED21 /* Diabetes.swift in Sources */,
 				119296462DB2DE1900E2ED21 /* HeartFailure.swift in Sources */,
 				857993502DAFD72600AE07F3 /* PatientMetrics.swift in Sources */,
 				11C13E3B2D528433007040E3 /* Patient.swift in Sources */,
+				116E5D1C2DB91EDD00498DA4 /* TumorLocalization.swift in Sources */,
 				8579934E2DAFD71900AE07F3 /* PatientMetric.swift in Sources */,
 				85E76ED02DB40B5C004F37CA /* PatientMetrics2.swift in Sources */,
 				85E76EF32DB854C9004F37CA /* RiskLevelUIComonent.swift in Sources */,
@@ -505,6 +540,7 @@
 				11C13E372D5282A7007040E3 /* HomeView.swift in Sources */,
 				11C13E222D527E57007040E3 /* MedConnectApp.swift in Sources */,
 				85E76ED82DB4EAD2004F37CA /* LabeledValueRow.swift in Sources */,
+				116E5D142DB9158000498DA4 /* DiseaseType.swift in Sources */,
 				119296402DB2DD0200E2ED21 /* ConductionDisorders.swift in Sources */,
 				8579934C2DAFD71000AE07F3 /* PatientHW.swift in Sources */,
 				857993442DAFD6A800AE07F3 /* PatienHeaderInfo.swift in Sources */,
