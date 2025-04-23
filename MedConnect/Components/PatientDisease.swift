@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct PatientDisease: View {
-    let disease: StomachCancer = StomachCancer.MOCK_StomachCancer.first!
+    let medicalRecord: MedicalRecord
+    let disease: StomachCancer
+    
+    init(medicalRecord: MedicalRecord) {
+        self.medicalRecord = medicalRecord
+        self.disease = medicalRecord.disease
+    }
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -88,5 +94,5 @@ struct PatientDisease: View {
 }
 
 #Preview {
-    PatientDisease()
+    PatientDisease(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!)
 }

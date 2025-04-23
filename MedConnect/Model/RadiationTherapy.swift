@@ -21,10 +21,29 @@ struct RadiationTherapy: Identifiable, Hashable, Codable {
 }
 
 extension RadiationTherapy {
-    static let MOCK_RadiationTherapy: [RadiationTherapy] = [RadiationTherapy(id: "0", patientId: "0", 
-                                                                             status: 
-            .completed(sfd: 5, tfd: 25),
-                                                                             startDate: Date.fromString("11.11.2021")!, endDate: Date.fromString("11.12.2021")!, sfd: 5, tfd: 25)]
+    static let MOCK_RadiationTherapy: [RadiationTherapy] = [RadiationTherapy(id: "0", 
+                                                                             patientId: "0",
+                                                                             status: .completed(sfd: 5, tfd: 25),
+                                                                             startDate: Date.fromString("11.11.2021")!, 
+                                                                             endDate: Date.fromString("11.12.2021")!,
+                                                                             sfd: 5,
+                                                                             tfd: 25),
+                                                            RadiationTherapy(id: "1",
+                                                                             patientId: "1",
+                                                                             status: .none,
+                                                                             startDate: Date.fromString("11.11.2021")!,
+                                                                             endDate: Date.fromString("11.12.2021")!,
+                                                                             sfd: 2,
+                                                                             tfd: 6),
+                                                            RadiationTherapy(id: "2",
+                                                                             patientId: "2",
+                                                                             status: .partially,
+                                                                             startDate: Date.fromString("11.11.2021")!,
+                                                                             endDate: Date.fromString("11.12.2021")!,
+                                                                             sfd: 4,
+                                                                             tfd: 16)
+    
+    ]
 }
 
 

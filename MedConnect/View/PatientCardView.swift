@@ -9,6 +9,12 @@ import SwiftUI
 
 struct PatientCardView: View {
     let patient: Patient
+    let medicalRecord: MedicalRecord
+    
+    init(patient: Patient) {
+        self.patient = patient
+        self.medicalRecord = MedicalRecord.MOCK_MedicalRecord[Int(patient.id)!]
+    }
     @State var capriniIsPresented: Bool = false
     @State var charlosIsPresented: Bool = false
     var body: some View {
@@ -19,9 +25,9 @@ struct PatientCardView: View {
                     PatientHW(patient: patient)
                     PatientMetrics(patient: patient)
                     PatientMetrics2(patient: patient, capriniIsPresented: $capriniIsPresented, charlosIsPresented: $charlosIsPresented)
-                    PatientDisease()
-                    PatientCT()
-                    PatientRT()
+                    PatientDisease(medicalRecord: medicalRecord)
+                    PatientCT(medicalRecord: medicalRecord)
+                    PatientRT(medicalRecord: medicalRecord)
                     ConcomitantDiseaseView()
                 }
             }

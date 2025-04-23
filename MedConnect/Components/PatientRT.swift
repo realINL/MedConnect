@@ -9,7 +9,13 @@ import SwiftUI
 
 struct PatientRT: View {
     @State var showDetails: Bool = true
-    let radiationTherapy: RadiationTherapy = RadiationTherapy.MOCK_RadiationTherapy.first!
+    let radiationTherapy: RadiationTherapy
+    let medicalRecord: MedicalRecord
+    
+    init(medicalRecord: MedicalRecord) {
+        self.medicalRecord = medicalRecord
+        self.radiationTherapy = medicalRecord.radiationTherapy
+    }
     var body: some View {
         VStack(alignment: .leading) {
             PatientDetailsCardTitle(title: "Лучевая терапия", showDetails: $showDetails)
@@ -43,5 +49,5 @@ struct PatientRT: View {
 }
 
 #Preview {
-    PatientRT()
+    PatientRT(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!)
 }

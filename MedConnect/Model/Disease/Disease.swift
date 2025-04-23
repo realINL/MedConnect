@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Disease: Identifiable, Hashable, Codable {
-    var id: String { get set } // ?
+    var id: String { get }
     
     var type: DiseaseType { get set }
 }

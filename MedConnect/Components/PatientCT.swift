@@ -9,7 +9,14 @@ import SwiftUI
 
 struct PatientCT: View {
     @State var showDetails: Bool = true
-    let chemo: Chemotherapy = Chemotherapy.MOCK_Chemotherapy.first!
+    let medicalRecord: MedicalRecord
+    let chemo: Chemotherapy
+    
+    init(medicalRecord: MedicalRecord) {
+        self.medicalRecord = medicalRecord
+        self.chemo = medicalRecord.chemotherapy
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             PatientDetailsCardTitle(title: "Химиотерапия", showDetails: $showDetails)
@@ -45,5 +52,5 @@ struct PatientCT: View {
 }
 
 #Preview {
-    PatientCT()
+    PatientCT(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!)
 }
