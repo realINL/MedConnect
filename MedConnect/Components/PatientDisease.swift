@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct PatientDisease: View {
+    let disease: StomachCancer = StomachCancer.MOCK_StomachCancer.first!
     var body: some View {
         VStack(alignment: .leading) {
+            
+            // Основная информация
             HStack {
-                Text("Рак пищевода")
+                Text(disease.type.rawValue)
                     .font(.title)
                     .fontWeight(.semibold)
                 
@@ -23,16 +26,16 @@ struct PatientDisease: View {
             }
             .padding(.top, 4)
             
-            //Локализация
+            // Локализация
             Text("Локализация")
                 .font(.title3)
                 .foregroundStyle(.secondary)
             
             HStack {
-                Text("Средняя треть")
-                Text("Siewert I")
+                Text(disease.tumorLocalization.tumorBody.rawValue)  // Тело
+                Text(disease.tumorLocalization.siewert.shortCode)   // Кэр
             }
-            Text("5 x 5 см") // Размер
+            Text("\(disease.size) см")  // Размер
             
             
             // Гистология
@@ -40,38 +43,38 @@ struct PatientDisease: View {
                 .font(.title3)
                 .foregroundStyle(.secondary)
                 .padding(.top, 4)
-            Text("Железисто-плоскоклеточный")
+            
+            Text(disease.histology.rawValue)    // Гистология
             
             HStack {
-                Text("Диффузный") // Тип опухоли по Lauren
-                Text("G1") // Дифференцировка опухоли
-            } // Гистология
+                Text(disease.lauren.rawValue)   // Тип опухоли по Lauren
+                Text(disease.tumorDifferentiation.shortCode)    // Дифференцировка опухоли
+            }
             
             HStack {
-                Text("T1N0M0") // Стадирование по cTNM
-                Text("Клиническая стадия I")
+                Text(disease.cTNM.ctnm) // Стадирование по cTNM
+                Text("Клиническая стадия \(disease.cTNM.stage)")
             }
             .padding(.top, 4)
-            
-            Text("") // Клиническая стадия
-            //                Text("Осложнение основного заболевани")
-            //            }
-            //            .foregroundStyle(.secondary)
-            //            .font(.callout)
-            Text("Границы по ЭГДС") // Границы по ЭГДС
-                .font(.title3)
-                .foregroundStyle(.secondary)
-            
-            VStack(alignment: .leading) {
-                Text("Проксимальная граница") // Проксимальная граница
-                Text("Дистальная граница") // Дистальная граница
-            }
-            
-            Text("Осложнение") // Осложнение
+                           
+            // Границы по ЭГДС
+            Text("Границы по ЭГДС")
                 .font(.title3)
                 .foregroundStyle(.secondary)
                 .padding(.top, 4)
-            Text("Стеноз без стентирования")
+            
+            VStack(alignment: .leading) {
+                Text("Проксимальная граница")   // Проксимальная граница
+                Text("Дистальная граница")      // Дистальная граница
+            }
+            
+            // Осложнение
+            Text("Осложнение")
+                .font(.title3)
+                .foregroundStyle(.secondary)
+                .padding(.top, 4)
+            
+            Text(disease.mainDiseaseConcomitant.rawValue)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()

@@ -21,12 +21,23 @@ enum TumorDifferentiation: String, Codable {
     case g1 = "G1 (высокодифференцированный рак)"
     case g2 = "G2 (умеренно дифференцированный рак)"
     case g3 = "G3 (низкодифференцированный, недифференцированный рак)"
+    
+    var shortCode: String {
+        let components = self.rawValue.components(separatedBy: " ")
+        return components.first ?? ""
+    }
 }
 
 enum Siewert: String, Codable {
     case I = "Siewert I (центр опухоли расположен в пределах от 1 до 5 см выше Z-линии)"
     case II = "Siewert II (центр опухоли расположен в пределах 1 см выше и 2 см ниже от Z-линии)"
-    case III = "Siewert III (центр опухоли расположен в пределах от 2 до 5 см от Z-линии) "
+    case III = "Siewert III (центр опухоли расположен в пределах от 2 до 5 см от Z-линии)"
+    
+    var shortCode: String {
+        let components = self.rawValue.components(separatedBy: " ")
+        let code = components.prefix(2).joined(separator: " ")
+        return code
+    }
 }
 
 enum TumorBody: String, Codable {
@@ -59,6 +70,11 @@ enum CT:  String, Codable {
     case t4a    = "T4a (опухоль захватывает серозную оболочку (висцеральная брюшина))"
     case t4b    = "T4b (опухоль захватывает соседние структуры, такие как селезенка, поперечная ободочная кишка, печень, диафрагма, поджелудочная железа, передняя брюшная стенка, надпочечник, почка, тонкая кишка, забрюшинное пространство)"
     case tx     = "Tx (первичная опухоль не может быть оценена)"
+    
+    var shortCode: String {
+        let components = self.rawValue.components(separatedBy: " ")
+        return components.first ?? ""
+    }
 }
 
 enum CN:  String, Codable {
@@ -67,12 +83,32 @@ enum CN:  String, Codable {
     case n2 = "N2 (поражение 3–6 регионарных лимфатических узлов)"
     case n3 = "N3 (поражение ≥ 7 регионарных лимфатических узлов)"
     case nx = "Nx (регионарные лимфатические узлы не могут быть оценены)"
+    
+    var shortCode: String {
+        let components = self.rawValue.components(separatedBy: " ")
+        return components.first ?? ""
+    }
 }
 
 enum CM:  String, Codable {
     case m0 = "M0 (отдаленные метастазы отсутствуют)"
     case m1 = "M1 (наличие отдаленных метастазов или наличие опухолевых клеток в смывах / биоптатах с брюшины)"
     case mx = "Мх (нет данных о наличии отдаленных метастазов)"
+    
+    var shortCode: String {
+        let components = self.rawValue.components(separatedBy: " ")
+        return components.first ?? ""
+    }
 }
 
+enum ClinicalStage: String, Codable {
+    case zero = "0"
+    case first = "I"
+    case secondA = "IIA"
+    case secondB = "IIB"
+    case third = "III"
+    case fourthA = "IVA"
+    case fourthB = "IVB"
+    case undefined = "не определена"
+}
 
