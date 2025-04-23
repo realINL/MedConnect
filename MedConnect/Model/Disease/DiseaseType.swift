@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DiseaseType: String, Codable {
+enum DiseaseType: String, Codable, CaseIterable {
     case stomachCancer = "Рак желудка"
     case esophagusСancer = "Рак пищевода"
 }

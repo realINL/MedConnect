@@ -12,4 +12,9 @@ extension String {
         guard let firstChar = self.first else { return "" }
         return String(firstChar)
     }
+    
+    var firstWord: String {
+        let components = self.components(separatedBy: " ")
+        return components.first ?? ""
+    }
 }

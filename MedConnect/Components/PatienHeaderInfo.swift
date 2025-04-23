@@ -24,7 +24,7 @@ struct PatienHeaderInfo: View {
                 
                 HStack() {
                     Group {
-                        Text(patient.sex.firstLetter)
+                        Text(patient.sex.rawValue.firstLetter)
                         Text("•")
                         Text(patient.age.ageCount)
                     }

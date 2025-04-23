@@ -21,7 +21,7 @@ struct Patient: Identifiable, Hashable, Codable {
     var hospital: String = ""
     var hospitalDepartment: String = ""
     
-    var sex: String = "Male"
+    var sex: Sex
     let age: Int
     var weight: Double = 0.0
     var height: Int = 0
@@ -43,7 +43,8 @@ extension Patient {
                                         disease: "Рак желудка",
                                         concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                         hospital: "МНИОИ им. П.А. Герцена", 
-                                        hospitalDepartment: "Торакальное отделение",
+                                        hospitalDepartment: "Торакальное отделение", 
+                                        sex: .male,
                                         age: 57,
                                         weight: 82.0,
                                         height: 178,
@@ -62,7 +63,8 @@ extension Patient {
                                         disease: "Рак желудка",
                                         concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                         hospital: "МНИОИ им. П.А. Герцена",
-                                        hospitalDepartment: "Торакальное отделение",
+                                        hospitalDepartment: "Торакальное отделение", 
+                                        sex: .male,
                                         age: 43),
                                 
                                 Patient(id: "2", 
@@ -73,6 +75,7 @@ extension Patient {
                                         disease: "Рак желудка",
                                         concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                         hospital: "МНИОИ им. П.А. Герцена",
-                                        hospitalDepartment: "Торакальное отделение",
+                                        hospitalDepartment: "Торакальное отделение", 
+                                        sex: .male,
                                         age: 40)]
 }
