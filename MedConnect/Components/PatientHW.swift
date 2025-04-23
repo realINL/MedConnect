@@ -14,7 +14,7 @@ struct PatientHW: View {
             Image(systemName: "figure")
                 HStack() {
                     Group {
-                        Text("ИМТ 25,9")
+                        Text("ИМТ \(medicalRecord.bmi.dotOne)")
                         Text("•")
                         Text("\(medicalRecord.weight.dotOne) кг")
                         Text("•")

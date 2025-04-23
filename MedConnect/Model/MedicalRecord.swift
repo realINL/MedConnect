@@ -13,8 +13,9 @@ struct MedicalRecord: Identifiable, Hashable, Codable {
     let patientId: String
     
     let age: Int
-    var weight: Double = 0.0
-    var height: Int = 0
+    var weight: Double
+    var height: Int
+    var bmi: Double { weight / Double(height * height) * 10000 }
     
     var asaIndex: Int = 0
     var ecogIndex: Int = 0
