@@ -13,5 +13,8 @@ class LoginViewModel: ObservableObject {
     @Published var password: String = ""
     
     func logIn() {
+        if (email == "" && password == "1234") {
+            UserDefaults.standard.set(true, forKey: "isLogin")
+        }
     }
 }

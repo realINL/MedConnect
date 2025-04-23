@@ -24,7 +24,7 @@ struct SideMenuView: View {
                         Label("Добавить операцию", systemImage: "syringe")
                         Spacer()
                         Button {
-                            
+                            UserDefaults.standard.set(false, forKey: "isLogin")
                         } label: {
                             Label("Выйти из аккаунта", systemImage: "door.left.hand.open")
                                 .foregroundColor(.red)

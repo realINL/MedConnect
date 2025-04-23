@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct MedConnectApp: App {
+    @AppStorage("isLogin") var isLogin: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isLogin {
+                HomeView()
+            } else {
+                LoginView()
+            }
         }
     }
 }

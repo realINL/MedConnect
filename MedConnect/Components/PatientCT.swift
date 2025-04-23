@@ -20,26 +20,6 @@ struct PatientCT: View {
                     LabeledValueRow(value: "3", label: "Кол-во курсов")
                     Divider()
                     LabeledValueRow(value: "11.11.2023 - 11.12.2023", label: "Период терапии")
-//                    HStack {
-//                        Text("Проведена FLOT")
-//                        Spacer()
-//                        Text("Статус")
-//                            .foregroundStyle(.secondary)
-//                    }
-//                    Divider()
-//                    HStack {
-//                        Text("3")
-//                        Spacer()
-//                        Text("Кол-во курсов")
-//                            .foregroundStyle(.secondary)
-//                    }
-//                    Divider()
-//                    HStack {
-//                        Text("11.11.2023 - 11.12.2023")
-//                        Spacer()
-//                        Text("Период терапии")
-//                            .foregroundStyle(.secondary)
-//                    }
                 }
             }
             
