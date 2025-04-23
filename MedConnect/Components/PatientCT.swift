@@ -9,17 +9,26 @@ import SwiftUI
 
 struct PatientCT: View {
     @State var showDetails: Bool = true
+    let chemo: Chemotherapy = Chemotherapy.MOCK_Chemotherapy.first!
     var body: some View {
         VStack(alignment: .leading) {
             PatientDetailsCardTitle(title: "Химиотерапия", showDetails: $showDetails)
             
             if showDetails {
                 VStack {
-                    LabeledValueRow(value: "Проведена FLOT", label: "Статус")
-                    Divider()
-                    LabeledValueRow(value: "3", label: "Кол-во курсов")
-                    Divider()
-                    LabeledValueRow(value: "11.11.2023 - 11.12.2023", label: "Период терапии")
+                    LabeledValueRow(value: chemo.staus.description, label: "Статус")
+                    switch chemo.staus {
+                    case .none:
+                        EmptyView()
+                    case .partially:
+                        Divider()
+                        LabeledValueRow(value: "\(chemo.startDate.date)", label: "Начало терапии")
+                    case .completed(let scheme, let endDate):
+                        Divider()
+                        LabeledValueRow(value: "\(chemo.numberOfCourses)", label: "Кол-во курсов")
+                        Divider()
+                        LabeledValueRow(value: "\(chemo.startDate.date) - \(chemo.endDate.date)", label: "Период терапии")
+                    }
                 }
             }
             

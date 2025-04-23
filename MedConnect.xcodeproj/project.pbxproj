@@ -20,6 +20,9 @@
 		116E5D182DB9174D00498DA4 /* DiseaseEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D172DB9174D00498DA4 /* DiseaseEnums.swift */; };
 		116E5D1A2DB91B8F00498DA4 /* CTNM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D192DB91B8F00498DA4 /* CTNM.swift */; };
 		116E5D1C2DB91EDD00498DA4 /* TumorLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D1B2DB91EDD00498DA4 /* TumorLocalization.swift */; };
+		116E5D1E2DB930F400498DA4 /* Chemotherapy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D1D2DB930F400498DA4 /* Chemotherapy.swift */; };
+		116E5D202DB9372700498DA4 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D1F2DB9372700498DA4 /* Date+Extension.swift */; };
+		116E5D222DB93EE500498DA4 /* RadiationTherapy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D212DB93EE500498DA4 /* RadiationTherapy.swift */; };
 		1192962E2DB194D700E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296302DB194D700E2ED21 /* Localizable.strings */; };
 		119296332DB1954800E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296352DB1954800E2ED21 /* Localizable.strings */; };
 		119296392DB286C500E2ED21 /*  CardiacConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296382DB286C500E2ED21 /*  CardiacConditions.swift */; };
@@ -92,6 +95,9 @@
 		116E5D172DB9174D00498DA4 /* DiseaseEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseEnums.swift; sourceTree = "<group>"; };
 		116E5D192DB91B8F00498DA4 /* CTNM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTNM.swift; sourceTree = "<group>"; };
 		116E5D1B2DB91EDD00498DA4 /* TumorLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumorLocalization.swift; sourceTree = "<group>"; };
+		116E5D1D2DB930F400498DA4 /* Chemotherapy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chemotherapy.swift; sourceTree = "<group>"; };
+		116E5D1F2DB9372700498DA4 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		116E5D212DB93EE500498DA4 /* RadiationTherapy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiationTherapy.swift; sourceTree = "<group>"; };
 		1192962F2DB194D700E2ED21 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296342DB1954800E2ED21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296382DB286C500E2ED21 /*  CardiacConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CardiacConditions.swift"; sourceTree = "<group>"; };
@@ -300,6 +306,8 @@
 				11C13E3A2D528433007040E3 /* Patient.swift */,
 				116E5D0E2DB9126A00498DA4 /* MedicalRecord.swift */,
 				116E5D122DB9152F00498DA4 /* Disease */,
+				116E5D1D2DB930F400498DA4 /* Chemotherapy.swift */,
+				116E5D212DB93EE500498DA4 /* RadiationTherapy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +360,7 @@
 				85E76EC92DB3E7A0004F37CA /* Int+Extension.swift */,
 				85E76ECB2DB3EB70004F37CA /* String+Extension.swift */,
 				85E76ECD2DB40838004F37CA /* Double+Extension.swift */,
+				116E5D1F2DB9372700498DA4 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -497,14 +506,17 @@
 				119296482DB2DE5600E2ED21 /* ValveDefects.swift in Sources */,
 				116E5D182DB9174D00498DA4 /* DiseaseEnums.swift in Sources */,
 				857993482DAFD6EC00AE07F3 /* PatientCharlson.swift in Sources */,
+				116E5D1E2DB930F400498DA4 /* Chemotherapy.swift in Sources */,
 				85E76ED42DB4E5A8004F37CA /* PatientRT.swift in Sources */,
 				85E76EDE2DB5761C004F37CA /* YesNo.swift in Sources */,
 				85E76ECA2DB3E7A0004F37CA /* Int+Extension.swift in Sources */,
 				11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */,
 				116E5D1A2DB91B8F00498DA4 /* CTNM.swift in Sources */,
+				116E5D202DB9372700498DA4 /* Date+Extension.swift in Sources */,
 				11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */,
 				85E76EF52DB85525004F37CA /* RiskLevelsInfoIUComponent.swift in Sources */,
 				116E5D112DB914FF00498DA4 /* Disease.swift in Sources */,
+				116E5D222DB93EE500498DA4 /* RadiationTherapy.swift in Sources */,
 				11C13E3D2D52868B007040E3 /* PatientScrollCardView.swift in Sources */,
 				85E76EDC2DB54993004F37CA /* PatientDetailsCardTitle.swift in Sources */,
 				85E76EF92DB85646004F37CA /* ListButtonCentredTextUIComponent.swift in Sources */,
