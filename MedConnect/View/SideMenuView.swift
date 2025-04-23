@@ -23,8 +23,12 @@ struct SideMenuView: View {
                         Label("Моя статистика", systemImage: "chart.bar.xaxis")
                         Label("Добавить операцию", systemImage: "syringe")
                         Spacer()
-                        Label("Выйти из аккаунта", systemImage: "door.left.hand.open")
-                            .foregroundColor(.red)
+                        Button {
+                            UserDefaults.standard.set(false, forKey: "isLogin")
+                        } label: {
+                            Label("Выйти из аккаунта", systemImage: "door.left.hand.open")
+                                .foregroundColor(.red)
+                        }
                     }
                     .padding()
                     .frame(width: 270, alignment: .leading)

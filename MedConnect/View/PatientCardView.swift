@@ -9,39 +9,42 @@ import SwiftUI
 
 struct PatientCardView: View {
     let patient: Patient
+    let medicalRecord: MedicalRecord
+    
+    init(patient: Patient) {
+        self.patient = patient
+        self.medicalRecord = MedicalRecord.MOCK_MedicalRecord[Int(patient.id)!]
+    }
+    @State var capriniIsPresented: Bool = false
+    @State var charlosIsPresented: Bool = false
     var body: some View {
-        VStack {
-            Text("Катра пациента")
-                .fontWeight(.bold)
-            HStack{
-                Image(systemName: "person.fill")
-                Text("\(patient.surname) \(patient.name) \(patient.patronymic), \(patient.age) лет")
-                Spacer()
+        VStack{
+            PatienHeaderInfo(patient: patient)
+            ScrollView {
+                VStack(spacing: 10) {
+                    PatientHW(medicalRecord: medicalRecord)
+                    PatientMetrics(medicalRecord: medicalRecord)
+                    PatientMetrics2(medicalRecord: medicalRecord, capriniIsPresented: $capriniIsPresented, charlosIsPresented: $charlosIsPresented)
+                    PatientDisease(medicalRecord: medicalRecord)
+                    PatientCT(medicalRecord: medicalRecord)
+                    PatientRT(medicalRecord: medicalRecord)
+                    ConcomitantDiseaseView()
+                }
             }
-            .padding()
-            Divider()
-            
-            HStack {
-                Image(systemName: "list.clipboard")
-                Text(patient.disease)
-                Spacer()
-            }
-            .padding()
-            
-            
-            Spacer()
         }
-        
-        Button("Править") {}
-            .foregroundColor(.white)
-            .padding()
-            .background(Color(.systemBlue))
-            .cornerRadius(10)
-            .padding()
-            
+        .navigationTitle("Карта пациента")
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "pencil.circle")
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    PatientCardView(patient: Patient.MOCK_Patients[0])
+    PatientCardView(patient: Patient.MOCK_Patients.first!)
 }
