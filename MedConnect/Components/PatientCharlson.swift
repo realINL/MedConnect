@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PatientCharlson: View {
-    let patient: Patient
+    let medicalRecord: MedicalRecord
     @Binding var charlosIsPresented: Bool
     var body: some View {
         HStack {
-            PatientMetric(metric: "\(patient.chrlsonIndex) % ", description: "Индекс Чарльсона", icon: "gauge.with.dots.needle.100percent", iconColor: .green)
+            PatientMetric(metric: "\(medicalRecord.chrlsonIndex) % ", description: "Индекс Чарльсона", icon: "gauge.with.dots.needle.100percent", iconColor: .green)
 //                .padding(.trailing)
             Spacer()
             Button {
@@ -37,12 +37,12 @@ struct PatientCharlson: View {
         }
         .padding(.trailing)
         .popover(isPresented: $charlosIsPresented) {
-            CharlsonCalculatorView(viewModel: CharlsonCalculatorViewModel(patient: patient))
+            CharlsonCalculatorView(viewModel: CharlsonCalculatorViewModel(medicalRecord: medicalRecord))
         }
     }
     
 }
 
 #Preview {
-    PatientCharlson(patient: Patient.MOCK_Patients.first!, charlosIsPresented: .constant(false))
+    PatientCharlson(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!, charlosIsPresented: .constant(false))
 }

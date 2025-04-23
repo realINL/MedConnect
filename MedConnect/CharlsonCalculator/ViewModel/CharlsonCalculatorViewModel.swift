@@ -25,10 +25,10 @@ class CharlsonCalculatorViewModel: ObservableObject {
         }
     }
     
-    let patient: Patient // id пациента
+    let medicalRecord: MedicalRecord // медкарта пациента
     
-    init(patient: Patient) {
-        self.patient = patient
+    init(medicalRecord: MedicalRecord) {
+        self.medicalRecord = medicalRecord
     }
     
     
@@ -45,7 +45,7 @@ class CharlsonCalculatorViewModel: ObservableObject {
             .filter { selections[$0.id] == true }
             .reduce(0) { $0 + $1.points }
         
-        return organismScore + traumaScore + calculateAgeScore(age: patient.age)
+        return organismScore + traumaScore + calculateAgeScore(age: medicalRecord.age)
     }
     
     func calculateAgeScore(age: Int) -> Int { // баллы за возраст

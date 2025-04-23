@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct PatientMetrics: View {
-    let patient: Patient
+    let medicalRecord: MedicalRecord
     var body: some View {
         HStack{
 //            VStack {
@@ -63,15 +63,15 @@ struct PatientMetrics: View {
 //                }
 //            }
             
-            PatientMetric(metric: "ASA \(patient.asaIndex)", description:
+            PatientMetric(metric: "ASA \(medicalRecord.asaIndex)", description:
                                 "", //                            "Тяжелое системное заболевание",
                           icon: "a.circle.fill")
             Spacer()
-            PatientMetric(metric: "ECOG \(patient.ecogIndex)", description:
+            PatientMetric(metric: "ECOG \(medicalRecord.ecogIndex)", description:
                             "", // "Лечится амбулаторно",
                           icon: "e.circle.fill")
             Spacer()
-            PatientMetric(metric: "\(patient.karnofskyIndex) %", description:
+            PatientMetric(metric: "\(medicalRecord.karnofskyIndex) %", description:
                             "", // "Индекс Карновского",
                           icon: "k.circle.fill")
         }
@@ -87,5 +87,5 @@ struct PatientMetrics: View {
 }
 
 #Preview {
-    PatientMetrics(patient: Patient.MOCK_Patients.first!)
+    PatientMetrics(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!)
 }

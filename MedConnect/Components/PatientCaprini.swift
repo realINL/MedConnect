@@ -10,11 +10,11 @@ import SwiftUI
 import SwiftUI
 
 struct PatientCaprini: View {
-    let patient: Patient
+    let medicalRecord: MedicalRecord
     @Binding var isPresentd: Bool
     var body: some View {
         HStack {
-            PatientMetric(metric: "\(patient.capriniIndex) балла", description: "Шкала Caprini", icon: "gauge.with.dots.needle.33percent")
+            PatientMetric(metric: "\(medicalRecord.capriniIndex) балла", description: "Шкала Caprini", icon: "gauge.with.dots.needle.33percent")
 //                .padding(.trailing)
             
             Spacer()
@@ -41,9 +41,12 @@ struct PatientCaprini: View {
                 .shadow(radius: 5)
         }
         .padding(.leading)
+        .popover(isPresented: $isPresentd) {
+            CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(medicalRecord: medicalRecord))
+        }
     }
 }
 
 #Preview {
-    PatientCaprini(patient: Patient.MOCK_Patients.first!, isPresentd: .constant(false))
+    PatientCaprini(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!, isPresentd: .constant(false))
 }

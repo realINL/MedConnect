@@ -64,7 +64,7 @@ struct CapriniCalculatorView: View {
 }
 
 #Preview {
-    CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(patient: Patient.MOCK_Patients.first!))
+    CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!))
 }
 
 

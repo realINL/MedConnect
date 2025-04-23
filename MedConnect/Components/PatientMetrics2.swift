@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct PatientMetrics2: View {
-    let patient: Patient
+    let medicalRecord: MedicalRecord
     @Binding var capriniIsPresented: Bool
     @Binding var charlosIsPresented: Bool
     var body: some View {
         HStack {
-            PatientCaprini(patient: patient, isPresentd: $capriniIsPresented)
+            PatientCaprini(medicalRecord: medicalRecord, isPresentd: $capriniIsPresented)
             Spacer()
-            PatientCharlson(patient: patient, charlosIsPresented: $charlosIsPresented)
+            PatientCharlson(medicalRecord: medicalRecord, charlosIsPresented: $charlosIsPresented)
         }
     }
 }

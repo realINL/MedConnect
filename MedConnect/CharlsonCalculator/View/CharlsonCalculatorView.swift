@@ -54,5 +54,5 @@ struct CharlsonCalculatorView: View {
 }
 
 #Preview {
-    CharlsonCalculatorView(viewModel: CharlsonCalculatorViewModel(patient: Patient.MOCK_Patients[2]))
+    CharlsonCalculatorView(viewModel: CharlsonCalculatorViewModel(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!))
 }

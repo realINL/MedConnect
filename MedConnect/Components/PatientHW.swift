@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PatientHW: View {
-    let patient: Patient
+    let medicalRecord: MedicalRecord
     var body: some View {
         HStack{
             Image(systemName: "figure")
@@ -16,10 +16,10 @@ struct PatientHW: View {
                     Group {
                         Text("ИМТ 25,9")
                         Text("•")
-                        Text("\(patient.weight.dotOne) кг")
+                        Text("\(medicalRecord.weight.dotOne) кг")
                         Text("•")
-                        Text("\(patient.height) см")
-                        if patient.weightLoss {
+                        Text("\(medicalRecord.height) см")
+                        if medicalRecord.weightLoss {
                             HStack {
                                 Group {
                                     Image(systemName: "exclamationmark.triangle")
@@ -50,6 +50,6 @@ struct PatientHW: View {
 }
 
 #Preview {
-    PatientHW(patient: Patient.MOCK_Patients.first!)
+    PatientHW(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!)
 }
 

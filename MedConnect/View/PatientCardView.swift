@@ -22,18 +22,15 @@ struct PatientCardView: View {
             PatienHeaderInfo(patient: patient)
             ScrollView {
                 VStack(spacing: 10) {
-                    PatientHW(patient: patient)
-                    PatientMetrics(patient: patient)
-                    PatientMetrics2(patient: patient, capriniIsPresented: $capriniIsPresented, charlosIsPresented: $charlosIsPresented)
+                    PatientHW(medicalRecord: medicalRecord)
+                    PatientMetrics(medicalRecord: medicalRecord)
+                    PatientMetrics2(medicalRecord: medicalRecord, capriniIsPresented: $capriniIsPresented, charlosIsPresented: $charlosIsPresented)
                     PatientDisease(medicalRecord: medicalRecord)
                     PatientCT(medicalRecord: medicalRecord)
                     PatientRT(medicalRecord: medicalRecord)
                     ConcomitantDiseaseView()
                 }
             }
-        }
-        .popover(isPresented: $capriniIsPresented) {
-            CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(patient: patient))
         }
         .navigationTitle("Карта пациента")
         .toolbar {
