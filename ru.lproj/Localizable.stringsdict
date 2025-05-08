@@ -2,6 +2,54 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>minutes</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@minutes_count@</string>
+		<key>minutes_count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>%d минут</string>
+			<key>one</key>
+			<string>%d минута</string>
+			<key>two</key>
+			<string>%d минуты</string>
+			<key>few</key>
+			<string>%d минуты</string>
+			<key>many</key>
+			<string>%d минут</string>
+			<key>other</key>
+			<string>%d минут</string>
+		</dict>
+	</dict>
+	<key>days</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@days_count@</string>
+		<key>days_count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>%d дней</string>
+			<key>one</key>
+			<string>%d день</string>
+			<key>two</key>
+			<string>%d дня</string>
+			<key>few</key>
+			<string>%d дня</string>
+			<key>many</key>
+			<string>%d дней</string>
+			<key>other</key>
+			<string>%d дней</string>
+		</dict>
+	</dict>
 	<key>age</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>

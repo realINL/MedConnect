@@ -54,7 +54,7 @@ enum ChemotherapyStatus: Codable, Hashable {
             case .partially:
                 return "Проведена частично"
             case .completed(let scheme, let endDate):
-                return "Проведена полностью (\(scheme.description))"
+                return "Проведена полностью"
             }
         }
 }

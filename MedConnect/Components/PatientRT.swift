@@ -49,5 +49,5 @@ struct PatientRT: View {
 }
 
 #Preview {
-    PatientRT(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!)
+    PatientRT(medicalRecord: MedicalRecord.MOCK_MedicalRecords.first!)
 }

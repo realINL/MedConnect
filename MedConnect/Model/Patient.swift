@@ -10,13 +10,13 @@ import Foundation
 struct Patient: Identifiable, Hashable, Codable {
     let id: String
     
-    let name: String
-    let surname: String
-    let patronymic: String
-    let birthDate: Date
+    var name: String
+    var surname: String
+    var patronymic: String
+    var birthDate: Date
     
-    let disease: String
-    let concomitantDisease: ConcomitantDisease
+    var disease: String
+    var concomitantDisease: ConcomitantDisease
     
     var hospital: String = ""
     var hospitalDepartment: String = ""
@@ -39,7 +39,7 @@ extension Patient {
                                         name: "Иван",
                                         surname: "Иванов",
                                         patronymic: "Иванович",
-                                        birthDate: Date.now,
+                                        birthDate: Date.fromString("13.01.1956")!,
                                         disease: "Рак желудка",
                                         concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                         hospital: "МНИОИ им. П.А. Герцена", 
@@ -78,4 +78,8 @@ extension Patient {
                                         hospitalDepartment: "Торакальное отделение", 
                                         sex: .male,
                                         age: 40)]
+    
+    var surnameInitials: String {
+        return "\(self.surname) \(self.name.firstLetter). \(self.patronymic.firstLetter)."
+    }
 }

@@ -15,4 +15,40 @@ extension Int {
         
         return resultString
     }
+    
+    var daysCount: String {
+        let formatString: String = NSLocalizedString("days", comment: "days count")
+        
+        let resultString: String = String.localizedStringWithFormat(formatString, self)
+        
+        return resultString
+    }
+    
+    var day: String {
+        let formatString: String = NSLocalizedString("day", comment: "day")
+        
+        let resultString: String = "\(self) \(formatString)"
+        
+        return resultString
+    }
+    
+    var ml: String {
+        let formatString: String = NSLocalizedString("ml", comment: "ml")
+        
+        let resultString: String = "\(self) \(formatString)"
+        
+        return resultString
+    }
+    
+    var minutesCount: String {
+        let formatString: String = NSLocalizedString("minutes", comment: "minutes")
+        
+        let resultString: String = String.localizedStringWithFormat(formatString, self)
+        
+        return resultString
+    }
+    
+    func toDouble() -> Double {
+        return Double(self)
+    }
 }

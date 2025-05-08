@@ -7,14 +7,25 @@
 
 import SwiftUI
 
+class MedCardEditViewModel: ObservableObject {
+    @Published var medicalRecord: MedicalRecord
+    @Published var patient: Patient
+    
+    init() {
+        self.medicalRecord = MedicalRecord.MOCK_MedicalRecords[0]
+        self.patient = Patient.MOCK_Patients[0]
+    }
+}
+
 struct MedCardEditView: View {
+    @ObservedObject var medCardEditViewModel: MedCardEditViewModel
     
     var body: some View {
         
         // MARK: Swipeable
         TabView {
-            Form {PatientInfoSection() }
-            Form {PatientHWSection() }
+            Form {PatientInfoSection(viewModel: medCardEditViewModel) }
+            Form {PatientHWSection(viewModel: medCardEditViewModel) }
             Form {DiseaseInfoSection() }
             Form {TumorDetailsSection() }
             Form {TNMClassificationSection() }
@@ -24,6 +35,26 @@ struct MedCardEditView: View {
         }
         .tabViewStyle(.page)
         .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+        .background(Color(.systemGroupedBackground))
+        .toolbar {
+//            ToolbarItem(placement: .topBarLeading) {
+//                Button(action: {
+//                    
+//                }, label: {
+//                    Image(systemName: "chevron.left")
+//                })
+//                
+//            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    
+                }, label: {
+                    Image(systemName: "checkmark.circle")
+                })
+                
+            }
+        }
         
         
         // MARK: Scrollable
@@ -53,7 +84,7 @@ struct MedCardEditView: View {
 }
 
 #Preview() {
-    MedCardEditView()
+    MedCardEditView(medCardEditViewModel: MedCardEditViewModel())
 }
 
 
@@ -183,60 +214,57 @@ import SwiftUI
 
 // MARK: - Patient Info Section
 struct PatientInfoSection: View {
-    @State private var name: String = ""
-    @State private var surname: String = ""
-    @State private var patronymic: String = ""
-    @State private var sex: Sex = .male
-    @State private var birthDate: Date = Date.now
+    @ObservedObject var viewModel: MedCardEditViewModel
     
     var body: some View {
-        Section(header: SectionHeader("Основная информация", imageName: "person.fill")) {
+        Section(/*header: SectionHeader("Основная информация", imageName: "person.fill")*/) {
 
-                TextField("Фамилия", text: $surname)
+            TextInputField("Фамилия", text: $viewModel.patient.surname)
 
-                TextField("Имя", text: $name)
+            TextInputField("Имя", text: $viewModel.patient.name)
 
-                TextField("Отчество", text: $patronymic)
+            TextInputField("Отчество", text: $viewModel.patient.patronymic)
             
-            SegmentedPicker(title: "Пол", selection: $sex, options: Sex.allCases)
+            SegmentedPicker(title: "Пол", selection: $viewModel.patient.sex, options: Sex.allCases)
             
-            DatePicker("Дата рождения", selection: $birthDate, displayedComponents: .date)
+            DatePicker("Дата рождения", selection: $viewModel.patient.birthDate, displayedComponents: .date)
                 .datePickerStyle(.compact)
         }
+        .navigationTitle("Основная информация")
+        .transition(.move(edge: .leading))
     }
 }
 
 // MARK: - Patient Height/Weight Section
 struct PatientHWSection: View {
-    @State private var height: String = ""
-    @State private var weight: String = ""
-    @State private var weightLoss: YesNo = .no
+    @ObservedObject var viewModel: MedCardEditViewModel
     
     var body: some View {
-        Section(header: SectionHeader("Антропометрия")) {
-            NumberInputField(title: "Рост, см", keyboardType: .numberPad, value: $height)
-            NumberInputField(title: "Вес, кг", keyboardType: .decimalPad, value: $weight)
+        Section(/*header: SectionHeader("Антропометрия")*/) {
+            NumberTextField(value: $viewModel.medicalRecord.height, title: "Рост, см")
+            DoubleTextField(value: $viewModel.medicalRecord.weight, title: "Вес, кг")
             
-            SegmentedPicker(
-                title: "Потеря веса >10% за 6 мес",
-                selection: $weightLoss,
-                options: YesNo.allCases
-            )
+//            SegmentedPicker(
+//                title: "Потеря веса >10% за 6 мес",
+//                selection: $viewModel.medicalRecord.weightLoss,
+//                options: YesNo.allCases
+//            )
         }
+        .navigationTitle("Антропометрия")
     }
 }
 
 // MARK: - Disease Info Section
 struct DiseaseInfoSection: View {
     @State private var diseaseType: DiseaseType = .stomachCancer
-    @State private var tumorSize: String = ""
+    @State private var tumorSize: Int = 0
     @State private var histology: Histology = .squamousCellCarcinoma
     @State private var differentiation: TumorDifferentiation = .gx
     @State private var laurenType: LaurenType = .unclassifiable
     @State private var concomitant: MainDiseaseConcomitant = .none
     
     var body: some View {
-        Section(header: SectionHeader("Характеристики заболевания")) {
+        Section(/*header: SectionHeader("Характеристики заболевания")*/) {
             SegmentedPicker(title: "Тип заболевания", selection: $diseaseType, options: DiseaseType.allCases)
             
             NumberInputField(title: "Размер опухоли, мм", keyboardType: .numberPad, value: $tumorSize)
@@ -269,6 +297,7 @@ struct DiseaseInfoSection: View {
             
             QuickSelectPicker(title: "Осложнения", selection: $concomitant, options: MainDiseaseConcomitant.allCases)
         }
+        .navigationTitle("Характеристики заболевания")
     }
 }
 
@@ -278,7 +307,7 @@ struct TumorDetailsSection: View {
     @State private var tumorBody: TumorBody = .middle
     
     var body: some View {
-        Section(header: SectionHeader("Локализация опухоли")) {
+        Section(/*header: SectionHeader("Локализация опухоли")*/) {
             NavigationLink {
                 FullScreenPicker(selection: $siewertType, title: "Классификация Siewert", options: Siewert.allCases)
             } label: {
@@ -292,6 +321,7 @@ struct TumorDetailsSection: View {
             
             WheelPicker(title: "Тело", selection: $tumorBody, options: TumorBody.allCases)
         }
+        .navigationTitle("Локализация опухоли")
     }
 }
 
@@ -303,7 +333,7 @@ struct TNMClassificationSection: View {
     private var clinicalStage: String { CTNM(ct: cT, cn: cN, cm: cM).stage }
     
     var body: some View {
-        Section(header: SectionHeader("Классификация cTNM")) {
+        Section(/*header: SectionHeader("Классификация cTNM")*/) {
             NavigationLink {
                 FullScreenPicker(selection: $cT, title: "cT", options: CT.allCases)
             } label: {
@@ -339,6 +369,7 @@ struct TNMClassificationSection: View {
             
             LabeledValueRowReversed(value: clinicalStage, label: "Клиническая стадия")
         }
+        .navigationTitle("Классификация cTNM")
     }
 }
 
@@ -354,7 +385,7 @@ struct ChemotherapyInputView: View {
     
     var body: some View {
         Section {
-            Section(header: SectionHeader("Статус химиотерапии")) {
+            Section(/*header: SectionHeader("Статус химиотерапии")*/) {
                 Picker("Статус", selection: $status) {
                     Text("Не проведена").tag(ChemotherapyStatus.none)
                     Text("Проведена частично").tag(ChemotherapyStatus.partially)
@@ -639,16 +670,20 @@ struct QuickSelectPicker<T: Hashable & RawRepresentable & CaseIterable>: View wh
 struct NumberInputField: View {
     let title: String
     let keyboardType: UIKeyboardType
-    @Binding var value: String
+    @Binding var value: Int
     
     var body: some View {
         HStack {
             Text(title)
+                .layoutPriority(1)
             Spacer()
-            TextField("", text: $value)
+            NumberTextField(value: $value, title: title)
+                .background(Color.red)
+//            TextField("", value: $value, format: .number)
+                
+//                .frame(width: 80)
                 .keyboardType(keyboardType)
                 .multilineTextAlignment(.trailing)
-                .frame(width: 80)
             Text(title.components(separatedBy: ",").last ?? "")
                 .foregroundColor(.gray)
         }
@@ -677,6 +712,6 @@ struct FullScreenPicker<T: Hashable & RawRepresentable>: View where T.RawValue =
 // MARK: - Previews
 struct MedCardEditView_Previews: PreviewProvider {
     static var previews: some View {
-        MedCardEditView()
+        MedCardEditView(medCardEditViewModel: MedCardEditViewModel())
     }
 }

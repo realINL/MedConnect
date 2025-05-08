@@ -8,34 +8,54 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var search: String = ""
-    @State private var showMenu: Bool = false
+    var appViewModel: AppViewModel
+    @ObservedObject var viewModel: HomeViewModel
+    @State var search: String
+    @State private var showMenu: Bool
+    
+    init(appViewModel: AppViewModel, homeViewModel: HomeViewModel) {
+        self.appViewModel = appViewModel
+        self.viewModel = homeViewModel
+        self.search = ""
+        self.showMenu = false
+    }
+    
     var body: some View {
         NavigationStack {
-            //            ScrollView {
-            //                ForEach(searchPatients) { patient in
-            //                    NavigationLink(value: patient) {
-            //                        PatientScrollCardView(patient: patient)
-            //                    }
-            //                    Divider()
-            //                }
-            //            }
-            //            .navigationDestination(for: Patient.self, destination:  { patient in PatientCardView(patient: patient) })
-            //            .buttonStyle(PlainButtonStyle())
             ZStack {
                 ScrollView {
-                    ForEach(searchPatients) { patient in
-                        NavigationLink(value: patient) {
+                    ForEach(viewModel.searchPatients) { patient in
+                        NavigationLink{ PatientCardView(patient: patient)} label: {
                             PatientScrollCardView(patient: patient)
                         }
                         Divider()
                     }
                 }
-                .navigationDestination(for: Patient.self, destination:  { patient in PatientCardView(patient: patient) })
                 .buttonStyle(PlainButtonStyle())
                 
-                SideMenuView(isShownig: $showMenu)
+                Rectangle()
+                    .ignoresSafeArea()
+                    .opacity(showMenu ? 0.3 : 0)
+                    .animation(.default, value: showMenu)
+                
+                SideMenuView(appViewModel: appViewModel, isShownig: $showMenu)
+                    .offset(x: showMenu ? 0 : -UIScreen.main.bounds.width)
+                    .animation(.easeInOut, value: showMenu)
+                    .transition(.move(edge: .leading))
             }
+            .gesture(
+                        DragGesture()
+                            .onEnded { gesture in
+                                // Свайп слева направо (начало жеста близко к левому краю)
+                                if gesture.startLocation.x < 50 && gesture.translation.width > 50 {
+                                    showMenu = true
+                                }
+                                // Свайп справа налево (если меню открыто)
+                                else if gesture.translation.width < -50 && showMenu {
+                                    showMenu = false
+                                }
+                            }
+                    )
             .toolbar(showMenu ? .hidden : .visible, for: .navigationBar)
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.inline)
@@ -48,24 +68,21 @@ struct HomeView: View {
                     })
                     
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink {
+                            MedCardEditView(medCardEditViewModel: MedCardEditViewModel())
+                        } label: {
+                            Image(systemName: "person.crop.circle.badge.plus")
+                        }
+                }
             }
         }
-                .searchable(text: $search)
-        
-        
-        
-        //        Spacer()
+        .searchable(text: $viewModel.search)
+    
     }
     
-    var searchPatients: [Patient] {
-        if search.isEmpty {
-            return Patient.MOCK_Patients
-        } else {
-            return Patient.MOCK_Patients.filter {$0.name.localizedCaseInsensitiveContains(search)}
-        }
-    }
 }
 
 #Preview {
-    HomeView()
+    HomeView(appViewModel: AppViewModel.MOCK_AppViewModel, homeViewModel: AppViewModel.MOCK_AppViewModel.homeViewModel)
 }

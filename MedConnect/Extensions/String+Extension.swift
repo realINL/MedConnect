@@ -17,4 +17,11 @@ extension String {
         let components = self.components(separatedBy: " ")
         return components.first ?? ""
     }
+    
+    func nFirstWords(_ n: Int) -> String {
+        let components: [String] =  self.components(separatedBy: " ")
+        
+        guard n > 0 && components.count >= n else { return self }
+               
+        return components[0..<n].joined(separator: " ")    }
 }

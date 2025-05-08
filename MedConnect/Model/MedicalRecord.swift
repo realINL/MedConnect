@@ -29,11 +29,14 @@ struct MedicalRecord: Identifiable, Hashable, Codable {
     var chemotherapy: Chemotherapy
     var radiationTherapy: RadiationTherapy
     
-    
+    var postoperativeCourse: PostoperativeCourse
+    var hospitalComplications: HospitalComplications
+    var surgery: [Surgery]?
+    var pathomorphology: Pathomorphology?
 }
 
 extension MedicalRecord {
-    static let MOCK_MedicalRecord: [MedicalRecord] = [MedicalRecord(id: "0",
+    static let MOCK_MedicalRecords: [MedicalRecord] = [MedicalRecord(id: "0",
                                                                     patientId: "0",
                                                                     age: 57,
                                                                     weight: 82,
@@ -46,7 +49,10 @@ extension MedicalRecord {
                                                                     weightLoss: true,
                                                                     disease: StomachCancer.MOCK_StomachCancer.first!,
                                                                     chemotherapy: Chemotherapy.MOCK_Chemotherapy[0],
-                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[0]),
+                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[0],
+                                                                    postoperativeCourse: PostoperativeCourse.MOCK_PostoperativeCourse, hospitalComplications: HospitalComplications.MOCK_HospitalComplications,
+                                                                    surgery: [Surgery.MOCK_Surgery],
+                                                                    pathomorphology: Pathomorphology.MOCK_Pathomorphology),
                                                       MedicalRecord(id: "1",
                                                                     patientId: "1",
                                                                     age: 43,
@@ -60,7 +66,9 @@ extension MedicalRecord {
                                                                     weightLoss: false,
                                                                     disease: StomachCancer.MOCK_StomachCancer.first!,
                                                                     chemotherapy: Chemotherapy.MOCK_Chemotherapy[1],
-                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[1]),
+                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[1],
+                                                                    postoperativeCourse: PostoperativeCourse.MOCK_PostoperativeCourse,
+                                                                    hospitalComplications: HospitalComplications.MOCK_HospitalComplications),
                                                       MedicalRecord(id: "2",
                                                                     patientId: "2",
                                                                     age: 72,
@@ -74,5 +82,7 @@ extension MedicalRecord {
                                                                     weightLoss: false,
                                                                     disease: StomachCancer.MOCK_StomachCancer.first!,
                                                                     chemotherapy: Chemotherapy.MOCK_Chemotherapy[2],
-                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[2])]
+                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[2],
+                                                                    postoperativeCourse: PostoperativeCourse.MOCK_PostoperativeCourse,
+                                                                    hospitalComplications: HospitalComplications.MOCK_HospitalComplications)]
 }

@@ -48,5 +48,5 @@ struct PatientCaprini: View {
 }
 
 #Preview {
-    PatientCaprini(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!, isPresentd: .constant(false))
+    PatientCaprini(medicalRecord: MedicalRecord.MOCK_MedicalRecords.first!, isPresentd: .constant(false))
 }
