@@ -40,6 +40,13 @@ enum Siewert: String, Codable, CaseIterable {
     }
 }
 
+//enum TumorLocalization: String, Codable {
+//    case ker = ""
+//    case bottom = "Дно"
+//    case body = "bb"
+//    case pyloric = "Пилорический отдел"
+//}
+
 enum TumorBody: String, Codable, CaseIterable {
     case proximal = "Проксимальная третья"
     case middle = "Средняя треть"

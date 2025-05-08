@@ -8,6 +8,6 @@
 import Foundation
 
 enum Sex: String, Codable, CaseIterable {
-    case male = "male"
-    case female = "female"
+    case male = "Мужчина"
+    case female = "Женжина"
 }

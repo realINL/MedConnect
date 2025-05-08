@@ -10,34 +10,45 @@ import SwiftUI
 struct MedCardEditView: View {
     
     var body: some View {
-//        TabView {
-//            DiseaseEditView()
-//            PatientInfoEditUIComponent()
-//            PatientHWEdit()
-//            
-//        }
-//        .tabViewStyle(.page)
-//        .indexViewStyle(.page(backgroundDisplayMode: .interactive))
-        NavigationView {
-            List {
-                PatientInfoSection()
-                PatientHWSection()
-                DiseaseInfoSection()
-                TumorDetailsSection()
-                TNMClassificationSection()
-                ChemotherapyInputView()
-            }
-//            .navigationTitle("Медицинская карта")
-//            .navigationBarTitleDisplayMode(.inline)
-//            .toolbar {
-//                ToolbarItem(placement: .primaryAction) {
-//                    Button("Сохранить") {
-//                        // Сохранение данных
-//                    }
-//                    .font(.headline)
-//                }
-//            }
+        
+        // MARK: Swipeable
+        TabView {
+            Form {PatientInfoSection() }
+            Form {PatientHWSection() }
+            Form {DiseaseInfoSection() }
+            Form {TumorDetailsSection() }
+            Form {TNMClassificationSection() }
+            Form {ChemotherapyInputView() }
+//            CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!))
+//
         }
+        .tabViewStyle(.page)
+        .indexViewStyle(.page(backgroundDisplayMode: .interactive))
+        
+        
+        // MARK: Scrollable
+//        NavigationView {
+//            List {
+//             PatientInfoSection()
+//             PatientHWSection()
+//             DiseaseInfoSection()
+//             TumorDetailsSection()
+//             TNMClassificationSection()
+//             ChemotherapyInputView()
+//}
+        
+        
+////            .navigationTitle("Медицинская карта")
+////            .navigationBarTitleDisplayMode(.inline)
+////            .toolbar {
+////                ToolbarItem(placement: .primaryAction) {
+////                    Button("Сохранить") {
+////                        // Сохранение данных
+////                    }
+////                    .font(.headline)
+////                }
+////            }
+//        }
     }
 }
 
