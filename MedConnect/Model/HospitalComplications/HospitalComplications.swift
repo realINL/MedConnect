@@ -8,7 +8,8 @@
 import Foundation
 
 protocol Complication: Identifiable, Codable, Hashable {
-    var complicationType: ComplicationType { get set }
+    var complicationType: ComplicationType { get }
+    var complicationDescription: String { get }
     var onsetTime: String { get set }
     var cavienDindoGrade: CavienDindoGrade { get set }
     var outcome: ComplicationOutcome { get set }
@@ -16,27 +17,46 @@ protocol Complication: Identifiable, Codable, Hashable {
 
 struct GenerealComplication: Complication {
     let id: String
-    var complicationType = ComplicationType.general
+    let complicationType: ComplicationType
+    var complicationDescription: String {
+            return complication.rawValue
+        }
     var complication: GeneralComplicationType
     var onsetTime: String
     var cavienDindoGrade: CavienDindoGrade
     var outcome: ComplicationOutcome
+    
+    init(complication: GeneralComplicationType, onsetTime: String, cavienDindoGrade: CavienDindoGrade, outcome: ComplicationOutcome) {
+        self.id = UUID().uuidString
+        self.complicationType = ComplicationType.general
+        self.complication = complication
+        self.onsetTime = onsetTime
+        self.cavienDindoGrade = cavienDindoGrade
+        self.outcome = outcome
+    }
+    
+    init() {
+        self.id = UUID().uuidString
+        self.complicationType = ComplicationType.general
+        self.complication = .vap
+        self.onsetTime = "1 день"
+        self.cavienDindoGrade = .gradeI
+        self.outcome = .fullRecovery
+    }
 }
 
 extension GenerealComplication {
-    static let MOCK_GenerealComplication: GenerealComplication = GenerealComplication(id: "1", complication: .cauti,
+    static let MOCK_GenerealComplication: GenerealComplication = GenerealComplication(complication: .cauti,
                                                                                       onsetTime: "2 дня",
                                                                                       cavienDindoGrade: .gradeI,
                                                                                       outcome: .fullRecovery)
     static let MOCK_GenerealComplications: [GenerealComplication] = [
         MOCK_GenerealComplication,
-        GenerealComplication(id: "1",
-                             complication: .arrhythmiaInvasive,
+        GenerealComplication(complication: .arrhythmiaInvasive,
                              onsetTime: "1 час",
                              cavienDindoGrade: .gradeIIIa,
                              outcome: .fullRecovery),
-        GenerealComplication(id: "2",
-                             complication: .liverFailure,
+        GenerealComplication(complication: .liverFailure,
                              onsetTime: "1 неделя",
                              cavienDindoGrade: .gradeII,
                              outcome: .fullRecovery),
@@ -47,23 +67,44 @@ extension GenerealComplication {
 struct SurgicalComplication: Complication {
     let id: String
 
-    var complicationType = ComplicationType.surgical
+    let complicationType: ComplicationType
     var complication: SurgicalComplicationType
+    var complicationDescription: String {
+            return complication.rawValue
+        }
     var onsetTime: String
     var cavienDindoGrade: CavienDindoGrade
     var outcome: ComplicationOutcome
     
+    init(complication: SurgicalComplicationType, onsetTime: String, cavienDindoGrade: CavienDindoGrade, outcome: ComplicationOutcome) {
+        self.id = UUID().uuidString
+        self.complicationType = ComplicationType.surgical
+        self.complication = complication
+        self.onsetTime = onsetTime
+        self.cavienDindoGrade = cavienDindoGrade
+        self.outcome = outcome
+    }
+    
+    init() {
+        self.id = UUID().uuidString
+        self.complicationType = ComplicationType.surgical
+        self.complication = .superficialSSI
+        self.onsetTime = "1 день"
+        self.cavienDindoGrade = .gradeI
+        self.outcome = .fullRecovery
+    }
+    
 }
 
 extension SurgicalComplication {
-    static let MOCK_SurgicalComplication: SurgicalComplication = SurgicalComplication(id: "1",
+    static let MOCK_SurgicalComplication: SurgicalComplication = SurgicalComplication(
                                                                                       complication: .bleeding,
                                                                                       onsetTime: "1 час",
                                                                                       cavienDindoGrade: .gradeI,
                                                                                       outcome: .fullRecovery)
     
     static let MOCK_SurgicalComplications: [SurgicalComplication] = [MOCK_SurgicalComplication,
-                                                                     SurgicalComplication(id: "2",
+                                                                     SurgicalComplication(
                                                                                           complication: .deepSSI,
                                                                                           onsetTime: "2 часа",
                                                                                           cavienDindoGrade: .gradeII,
@@ -73,8 +114,8 @@ extension SurgicalComplication {
 struct HospitalComplications: Identifiable, Codable, Hashable {
     let id: String
     var hasComplications: YesNo
-    var generalComplications: [GenerealComplication]?
-    var SurgicalComplications: [SurgicalComplication]?
+    var generalComplications: [GenerealComplication]
+    var SurgicalComplications: [SurgicalComplication]
     
 //    struct Complication: Codable, Identifiable {
 //        let id = UUID()
@@ -199,13 +240,13 @@ extension HospitalComplications {
                                                                                          hospitalizationOutcome: .discharged)
 }
 
-enum HospitalizationOutcome: String, Codable {
+enum HospitalizationOutcome: String, Codable, Hashable, CaseIterable {
     case discharged = "Выписан"
     case transferred = "Перевод в другой стационар"
     case death = "Смерть"
 }
 
-enum CavienDindoGrade: String, Codable, CaseIterable {
+enum CavienDindoGrade: String, Codable, Hashable, CaseIterable {
     case gradeI = "Grade I"
     case gradeII = "Grade II"
     case gradeIIIa = "Grade IIIa"
@@ -215,16 +256,16 @@ enum CavienDindoGrade: String, Codable, CaseIterable {
     case gradeV = "Grade V"
 }
 
-enum ComplicationOutcome: String, Codable, CaseIterable {
+enum ComplicationOutcome: String, Codable, Hashable, CaseIterable {
     case fullRecovery = "Полное выздоровление"
     case partialRecovery = "Частичное выздоровление"
     case death = "Смерть"
 }
 
-enum GeneralComplicationType: String, Codable, CaseIterable {
+enum GeneralComplicationType: String, Codable, Hashable, CaseIterable {
     case vap = "Пневмония, связанная с ИВЛ"
-    case clabsi = "Инфекции кровотока"
-    case cauti = "Инфекции мочевыводящих путей"
+    case clabsi = "Инфекции кровотока, ассоциированные с функционированием центрального катетера (CLABSI)"
+    case cauti = "Катетер-ассоциированны инфекции мочевыводящих путей"
     case pleuralEffusion = "Плевральный выпот"
     case respiratoryFailure = "Дыхательная недостаточность"
     case renalFailure = "Острая почечная недостаточность"
@@ -242,7 +283,7 @@ enum GeneralComplicationType: String, Codable, CaseIterable {
     case other = "Другое"
 }
 
-enum SurgicalComplicationType: String, Codable, CaseIterable {
+enum SurgicalComplicationType: String, Codable, Hashable, CaseIterable {
     case superficialSSI = "Поверхностные инфекционные осложнения раны Superficial SSI"
     case deepSSI = "Глубокие инфекционные осложнения раны deep SSI"
     case esophagealAnastomosis = "Несостоятельность пищеводного анастомоза"
@@ -258,7 +299,7 @@ enum SurgicalComplicationType: String, Codable, CaseIterable {
     case other = "Другое"
 }
 
-enum ComplicationType: String, Codable, CaseIterable {
+enum ComplicationType: String, Codable, Hashable, CaseIterable {
     case general = "Общее"
     case surgical = "Хирургическое"
 }

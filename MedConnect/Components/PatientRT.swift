@@ -22,15 +22,29 @@ struct PatientRT: View {
             
             if showDetails {
                 VStack {
-                    LabeledValueRow(value: "Статус", label: radiationTherapy.status.description)
+                    LabeledValueRow(value: "Статус", label: radiationTherapy.status.rawValue)
                     switch radiationTherapy.status {
-                    case .none, .partially:
+                        
+                    case .none:
                         EmptyView()
-                    case .completed(let sfd, let tfd):
+                        
+                    case .partially:
                         Divider()
-                        LabeledValueRow(value: "Суммарная очаговаря доза", label: "\(tfd)")
+                        LabeledValueRow(value: "Суммарная очаговаря доза", label: "\(radiationTherapy.tfd?.description ?? "no data")")
                         Divider()
-                        LabeledValueRow(value: "Разовая очаговаря доза", label: "\(sfd)")
+                        LabeledValueRow(value: "Разовая очаговаря доза", label: "\(radiationTherapy.sfd?.description ?? "no data")")
+                        Divider()
+                        LabeledValueRow(value: "\(radiationTherapy.startDate.date)",
+                                        label: "Начало терапии")
+                        
+                    case .completed:
+                        Divider()
+                        LabeledValueRow(value: "Суммарная очаговаря доза", label: "\(radiationTherapy.tfd?.description ?? "no data")")
+                        Divider()
+                        LabeledValueRow(value: "Разовая очаговаря доза", label: "\(radiationTherapy.sfd?.description ?? "no data")")
+                        Divider()
+                        LabeledValueRow(value: "\(radiationTherapy.startDate.date) - \(radiationTherapy.endDate.date)",
+                                        label: "Период терапии")
                     }
                     
                 }

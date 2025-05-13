@@ -17,8 +17,8 @@ struct AppViewModel {
 }
 
 extension AppViewModel {
-    private static var networkManager: NetworkManager = FakeNetworkManager()
-    private static var localManager: LocalManager = FakeLocalManager()
+    private static var networkManager: NetworkManagerProtocol = FakeNetworkManager()
+    private static var localManager: LocalManagerProtocol = FakeLocalManager()
     static let MOCK_AppViewModel: AppViewModel = AppViewModel(loginViewModel: LoginViewModel(),
                                                               homeViewModel: HomeViewModel(networkManager: networkManager),
                                                               createSurgeryViewModel: CreateSurgeryViewModel(networkManager: networkManager, localManager: FakeLocalManager()),

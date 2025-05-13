@@ -68,22 +68,30 @@ struct DraftListView: View {
 }
 
 class DraftListViewModel: ObservableObject {
-    var localManager: LocalManager
-    @Published var surgiesDrafts: [Surgery]
-    @Published var medicalRecordsDrafts: [MedicalRecord]
+    var localManager: LocalManagerProtocol
+    @Published var surgiesDrafts: [Surgery] = []
+    @Published var medicalRecordsDrafts: [MedicalRecord] = []
     
-    init(localManager: LocalManager) {
+    init(localManager: LocalManagerProtocol) {
         self.localManager = localManager
-        self.surgiesDrafts = localManager.getSurgiesDrafts()
-        self.medicalRecordsDrafts = localManager.getMedicalRecordsDrafts()
+        self.surgiesDrafts = getDrafts()
+        do { try self.medicalRecordsDrafts = localManager.getMedicalRecordsDrafts() } catch {}
+    }
+    
+    private func getDrafts() -> [Surgery] {
+        var drafts: [Surgery] = []
+        do { try drafts = localManager.getSurgiesDrafts() } catch { }
+        return drafts
     }
     
     func deleteDraft(_ indexSet: IndexSet) {
-        localManager.deleteSurgeryDraft(at: indexSet)
+        do { try localManager.deleteSurgeryDraft(at: indexSet, drafts: surgiesDrafts) }
+        catch { }
     }
     
     func updateDrafts() {
-        self.surgiesDrafts = localManager.getSurgiesDrafts()
+        do { try self.surgiesDrafts = localManager.getSurgiesDrafts() }
+        catch {}
     }
     
 }

@@ -154,7 +154,7 @@ struct EditSurgeryDraftView: View {
                     
                     // MARK: Пациент
                     NavigationLink{
-                        PatientPickerView(selectedPatient: $viewModel.surgery.patient, patients: viewModel.getPatients())
+                        PatientPickerView(selectedPatient: $viewModel.surgery.patient, patients: viewModel.patients)
                     } label: {
                         HStack {
                             Text("Пациент")

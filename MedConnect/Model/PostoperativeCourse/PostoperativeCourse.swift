@@ -14,8 +14,8 @@ struct PostoperativeCourse: Identifiable, Hashable, Codable {
     var extubationOnTable: YesNo                    // Экстубация на столе
     var icitDays: Int                            // Койко-дни в ОРИТ
     var nutritionResumption: NutritionResumption    // Возобновление питания
-    var antibioticTherapy: AntibioticTherapy?       // Антибактериальная терапия
-    var drainRemoval: DrainRemoval?                 // Срок удаления дренажей
+    var antibioticTherapy: AntibioticTherapy       // Антибактериальная терапия
+    var drainRemoval: DrainRemoval                 // Срок удаления дренажей
     
     // Возобновление питания
     struct NutritionResumption: Identifiable, Hashable, Codable {

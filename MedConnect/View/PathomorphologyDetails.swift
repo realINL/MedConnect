@@ -16,10 +16,9 @@ struct PathomorphologyDetails: View { // MARK: ПАТОМОРФОЛОГИЯ ПО
                 // MARK: Гистология опухоли (ВОЗ)
                 Text("Гистология").secondaryTitleStyle()
                 
-                Text(pathomorphology.tumorHistology)
-                if let differentiation = pathomorphology.tumorHistologyDifferentiation {
-                    Text(differentiation)
-                }
+                Text(pathomorphology.tumorHistology.rawValue)
+             
+                Text(pathomorphology.tumorHistologyDifferentiation.rawValue)
                 
                 // MARK: Лечебный патоморфоз
                 Text("Лечебный патоморфоз").secondaryTitleStyle()
@@ -54,7 +53,7 @@ struct PathomorphologyDetails: View { // MARK: ПАТОМОРФОЛОГИЯ ПО
                 
                 Text("Адъювантная химиотерапия").secondaryTitleStyle()
                 
-                LabeledValueRow(value: pathomorphology.adjuvantChemotherapy.status.description, label: "Статус")
+                LabeledValueRow(value: pathomorphology.adjuvantChemotherapy.status.rawValue, label: "Статус")
                 
                 switch pathomorphology.adjuvantChemotherapy.status {
                 case .none:
@@ -65,7 +64,7 @@ struct PathomorphologyDetails: View { // MARK: ПАТОМОРФОЛОГИЯ ПО
                     LabeledValueRow(value: "\(pathomorphology.adjuvantChemotherapy.startDate?.date ?? "")",
                                     label: "Начало терапии")
                     Text(pathomorphology.adjuvantChemotherapy.interruptionReasons ?? "")
-                case .completed(_, _):
+                case .completed:
                     LabeledValueRow(value:  pathomorphology.adjuvantChemotherapy.scheme?.description ?? "",
                                     label: "Схема")
                     LabeledValueRow(value: "\(pathomorphology.adjuvantChemotherapy.startDate?.date ?? "") - \(pathomorphology.adjuvantChemotherapy.endDate?.date ?? "")",

@@ -35,6 +35,6 @@ struct PatientScrollCardView: View {
     }
 }
 
-#Preview {
-    PatientCardView(patient: Patient.MOCK_Patients.first!)
-}
+//#Preview {
+//    PatientCardView(patient: Patient.MOCK_Patients.first!)
+//}

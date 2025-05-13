@@ -6,18 +6,28 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct MedConnectApp: App {
-    let networkManager: NetworkManager
-    let localManager: LocalManager
+    let networkManager: NetworkManagerProtocol
+    let localManager: LocalManagerProtocol
     var appViewModel: AppViewModel
     
     @AppStorage("isLogin") var isLogin: Bool = false
     
     init() {
-        self.networkManager = FakeNetworkManager()
-        self.localManager = FakeLocalManager()
+        FirebaseApp.configure()
+//        let nm = NetworkManager()
+//        Task {
+//            do {
+//                try await nm.uploadSurgey(surgery: Surgery.MOCK_Surgery)
+//            } catch {
+//                print("Error uploading patient: \(error)")
+//            }
+//        }
+        self.networkManager = NetworkManager()
+        self.localManager = LocalManager()
         self.appViewModel = AppViewModel(loginViewModel: LoginViewModel(),
                                          homeViewModel: HomeViewModel(networkManager: networkManager),
                                          createSurgeryViewModel: CreateSurgeryViewModel(networkManager: networkManager,

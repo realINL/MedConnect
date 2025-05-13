@@ -38,8 +38,16 @@ struct PatientDisease: View {
                 .foregroundStyle(.secondary)
             
             HStack {
-                Text(disease.tumorLocalization.tumorBody.rawValue)  // Тело
-                Text(disease.tumorLocalization.siewert.shortCode)   // Кэр
+                Text(disease.tumorLocalization.localization.rawValue)  // Локализация
+                switch(disease.tumorLocalization.localization) {
+                case .ker:  // Кэр
+                    Text("•")
+                    Text(Siewert(rawValue: disease.tumorLocalization.desription)?.shortCode ?? disease.tumorLocalization.desription)
+                case .tumorBody: // Тело
+                    Text("•")
+                    Text(disease.tumorLocalization.desription)
+                default: EmptyView()
+                }
             }
             Text("\(disease.size) см")  // Размер
             

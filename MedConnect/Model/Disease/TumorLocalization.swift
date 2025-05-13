@@ -8,8 +8,14 @@
 import Foundation
 
 struct TumorLocalization: Codable, Hashable {
-    var siewert: Siewert
-    var bottom: String
-    var tumorBody: TumorBody
-    var pyloric: String
+    var localization: TumorLocalizationCases
+    var desription: String
 }
+
+enum TumorLocalizationCases: String, Codable, Hashable, CaseIterable {
+    case ker = "КЭР"
+    case bottom = "Дно"
+    case tumorBody = "Тело"
+    case pyloric = "Пилорический отдел"
+}
+

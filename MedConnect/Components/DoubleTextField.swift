@@ -12,6 +12,7 @@ struct DoubleTextField: UIViewRepresentable {
     @Binding var value: Double
     let title: String
     let keyboardType: UIKeyboardType = UIKeyboardType.decimalPad
+    let suffix: String
     
     func makeUIView(context: Context) -> UIView {
         let containerView = UIView()
@@ -42,7 +43,7 @@ struct DoubleTextField: UIViewRepresentable {
         
         // Suffix Label
         let suffixLabel = UILabel()
-        suffixLabel.text = title.components(separatedBy: ",").last?.trimmingCharacters(in: .whitespaces)
+        suffixLabel.text = suffix
         suffixLabel.textColor = .gray
         stackView.addArrangedSubview(suffixLabel)
         
@@ -103,7 +104,7 @@ struct DoubleTextField: UIViewRepresentable {
 }
 
 #Preview {
-    DoubleTextField(value: .constant(7), title: "Ddtlbnt, mm")
+    DoubleTextField(value: .constant(7), title: "Ddtlbnt, mm", suffix: "мм")
         
 }
 

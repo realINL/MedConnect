@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct PatientCardView: View{
-    let patient: Patient
-    let medicalRecord: MedicalRecord
+//    let patient: Patient
+//    let medicalRecord: MedicalRecord
+    @ObservedObject var viewModel: PatientCardViewModel
     
-    init(patient: Patient) {
-        self.patient = patient
-        self.medicalRecord = MedicalRecord.MOCK_MedicalRecords[Int(patient.id)!]
+    init(patient: Patient, networkManager: NetworkManagerProtocol, localManager: LocalManagerProtocol) {
+        self.viewModel = PatientCardViewModel(networkManager: networkManager, localManager: localManager, patient: patient)
     }
+    
+//    init(patient: Patient, medicalRecord: MedicalRecord) {
+//        self.patient = patient
+//        self.medicalRecord = medicalRecord
+//    }
+    
     @State var capriniIsPresented: Bool = false
     @State var charlosIsPresented: Bool = false
     @State var isEditing: Bool = false
@@ -41,8 +47,11 @@ struct PatientCardView: View{
 //                    }
 //                }
 //        } else {
-            VStack{
-                PatienHeaderInfo(patient: patient)
+        if viewModel.isLoading {
+            ProgressView()
+        } else if let medicalRecord = viewModel.medicalRecord {
+        VStack{
+            PatienHeaderInfo(patient: viewModel.patient)
                 ScrollView {
                     VStack(spacing: 10) {
                         PatientHW(medicalRecord: medicalRecord)
@@ -51,32 +60,38 @@ struct PatientCardView: View{
                         PatientDisease(medicalRecord: medicalRecord)
                         PatientCT(medicalRecord: medicalRecord)
                         PatientRT(medicalRecord: medicalRecord)
-                        ConcomitantDiseaseView()
+                        ConcomitantDiseaseView(medicalRecord: medicalRecord)
                         SurgeriesView(surgeries: medicalRecord.surgery)
                         Postoperative(postoperativeCourse: medicalRecord.postoperativeCourse)
                         HospitalComplicationsView(hospitalComplications: medicalRecord.hospitalComplications)
                         PathomorphologyDetails(pathomorphology: medicalRecord.pathomorphology)
-                    
-
                     }
                 }
             }
             .navigationTitle("Карта пациента")
             .toolbar {
-                ToolbarItem {
-                    NavigationLink {
-                        MedCardEditView(medCardEditViewModel: MedCardEditViewModel())
-                    } label: {
-                        Image(systemName: "pencil.circle")
+                if viewModel.medicalRecord != nil {
+                    ToolbarItem {
+                        NavigationLink {
+                            MedCardEditView(medCardEditViewModel: MedCardEditViewModel(medicalRecord: viewModel.medicalRecord!,
+                                                                                       patient: viewModel.patient,
+                                                                                       networkManager: viewModel.networkManager,
+                                                                                       localManager: viewModel.localManager))
+                        } label: {
+                            Image(systemName: "pencil.circle")
+                        }
                     }
                 }
             }
-//        }
+        }
+        else {
+            Text("error")
+        }
     }
     
     
 }
 
-#Preview {
-    PatientCardView(patient: Patient.MOCK_Patients.first!)
-}
+//#Preview {
+//    PatientCardView(patient: Patient.MOCK_Patients.first!)
+//}

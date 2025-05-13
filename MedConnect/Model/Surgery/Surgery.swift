@@ -25,6 +25,7 @@ struct Surgery: Identifiable, Codable, Hashable {
     var drainCount: Int // Количество дренажей
     var feedingTube: FeedingTube // Наличие назогастрального/еюнального зонда
     var intraoperativeComplication: String // Интраоперационные осложнения
+    var lastChange: Date // Дата последнего изменения
     
     init() {
         self.id = NSUUID().description
@@ -44,6 +45,7 @@ struct Surgery: Identifiable, Codable, Hashable {
         self.drainCount = 0
         self.feedingTube = FeedingTube.none
         self.intraoperativeComplication = IntraoperativeComplication.none.rawValue
+        self.lastChange = Date.now
     }
     
     init(
@@ -82,6 +84,7 @@ struct Surgery: Identifiable, Codable, Hashable {
         self.drainCount = drainCount
         self.feedingTube = feedingTube
         self.intraoperativeComplication = intraoperativeComplication
+        self.lastChange = Date.now
     }
 }
 

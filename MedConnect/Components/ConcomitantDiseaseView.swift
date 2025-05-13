@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ConcomitantDiseaseView: View {
-    let concomitantDisease: ConcomitantDisease = ConcomitantDisease.MOCK_ConcomitantDisease
+    let medicalRecord: MedicalRecord
+    let concomitantDisease: ConcomitantDisease
     @State var showDetails: Bool = true
+    
+    init(medicalRecord: MedicalRecord) {
+        self.medicalRecord = medicalRecord
+        self.concomitantDisease = medicalRecord.concomitantDisease
+    }
     var body: some View {
         VStack(alignment: .leading) {
             PatientDetailsCardTitle(title: "Сопутсвующие заболевания", showDetails: $showDetails)
@@ -77,5 +83,5 @@ struct ConcomitantDiseaseView: View {
 }
 
 #Preview {
-    ConcomitantDiseaseView()
+    ConcomitantDiseaseView(medicalRecord: MedicalRecord.MOCK_MedicalRecords[0])
 }

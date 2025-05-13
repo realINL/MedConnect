@@ -8,12 +8,13 @@
 import Foundation
 
 class SurgeriesListViewModel: ObservableObject {
-    let networkManager: NetworkManager
-    @Published var surgies: [Surgery]
+    let networkManager: NetworkManagerProtocol
+    @Published var surgies: [Surgery] = []
     @Published var search: String = ""
-    init(networkManager: NetworkManager) {
+    init(networkManager: NetworkManagerProtocol) {
         self.networkManager = networkManager
-        self.surgies = networkManager.getSurgeies()
+        Task { await updateSurgies() }
+        print("init sur")
     }
     
     var searchSurgies: [Surgery] {
@@ -30,7 +31,11 @@ class SurgeriesListViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     func updateSurgies() {
-        self.surgies = networkManager.getSurgeies()
+        print("vm sur")
+        Task {
+            try await self.surgies = networkManager.getSurgeies()
+        }
     }
 }

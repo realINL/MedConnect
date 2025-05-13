@@ -63,19 +63,19 @@ struct Postoperative: View {
                 Text("Антибактериальная терапия")
                     .secondaryTitleStyle()
                 
-                if let antibioticTherapy = postoperativeCourse.antibioticTherapy {
-                    Text("\(antibioticTherapy.medication) \(antibioticTherapy.dosage) \(NSLocalizedString("mg", comment: "mg"))")
-                    Text(antibioticTherapy.duration.daysCount)
-                }
+//                if let antibioticTherapy = postoperativeCourse.antibioticTherapy {
+                Text("\(postoperativeCourse.antibioticTherapy.medication) \(postoperativeCourse.antibioticTherapy.dosage) \(NSLocalizedString("mg", comment: "mg"))")
+                Text(postoperativeCourse.antibioticTherapy.duration.daysCount)
+//                }
                 
-                if let drainRemoval = postoperativeCourse.drainRemoval {
+//                if let drainRemoval = postoperativeCourse.drainRemoval {
                     
                     Text("Срок удаления дренажей")
                         .secondaryTitleStyle()
-                    Text("\(NSLocalizedString("after", comment: "After")) \(drainRemoval.drain1Day?.daysCount ?? "")")
-                    Text("\(NSLocalizedString("after", comment: "After")) \(drainRemoval.drain2Day?.daysCount ?? "")")
-                    Text("\(NSLocalizedString("after", comment: "After")) \(drainRemoval.drain3Day?.daysCount ?? "")")
-                }
+                Text("\(NSLocalizedString("after", comment: "After")) \(postoperativeCourse.drainRemoval.drain1Day?.daysCount ?? "")")
+                Text("\(NSLocalizedString("after", comment: "After")) \(postoperativeCourse.drainRemoval.drain2Day?.daysCount ?? "")")
+                Text("\(NSLocalizedString("after", comment: "After")) \(postoperativeCourse.drainRemoval.drain3Day?.daysCount ?? "")")
+//                }
                 
             }
         }

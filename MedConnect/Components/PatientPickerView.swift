@@ -27,9 +27,9 @@ struct PatientPickerView: View {
     }
     var searchPatients: [Patient] {
         if search.isEmpty {
-            return Patient.MOCK_Patients
+            return patients
         } else {
-            return Patient.MOCK_Patients.filter {$0.name.localizedCaseInsensitiveContains(search)}
+            return patients.filter {$0.name.localizedCaseInsensitiveContains(search)}
         }
     }
 }

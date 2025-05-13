@@ -21,18 +21,29 @@ struct PatientCT: View {
         CardView(title: "Химиотерапия", showDetails: $showDetails) {
             
             VStack {
-                LabeledValueRow(value: chemo.staus.description, label: "Статус")
-                switch chemo.staus {
+                LabeledValueRow(value: chemo.status.rawValue,
+                                label: "Статус")
+                switch chemo.status {
                 case .none:
                     EmptyView()
                 case .partially:
+                    LabeledValueRow(value: chemo.scheme?.description ?? "no data",
+                                    label: "Схема")
                     Divider()
-                    LabeledValueRow(value: "\(chemo.startDate.date)", label: "Начало терапии")
-                case .completed(let scheme, let endDate):
+                    LabeledValueRow(value: "\(chemo.numberOfCourses)",
+                                    label: "Кол-во курсов")
                     Divider()
-                    LabeledValueRow(value: "\(chemo.numberOfCourses)", label: "Кол-во курсов")
+                    LabeledValueRow(value: "\(chemo.startDate.date)",
+                                    label: "Начало терапии")
+                case .completed:
+                    LabeledValueRow(value: chemo.scheme ?? "no data",
+                                    label: "Схема")
                     Divider()
-                    LabeledValueRow(value: "\(chemo.startDate.date) - \(chemo.endDate.date)", label: "Период терапии")
+                    LabeledValueRow(value: "\(chemo.numberOfCourses)",
+                                    label: "Кол-во курсов")
+                    Divider()
+                    LabeledValueRow(value: "\(chemo.startDate.date) - \(chemo.endDate.date)",
+                                    label: "Период терапии")
                 }
             }
         }
@@ -40,5 +51,5 @@ struct PatientCT: View {
 }
 
 #Preview {
-    PatientCT(medicalRecord: MedicalRecord.MOCK_MedicalRecords.first!)
+    PatientCT(medicalRecord: MedicalRecord.MOCK_MedicalRecords[1])
 }

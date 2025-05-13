@@ -23,15 +23,27 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                ScrollView {
-                    ForEach(viewModel.searchPatients) { patient in
-                        NavigationLink{ PatientCardView(patient: patient)} label: {
-                            PatientScrollCardView(patient: patient)
+                if viewModel.isLoading {
+                    ProgressView()
+                } else {
+                    ScrollView {
+                        ForEach(viewModel.searchPatients) { patient in
+                            NavigationLink{
+                                PatientCardView(patient: patient, networkManager: viewModel.networkManager, localManager: appViewModel.createSurgeryViewModel.localManager)
+                            } label: {
+                                PatientScrollCardView(patient: patient)
+                                    .contentShape(Rectangle())
+                            }
+                            Divider()
                         }
-                        Divider()
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .refreshable {
+                        Task {
+                            await viewModel.fetchPatients()
+                        }
                     }
                 }
-                .buttonStyle(PlainButtonStyle())
                 
                 Rectangle()
                     .ignoresSafeArea()
@@ -70,7 +82,7 @@ struct HomeView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                         NavigationLink {
-                            MedCardEditView(medCardEditViewModel: MedCardEditViewModel())
+                            MedCardEditView(medCardEditViewModel: MedCardEditViewModel(medicalRecord: MedicalRecord.MOCK_MedicalRecords[0], patient: Patient.MOCK_Patients[0], networkManager: viewModel.networkManager, localManager: FakeLocalManager(), mode: .create))
                         } label: {
                             Image(systemName: "person.crop.circle.badge.plus")
                         }
@@ -78,6 +90,11 @@ struct HomeView: View {
             }
         }
         .searchable(text: $viewModel.search)
+        .onAppear() {
+            Task {
+                await viewModel.fetchPatients()
+            }
+        }
     
     }
     

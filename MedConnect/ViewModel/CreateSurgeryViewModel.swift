@@ -10,31 +10,47 @@ import Foundation
 
 class CreateSurgeryViewModel: ObservableObject {
     @Published var surgery: Surgery
-    let networkManager: NetworkManager
-    let localManager: LocalManager
+    @Published var patients: [Patient] = []
+    let networkManager: NetworkManagerProtocol
+    let localManager: LocalManagerProtocol
     
-    init(networkManager: NetworkManager, localManager: LocalManager) {
+    init(networkManager: NetworkManagerProtocol, localManager: LocalManagerProtocol) {
         self.surgery = Surgery()
         self.localManager = localManager
         self.networkManager = networkManager
+        Task { try await getPatients() }
     }
     
-    init(networkManager: NetworkManager, localManager: LocalManager, surgery: Surgery) {
+    init(networkManager: NetworkManagerProtocol, localManager: LocalManagerProtocol, surgery: Surgery) {
         self.surgery = surgery
         self.localManager = localManager
         self.networkManager = networkManager
+        Task { try await getPatients() }
     }
     
-    func getPatients() -> [Patient] {
-        return self.networkManager.getPatients()
+    @MainActor
+    func getPatients() async throws  {
+        do {
+            let patients = try await networkManager.getPatients()
+            print("Получены пациенты: \(patients.count) шт.")
+            self.patients = patients
+        } catch {
+            print("Ошибка при загрузке пациентов: \(error)")
+            throw error 
+        }
     }
     
     func uploadSurgery() {
-        networkManager.uploadSurgery(surgery: surgery)
+        surgery.lastChange = Date.now
+        Task {
+            try await networkManager.uploadSurgery(surgery: surgery)
+        }
     }
     
     func saveDraft() {
-        localManager.createSurgeryDraft(surgery)
+        surgery.lastChange = Date.now
+        do {try localManager.createSurgeryDraft(surgery)}
+        catch {}
     }
     
     func updateID() {

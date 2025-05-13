@@ -34,12 +34,12 @@ struct HospitalComplicationsView: View {
                 LabeledValueRow(value: hospitalComplications.reoperationsCount?.description ?? "0",
                                 label: "Повторные операции")
                 
-                if let generalCompliations = hospitalComplications.generalComplications {
+                if !hospitalComplications.generalComplications.isEmpty {
                     
                     Text("Общие осложенения")
                         .secondaryTitleStyle()
                     
-                    ForEach(generalCompliations, id: \.self) { generealComplication in
+                    ForEach(hospitalComplications.generalComplications, id: \.self) { generealComplication in
                         Text(generealComplication.complication.rawValue)
                             .font(.title3)
                             .bold()
@@ -58,12 +58,12 @@ struct HospitalComplicationsView: View {
                 
                 Divider()
                 
-                if let surgicalComplications = hospitalComplications.SurgicalComplications {
+                if !hospitalComplications.SurgicalComplications.isEmpty {
                     
                     Text("Хирургические осложенения")
                         .secondaryTitleStyle()
                     
-                    ForEach(surgicalComplications, id: \.self) { surgicalComplication in
+                    ForEach(hospitalComplications.SurgicalComplications, id: \.self) { surgicalComplication in
                         Text(surgicalComplication.complication.rawValue)
                             .font(.title3)
                             .bold()

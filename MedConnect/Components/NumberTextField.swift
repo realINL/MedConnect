@@ -12,6 +12,7 @@ struct NumberTextField: UIViewRepresentable {
     @Binding var value: Int
     let title: String
     let keyboardType: UIKeyboardType = UIKeyboardType.numberPad
+    var suffix: String = ""
     
     func makeUIView(context: Context) -> UIView {
         let containerView = UIView()
@@ -42,7 +43,7 @@ struct NumberTextField: UIViewRepresentable {
         
         // Suffix Label
         let suffixLabel = UILabel()
-        suffixLabel.text = title.components(separatedBy: ",").last?.trimmingCharacters(in: .whitespaces)
+        suffixLabel.text = suffix
         suffixLabel.textColor = .gray
         stackView.addArrangedSubview(suffixLabel)
         

@@ -6,7 +6,7 @@
   
 */
 "after" = "After";
-"Confirm" = "Confitm";
+"Confirm" = "Confirm";
 "day" = "day";
 "ExtubationOnTable" = "Extubation on table";
 "female" = "Female";
@@ -14,5 +14,6 @@
 "male" = "Male";
 "mg" = "mg";
 "ml" = "ml";
+"pc" = "pc.";
 "postoperativeCourse" = "Postoperative\ncourse";
 "weightloss" = "Weight loss!";

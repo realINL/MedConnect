@@ -7,13 +7,106 @@
 
 import SwiftUI
 
+enum MedCardMode {
+    case edit
+    case create
+}
+
 class MedCardEditViewModel: ObservableObject {
     @Published var medicalRecord: MedicalRecord
     @Published var patient: Patient
+    @Published var showConfirmAlert: Bool = false
+    @Published var showSaveAlert: Bool = false
+    @Environment(\.dismiss) var dismiss
     
-    init() {
-        self.medicalRecord = MedicalRecord.MOCK_MedicalRecords[0]
-        self.patient = Patient.MOCK_Patients[0]
+    @Published var siewert: Siewert {
+        didSet {
+            updateTumorDescription()
+        }
+    }
+    @Published var tumorBody: TumorBody {
+        didSet {
+            updateTumorDescription()
+        }
+    }
+    
+    @Published var tumorLocalization: TumorLocalizationCases {
+        didSet {
+            updateTumorDescription()
+        }
+    }
+    let mode: MedCardMode
+    let networkManager: NetworkManagerProtocol
+    let localManager: LocalManagerProtocol
+    
+    init(medicalRecord: MedicalRecord, patient: Patient, networkManager: NetworkManagerProtocol, localManager: LocalManagerProtocol, mode: MedCardMode = .edit) {
+        self.medicalRecord = medicalRecord
+        self.patient = patient
+        self.siewert =  Siewert(rawValue: medicalRecord.disease.tumorLocalization.desription) ?? .I
+        self.tumorBody = TumorBody(rawValue: medicalRecord.disease.tumorLocalization.desription) ?? .middle
+        self.tumorLocalization = medicalRecord.disease.tumorLocalization.localization
+        self.networkManager = networkManager
+        self.localManager = localManager
+        self.mode = mode
+    }
+    
+    func updateTumorDescription() {
+        medicalRecord.disease.tumorLocalization.localization = tumorLocalization
+        switch tumorLocalization {
+           case .ker:
+               medicalRecord.disease.tumorLocalization.desription = siewert.rawValue
+           case .tumorBody:
+               medicalRecord.disease.tumorLocalization.desription = tumorBody.rawValue
+           default:
+               medicalRecord.disease.tumorLocalization.desription = ""
+           }
+       }
+    
+    func patchHospitalComplication(_ complication: any Complication) {
+        if complication is GenerealComplication {
+            if let index = self.medicalRecord.hospitalComplications.generalComplications.firstIndex(where: { $0.id == complication.id as! String }) {
+                self.medicalRecord.hospitalComplications.generalComplications[index] = complication as! GenerealComplication
+            } else {
+                    self.medicalRecord.hospitalComplications.generalComplications.append(complication as! GenerealComplication)
+                }
+        } else if complication is SurgicalComplication {
+            if let index = self.medicalRecord.hospitalComplications.SurgicalComplications.firstIndex(where: { $0.id == complication.id as! String }) {
+                self.medicalRecord.hospitalComplications.SurgicalComplications[index] = complication as! SurgicalComplication
+            } else {
+                self.medicalRecord.hospitalComplications.SurgicalComplications.append(complication as! SurgicalComplication)
+            }
+        }
+    }
+    
+    func removeComplication(_ complication: any Complication) {
+        if let general = complication as? GenerealComplication {
+            self.medicalRecord.hospitalComplications.generalComplications.removeAll { $0.id == general.id }
+        } else if let surgical = complication as? SurgicalComplication {
+            self.medicalRecord.hospitalComplications.SurgicalComplications.removeAll { $0.id == surgical.id }
+        }
+    }
+    
+    func updateMedicalRecord() {
+        if mode == .edit {
+            Task {
+                try await networkManager.updateMedicalRecord(self.medicalRecord)
+                try await networkManager.updatePatient(self.patient)
+            }
+        }
+        else {
+            Task {
+                try await networkManager.uploadPatient(self.patient, medcard: self.medicalRecord)
+            }
+            print("update mr \(mode)")
+        }
+        showSaveAlert = true
+    }
+    
+    func saveAsDraft() {
+        do {
+            try localManager.createMedicalRecordDraft(self.medicalRecord)
+        } catch {}
+        showSaveAlert = true
     }
 }
 
@@ -26,11 +119,21 @@ struct MedCardEditView: View {
         TabView {
             Form {PatientInfoSection(viewModel: medCardEditViewModel) }
             Form {PatientHWSection(viewModel: medCardEditViewModel) }
-            Form {DiseaseInfoSection() }
-            Form {TumorDetailsSection() }
-            Form {TNMClassificationSection() }
-            Form {ChemotherapyInputView() }
+            Form {DiseaseInfoSection(viewModel: medCardEditViewModel) }
+            Form {TumorDetailsSection(viewModel: medCardEditViewModel) }
+            Form {TNMClassificationSection(viewModel: medCardEditViewModel) }
+            Form {ChemotherapyInputView(viewModel: medCardEditViewModel) }
+            Form { RadiationTherapySection(viewModel: medCardEditViewModel)}
+            Form { ConcomitantDiseaseSection(viewModel: medCardEditViewModel)}
+            Form { PostoperativeCourseSection(viewModel: medCardEditViewModel)}
+            Form { PathomorphologySection(viewModel: medCardEditViewModel)}
+            Form { pTNMSection(viewModel: medCardEditViewModel) }
+            Form { AdjuvantChemotherapySection(viewModel: medCardEditViewModel)}
+            Form { ConfirmationEdit(viewModel: medCardEditViewModel
+            )}
+//            Form { HospitalComplicationsSection(viewModel: medCardEditViewModel)}
 //            CapriniCalculatorView(viewModel: CapriniCalculatorViewModel(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!))
+//            previewMedicalRecord(patient: medCardEditViewModel.patient, medicalRecord: medCardEditViewModel.medicalRecord)
 //
         }
         .tabViewStyle(.page)
@@ -48,11 +151,20 @@ struct MedCardEditView: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: {
-                    
+                    medCardEditViewModel.showConfirmAlert = true
                 }, label: {
                     Image(systemName: "checkmark.circle")
                 })
                 
+            }
+        }
+        .alert("Вы уверены что хотите обновить данные?\nЭто действие нельзя отменить.", isPresented: $medCardEditViewModel.showConfirmAlert) {
+            Button("Confirm", role: .destructive) {  medCardEditViewModel.updateMedicalRecord() }
+            Button("Сохрнаить как черновик", role: .cancel) {medCardEditViewModel.saveAsDraft() }
+        }
+        .alert("Данные сохранены", isPresented: $medCardEditViewModel.showSaveAlert) {
+            Button("Ok", role: .cancel) {
+                medCardEditViewModel.showSaveAlert = false
             }
         }
         
@@ -84,7 +196,8 @@ struct MedCardEditView: View {
 }
 
 #Preview() {
-    MedCardEditView(medCardEditViewModel: MedCardEditViewModel())
+    MedCardEditView(medCardEditViewModel:
+                        MedCardEditViewModel(medicalRecord: MedicalRecord.MOCK_MedicalRecords[0], patient: Patient.MOCK_Patients[0], networkManager: FakeNetworkManager(), localManager: FakeLocalManager()))
 }
 
 
@@ -185,7 +298,6 @@ struct MedCardEditView: View {
 //}
 //
 
-import SwiftUI
 
 // MARK: - Main View
 //struct MedCardEditView: View {
@@ -242,60 +354,47 @@ struct PatientHWSection: View {
     var body: some View {
         Section(/*header: SectionHeader("Антропометрия")*/) {
             NumberTextField(value: $viewModel.medicalRecord.height, title: "Рост, см")
-            DoubleTextField(value: $viewModel.medicalRecord.weight, title: "Вес, кг")
+            DoubleTextField(value: $viewModel.medicalRecord.weight, title: "Вес", suffix: "кг")
             
-//            SegmentedPicker(
-//                title: "Потеря веса >10% за 6 мес",
-//                selection: $viewModel.medicalRecord.weightLoss,
-//                options: YesNo.allCases
-//            )
+            Text("Потеря веса >10% за 6 мес")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            Picker("Потеря веса >10% за 6 мес", selection: $viewModel.medicalRecord.weightLoss) {
+                Text(YesNo.yes.rawValue).tag(true)
+                Text(YesNo.no.rawValue).tag(false)
+            }
         }
+        .pickerStyle(.segmented)
         .navigationTitle("Антропометрия")
     }
 }
 
 // MARK: - Disease Info Section
 struct DiseaseInfoSection: View {
-    @State private var diseaseType: DiseaseType = .stomachCancer
-    @State private var tumorSize: Int = 0
-    @State private var histology: Histology = .squamousCellCarcinoma
-    @State private var differentiation: TumorDifferentiation = .gx
-    @State private var laurenType: LaurenType = .unclassifiable
-    @State private var concomitant: MainDiseaseConcomitant = .none
+    @ObservedObject var viewModel: MedCardEditViewModel
     
     var body: some View {
         Section(/*header: SectionHeader("Характеристики заболевания")*/) {
-            SegmentedPicker(title: "Тип заболевания", selection: $diseaseType, options: DiseaseType.allCases)
+            SegmentedPicker(title: "Тип заболевания", selection: $viewModel.medicalRecord.disease.type, options: DiseaseType.allCases)
             
-            NumberInputField(title: "Размер опухоли, мм", keyboardType: .numberPad, value: $tumorSize)
+            TextInputField("Размер опухоли, мм", text: $viewModel.medicalRecord.disease.size)
             
-            QuickSelectPicker(title: "Гистология", selection: $histology, options: Histology.allCases)
-            
-            NavigationLink {
-                FullScreenPicker(selection: $histology, title: "Гистологический тип", options: Histology.allCases)
-            } label: {
-                HStack {
-                    Text("Гистология")
-                    Spacer()
-                    Text(histology.rawValue)
-                        .foregroundColor(.gray)
-                }
-            }
+            QuickSelectPicker(title: "Гистология", selection: $viewModel.medicalRecord.disease.histology, options: Histology.allCases)
             
             NavigationLink {
-                FullScreenPicker(selection: $differentiation, title: "Степень дифференцировки", options: TumorDifferentiation.allCases)
+                FullScreenPicker(selection: $viewModel.medicalRecord.disease.tumorDifferentiation, title: "Степень дифференцировки", options: TumorDifferentiation.allCases)
             } label: {
                 HStack {
                     Text("Дифференцировка")
                     Spacer()
-                    Text(differentiation.shortCode)
+                    Text(viewModel.medicalRecord.disease.tumorDifferentiation.shortCode)
                         .foregroundColor(.gray)
                 }
             }
             
-            WheelPicker(title: "Тип по Lauren", selection: $laurenType, options: LaurenType.allCases)
+            WheelPicker(title: "Тип по Lauren", selection: $viewModel.medicalRecord.disease.lauren, options: LaurenType.allCases)
             
-            QuickSelectPicker(title: "Осложнения", selection: $concomitant, options: MainDiseaseConcomitant.allCases)
+            QuickSelectPicker(title: "Осложнения", selection: $viewModel.medicalRecord.disease.mainDiseaseConcomitant, options: MainDiseaseConcomitant.allCases)
         }
         .navigationTitle("Характеристики заболевания")
     }
@@ -303,222 +402,209 @@ struct DiseaseInfoSection: View {
 
 // MARK: - Tumor Details Section
 struct TumorDetailsSection: View {
-    @State private var siewertType: Siewert = .I
-    @State private var tumorBody: TumorBody = .middle
+    @ObservedObject var viewModel: MedCardEditViewModel
     
     var body: some View {
-        Section(/*header: SectionHeader("Локализация опухоли")*/) {
-            NavigationLink {
-                FullScreenPicker(selection: $siewertType, title: "Классификация Siewert", options: Siewert.allCases)
-            } label: {
-                HStack {
-                    Text("Siewert")
-                    Spacer()
-                    Text(siewertType.shortCode)
-                        .foregroundColor(.gray)
+        Section() {
+            WheelPicker(title: "Локализация", selection: $viewModel.tumorLocalization, options: TumorLocalizationCases.allCases)
+            switch(viewModel.medicalRecord.disease.tumorLocalization.localization) {
+            case .ker:
+                NavigationLink {
+                    FullScreenPicker(selection: $viewModel.siewert, title: "Классификация Siewert", options: Siewert.allCases)
+                } label: {
+                    HStack {
+                        Text("Siewert")
+                        Spacer()
+                        Text(viewModel.siewert.shortCode)
+                            .foregroundColor(.gray)
+                    }
                 }
+            case .tumorBody:
+                NavigationLink {
+                    FullScreenPicker(selection: $viewModel.tumorBody, title: "Тело", options: TumorBody.allCases)
+                } label: {
+                    HStack {
+                        Text("Тело")
+                        Spacer()
+                        Text(viewModel.tumorBody.rawValue)
+                            .foregroundColor(.gray)
+                    }
+                }
+            default:
+                EmptyView()
             }
             
-            WheelPicker(title: "Тело", selection: $tumorBody, options: TumorBody.allCases)
+            
         }
         .navigationTitle("Локализация опухоли")
     }
 }
 
+//struct previewMedicalRecord: View {
+//    let patient: Patient
+//    let medicalRecord: MedicalRecord
+//    var body: some View {
+//        PatientCardView(patient: patient, medicalRecord: medicalRecord)
+//    }
+//}
+
 // MARK: - TNM Classification Section
 struct TNMClassificationSection: View {
-    @State private var cT: CT = .tx
-    @State private var cN: CN = .nx
-    @State private var cM: CM = .mx
-    private var clinicalStage: String { CTNM(ct: cT, cn: cN, cm: cM).stage }
+    @ObservedObject var viewModel: MedCardEditViewModel
     
     var body: some View {
         Section(/*header: SectionHeader("Классификация cTNM")*/) {
             NavigationLink {
-                FullScreenPicker(selection: $cT, title: "cT", options: CT.allCases)
+                FullScreenPicker(selection: $viewModel.medicalRecord.disease.cTNM.ct, title: "cT", options: CT.allCases)
             } label: {
                 HStack {
                     Text("cT")
                     Spacer()
-                    Text(cT.shortCode)
+                    Text(viewModel.medicalRecord.disease.cTNM.ct.shortCode)
                         .foregroundColor(.gray)
                 }
             }
             
             NavigationLink {
-                FullScreenPicker(selection: $cN, title: "cN", options: CN.allCases)
+                FullScreenPicker(selection: $viewModel.medicalRecord.disease.cTNM.cn, title: "cN", options: CN.allCases)
             } label: {
                 HStack {
                     Text("cN")
                     Spacer()
-                    Text(cN.shortCode)
+                    Text(viewModel.medicalRecord.disease.cTNM.cn.shortCode)
                         .foregroundColor(.gray)
                 }
             }
             
             NavigationLink {
-                FullScreenPicker(selection: $cM, title: "cM", options: CM.allCases)
+                FullScreenPicker(selection: $viewModel.medicalRecord.disease.cTNM.cm, title: "cM", options: CM.allCases)
             } label: {
                 HStack {
                     Text("cM")
                     Spacer()
-                    Text(cM.shortCode)
+                    Text(viewModel.medicalRecord.disease.cTNM.cm.shortCode)
                         .foregroundColor(.gray)
                 }
             }
             
-            LabeledValueRowReversed(value: clinicalStage, label: "Клиническая стадия")
+            LabeledValueRowReversed(value: viewModel.medicalRecord.disease.cTNM.stage, label: "Клиническая стадия")
         }
         .navigationTitle("Классификация cTNM")
     }
 }
 
-
 struct ChemotherapyInputView: View {
-    @State private var status: ChemotherapyStatus = .none
-    @State private var selectedScheme: ChemotherapyScheme = .FLOT
-    @State private var customSchemeName: String = ""
-    @State private var numberOfCourses: String = "0"
-    @State private var startDate: Date = Date()
-    @State private var endDate: Date = Date()
-    @State private var showingSchemePicker = false
+    @ObservedObject var viewModel: MedCardEditViewModel
     
     var body: some View {
         Section {
             Section(/*header: SectionHeader("Статус химиотерапии")*/) {
-                Picker("Статус", selection: $status) {
+                Picker("Статус", selection: $viewModel.medicalRecord.chemotherapy.status) {
                     Text("Не проведена").tag(ChemotherapyStatus.none)
                     Text("Проведена частично").tag(ChemotherapyStatus.partially)
-                    Text("Проведена полностью").tag(
-                        ChemotherapyStatus.completed(
-                            scheme: selectedScheme,
-                            endDate: endDate
-                        )
-                    )
+                    Text("Проведена полностью").tag(ChemotherapyStatus.completed)
                 }
                 .pickerStyle(.wheel)
                 .frame(maxHeight: 100)
             }
             
-            if case .completed = status {
+            if case .completed = viewModel.medicalRecord.chemotherapy.status {
                 Section(header: SectionHeader("Схема лечения")) {
-                    Button {
-                        showingSchemePicker = true
+                    NavigationLink{
+                        SchemeSelectionView(selectedScheme: $viewModel.medicalRecord.chemotherapy.scheme.toUnwrapped(defaultValue: ChemotherapyScheme.custom.rawValue))
                     } label: {
                         HStack {
                             Text("Схема")
                             Spacer()
-                            Text(schemeDescription)
+                            Text(viewModel.medicalRecord.chemotherapy.scheme ?? "no data")
                                 .foregroundColor(.gray)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
+//                            Image(systemName: "chevron.right")
+//                                .foregroundColor(.gray)
                         }
                     }
                     
-                    if case .custom = selectedScheme {
-                        TextField("Название схемы", text: $customSchemeName)
-                            .textFieldStyle(.roundedBorder)
-                    }
+                    
                 }
                 
                 Section(header: SectionHeader("Даты лечения")) {
-                    DatePicker("Начало", selection: $startDate, displayedComponents: .date)
-                    DatePicker("Окончание", selection: $endDate, in: startDate..., displayedComponents: .date)
-                }
-            }
-            
-            Section(header: SectionHeader("Курсы")) {
-                Stepper(value: Binding(
-                    get: { Int(numberOfCourses) ?? 0 },
-                    set: { numberOfCourses = String($0) }
-                ), in: 0...20) {
-                    HStack {
-                        Text("Количество курсов")
-                        Spacer()
-                        TextField("", text: $numberOfCourses)
-                            .keyboardType(.numberPad)
-                            .multilineTextAlignment(.trailing)
-                            .frame(width: 40)
-                    }
-                }
-            }
-            
-            if case .completed = status {
-                Section {
-                    NavigationLink(destination: ChemotherapySideEffectsView()) {
-                        Text("Побочные эффекты")
-                    }
-                }
-            }
-        }
-        .navigationTitle("Химиотерапия")
-        .sheet(isPresented: $showingSchemePicker) {
-            SchemeSelectionView(selectedScheme: $selectedScheme)
-        }
-    }
-    
-    private var schemeDescription: String {
-        switch selectedScheme {
-        case .custom(let name):
-            return name.isEmpty ? "Кастомная схема" : name
-        default:
-            return selectedScheme.description
-        }
-    }
-}
-
-// MARK: - Scheme Selection View
-struct SchemeSelectionView: View {
-    @Binding var selectedScheme: ChemotherapyScheme
-    @State private var customScheme: String = ""
-    @Environment(\.dismiss) private var dismiss
-    
-    var body: some View {
-        NavigationView {
-            List {
-                Section("Стандартные схемы") {
-                    ForEach([ChemotherapyScheme.FLOT, .FOLFOX, .XELOX], id: \.self) { scheme in
-                        Button {
-                            selectedScheme = scheme
-                            dismiss()
-                        } label: {
-                            HStack {
-                                Text(scheme.description)
-                                Spacer()
-                                if selectedScheme == scheme {
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(.blue)
-                                }
-                            }
-                        }
-                    }
+                    DatePicker("Начало", selection: $viewModel.medicalRecord.chemotherapy.startDate, displayedComponents: .date)
+                    DatePicker("Окончание", selection: $viewModel.medicalRecord.chemotherapy.endDate, in: viewModel.medicalRecord.chemotherapy.startDate..., displayedComponents: .date)
                 }
                 
-                Section("Кастомная схема") {
-                    TextField("Введите название схемы", text: $customScheme)
-                        .textFieldStyle(.roundedBorder)
-                    
-                    Button("Сохранить кастомную схему") {
-                        if !customScheme.isEmpty {
-                            selectedScheme = .custom(customScheme)
-                            dismiss()
+                Section(header: SectionHeader("Курсы")) {
+                    Stepper(value: $viewModel.medicalRecord.chemotherapy.numberOfCourses, in: 0...20) {
+                        HStack {
+                            Text("Количество курсов")
+                            Spacer()
+                            Text("\(viewModel.medicalRecord.chemotherapy.numberOfCourses)")
                         }
                     }
-                    .disabled(customScheme.isEmpty)
                 }
             }
-            .navigationTitle("Выбор схемы")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Отмена") {
-                        dismiss()
+            
+            if case .partially = viewModel.medicalRecord.chemotherapy.status {
+                Section(header: SectionHeader("Схема лечения")) {
+                    NavigationLink{
+                        SchemeSelectionView(selectedScheme: $viewModel.medicalRecord.chemotherapy.scheme.toUnwrapped(defaultValue: ChemotherapyScheme.custom.rawValue))
+                    } label: {
+                        HStack {
+                            Text("Схема")
+                            Spacer()
+                            Text(viewModel.medicalRecord.chemotherapy.scheme?.description ?? "no data")
+                                .foregroundColor(.gray)
+//                            Image(systemName: "chevron.right")
+//                                .foregroundColor(.gray)
+                        }
+                    }
+                    
+                    
+                }
+                
+                Section(header: SectionHeader("Даты лечения")) {
+                    DatePicker("Начало", selection: $viewModel.medicalRecord.chemotherapy.startDate, displayedComponents: .date)
+                }
+                
+                Section(header: SectionHeader("Курсы")) {
+                    Stepper(value: $viewModel.medicalRecord.chemotherapy.numberOfCourses, in: 0...20) {
+                        HStack {
+                            Text("Количество курсов")
+                            Spacer()
+                            Text("\(viewModel.medicalRecord.chemotherapy.numberOfCourses)")
+                        }
                     }
                 }
             }
+            
+            if case .none = viewModel.medicalRecord.chemotherapy.status {
+                EmptyView()
+            }
+            
+            
+            
+            //            if case .completed = status {
+            //                Section {
+            //                    NavigationLink(destination: ChemotherapySideEffectsView()) {
+            //                        Text("Побочные эффекты")
+            //                    }
+            //                }
+            //            }
         }
+        .navigationTitle("Химиотерапия")
+
     }
+
+    
+//    private var schemeDescription: String {
+//        switch selectedScheme {
+//        case .custom(let name):
+//            return name.isEmpty ? "Кастомная схема" : name
+//        default:
+//            return selectedScheme.description
+//        }
+//    }
 }
+
+
 
 // MARK: - Side Effects View
 struct ChemotherapySideEffectsView: View {
@@ -555,6 +641,8 @@ struct ChemotherapySideEffectsView: View {
         }
     }
 }
+
+
 
 
 // MARK: - UI Components
@@ -709,9 +797,9 @@ struct FullScreenPicker<T: Hashable & RawRepresentable>: View where T.RawValue =
 }
 
 
-// MARK: - Previews
-struct MedCardEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        MedCardEditView(medCardEditViewModel: MedCardEditViewModel())
-    }
-}
+//// MARK: - Previews
+//struct MedCardEditView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MedCardEditView(medCardEditViewModel: MedCardEditViewModel())
+//    }
+//}

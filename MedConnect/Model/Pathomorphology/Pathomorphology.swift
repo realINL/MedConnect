@@ -9,8 +9,8 @@ import Foundation
 
 struct Pathomorphology: Codable, Identifiable, Hashable {
     let id: String
-    var tumorHistology: String
-    var tumorHistologyDifferentiation: String?
+    var tumorHistology: TumorHistology
+    var tumorHistologyDifferentiation: TumorHistologyDifferentiation
     var mandard: MandardTRG
     var lavnikova: LavnikovaGrade
     var becker: BeckerTRG
@@ -23,8 +23,8 @@ struct Pathomorphology: Codable, Identifiable, Hashable {
 
 extension Pathomorphology {
     static let MOCK_Pathomorphology: Pathomorphology = Pathomorphology(id: "1",
-                                                                       tumorHistology: TumorHistology.adenosquamousCarcinoma.rawValue,
-                                                                       tumorHistologyDifferentiation: TumorHistologyDifferentiation.g2.rawValue,
+                                                                       tumorHistology: TumorHistology.adenosquamousCarcinoma,
+                                                                       tumorHistologyDifferentiation: TumorHistologyDifferentiation.g2,
                                                                        mandard: .trg1,
                                                                        lavnikova: .grade2,
                                                                        becker: .trg1b,
@@ -32,15 +32,14 @@ extension Pathomorphology {
                                                                        resectionBoundaries: .r1, removedLymphNodesCount: 1,
                                                                        removedPositiveLymphNodesCount: 0,
                                                                        adjuvantChemotherapy: AdjuvantChemotherapy(id: "1",
-                                                                                                                  status: ChemotherapyStatus.completed(scheme: .FLOT,
-                                                                                                                                                       endDate: Date.fromString("12.01.2025")!),
-                                                                                                                  scheme: .FLOT,
+                                                                                                                  status: ChemotherapyStatus.completed,
+                                                                                                                  scheme: ChemotherapyScheme.FLOT.rawValue,
                                                                                                                   startDate: Date.fromString("12.01.2025"),
                                                                                                                   endDate: Date.fromString("12.02,2025"))
     )
 }
 
-enum TumorHistology: String, CaseIterable {
+enum TumorHistology: String, Codable, Hashable, CaseIterable {
     case adenocarcinoma = "Аденокарцинома"
     case adenosquamousCarcinoma = "Аденосквамозная карцинома"
     case carcinomaWithLymphoidStroma = "Карцинома с лимфоидной стромой"
@@ -49,7 +48,7 @@ enum TumorHistology: String, CaseIterable {
     case other = "Другая"
 }
 
-enum TumorHistologyDifferentiation: String, CaseIterable {
+enum TumorHistologyDifferentiation: String, Codable, Hashable, CaseIterable {
     case g1 = "G1 - высокодифференцированная"
     case g2 = "G2 - умеренно дифференцированная"
     case g3 = "G3 - низкодифференцированная"
@@ -60,7 +59,7 @@ enum TumorHistologyDifferentiation: String, CaseIterable {
 }
 
 
-enum MandardTRG: String, Codable, CaseIterable {
+enum MandardTRG: String, Codable, Hashable, CaseIterable {
     case trg1 = "TRG 1 - отсутствие жизнеспособных клеток опухоли"
     case trg2 = "TRG 2 - наличие рассеянных среди участков фиброза и 'озер' слизи единичных комплексов клеток рака"
     case trg3 = "TRG 3 - наличие жизнеспособной опухоли с преобладанием фиброза над опухолью"
@@ -72,7 +71,7 @@ enum MandardTRG: String, Codable, CaseIterable {
     }
 }
 
-enum LavnikovaGrade: String, Codable, CaseIterable {
+enum LavnikovaGrade: String, Codable, Hashable, CaseIterable {
     case grade1 = "I степень - более 50% опухолевой паренхимы сохранено"
     case grade2 = "II степень - сохранено 20–50% опухолевой паренхимы"
     case grade3 = "III степень - до 20% паренхимы опухоли сохранилось в виде отдельных очагов"
@@ -83,7 +82,7 @@ enum LavnikovaGrade: String, Codable, CaseIterable {
     }
 }
 
-enum BeckerTRG: String, Codable, CaseIterable {
+enum BeckerTRG: String, Codable, Hashable, CaseIterable {
     case trg1a = "TRG1a - Отсутствие остаточной инвазивной опухоли"
     case trg1b = "TRG1b - Наличие менее 10% остаточной инвазивной опухоли"
     case trg2 = "TRG2 - Наличие 10 - 50% остаточной инвазивной опухоли"
@@ -203,7 +202,7 @@ enum ResectionBoundaries: String, Codable, CaseIterable {
 struct AdjuvantChemotherapy: Codable, Identifiable, Hashable {
     let id: String
     var status: ChemotherapyStatus
-    var scheme: ChemotherapyScheme?
+    var scheme: String?
     var startDate: Date?
     var endDate: Date?
     var interruptionReasons: String?

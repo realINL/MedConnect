@@ -8,7 +8,8 @@
 import Foundation
 
 struct Patient: Identifiable, Hashable, Codable {
-    let id: String
+    var id: String
+    var medicalRecordId: String = ""
     
     var name: String
     var surname: String

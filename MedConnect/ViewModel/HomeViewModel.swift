@@ -10,6 +10,7 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     @Published var search: String = ""
+    @Published var isLoading: Bool = true
     var searchPatients: [Patient] {
         if self.search.isEmpty {
             return self.patients
@@ -18,17 +19,27 @@ class HomeViewModel: ObservableObject {
         }
     }
         
-    var patients: [Patient]
+    var patients: [Patient] = []
     
-    let networkManager: NetworkManager
+    let networkManager: NetworkManagerProtocol
     
-    init(networkManager: NetworkManager) {
+    init(networkManager: NetworkManagerProtocol) {
         self.networkManager = networkManager
-        self.patients = networkManager.getPatients()
+        Task { await fetchPatients() }
     }
     
-    func fetchPatients() {
-        self.patients = networkManager.getPatients()
+    @MainActor
+    func fetchPatients() async {
+        self.isLoading = true
+        
+        do {
+            let fetchedPatients = try await networkManager.getPatients()
+            self.patients = fetchedPatients
+        } catch {
+            print("Failed to fetch patients: \(error)")
+        }
+        
+        self.isLoading = false
     }
     
 }

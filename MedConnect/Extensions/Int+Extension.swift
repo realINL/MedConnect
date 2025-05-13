@@ -40,10 +40,26 @@ extension Int {
         return resultString
     }
     
+    var mg: String {
+        let formatString: String = NSLocalizedString("mg", comment: "mg")
+        
+        let resultString: String = "\(self) \(formatString)"
+        
+        return resultString
+    }
+    
     var minutesCount: String {
         let formatString: String = NSLocalizedString("minutes", comment: "minutes")
         
         let resultString: String = String.localizedStringWithFormat(formatString, self)
+        
+        return resultString
+    }
+    
+    var pc: String {
+        let formatString: String = NSLocalizedString("pc", comment: "piesces")
+        
+        let resultString: String = "\(self) \(formatString)"
         
         return resultString
     }
