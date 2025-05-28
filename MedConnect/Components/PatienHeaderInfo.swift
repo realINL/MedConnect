@@ -18,13 +18,13 @@ struct PatienHeaderInfo: View {
                 .cornerRadius(5)
             
             VStack(alignment: .leading, spacing: 8) {
-                Text("\(patient.surname) \(patient.name.firstLetter). \(patient.patronymic.firstLetter).")
+                Text(patient.surnameInitials)
                     .font(.title)
                     .fontWeight(.bold)
                 
                 HStack() {
                     Group {
-                        Text(patient.sex.firstLetter)
+                        Text(patient.sex.rawValue.firstLetter)
                         Text("•")
                         Text(patient.age.ageCount)
                     }

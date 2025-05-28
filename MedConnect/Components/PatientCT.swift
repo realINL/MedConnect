@@ -18,39 +18,38 @@ struct PatientCT: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            PatientDetailsCardTitle(title: "Химиотерапия", showDetails: $showDetails)
+        CardView(title: "Химиотерапия", showDetails: $showDetails) {
             
-            if showDetails {
-                VStack {
-                    LabeledValueRow(value: chemo.staus.description, label: "Статус")
-                    switch chemo.staus {
-                    case .none:
-                        EmptyView()
-                    case .partially:
-                        Divider()
-                        LabeledValueRow(value: "\(chemo.startDate.date)", label: "Начало терапии")
-                    case .completed(let scheme, let endDate):
-                        Divider()
-                        LabeledValueRow(value: "\(chemo.numberOfCourses)", label: "Кол-во курсов")
-                        Divider()
-                        LabeledValueRow(value: "\(chemo.startDate.date) - \(chemo.endDate.date)", label: "Период терапии")
-                    }
+            VStack {
+                LabeledValueRow(value: chemo.status.rawValue,
+                                label: "Статус")
+                switch chemo.status {
+                case .none:
+                    EmptyView()
+                case .partially:
+                    LabeledValueRow(value: chemo.scheme?.description ?? "no data",
+                                    label: "Схема")
+                    Divider()
+                    LabeledValueRow(value: "\(chemo.numberOfCourses)",
+                                    label: "Кол-во курсов")
+                    Divider()
+                    LabeledValueRow(value: "\(chemo.startDate.date)",
+                                    label: "Начало терапии")
+                case .completed:
+                    LabeledValueRow(value: chemo.scheme ?? "no data",
+                                    label: "Схема")
+                    Divider()
+                    LabeledValueRow(value: "\(chemo.numberOfCourses)",
+                                    label: "Кол-во курсов")
+                    Divider()
+                    LabeledValueRow(value: "\(chemo.startDate.date) - \(chemo.endDate.date)",
+                                    label: "Период терапии")
                 }
             }
-            
         }
-        .frame(maxWidth: .infinity)
-        .padding()
-        .background {
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.background)
-                .shadow(radius: 5)
-        }
-        .padding(.horizontal)
     }
 }
 
 #Preview {
-    PatientCT(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!)
+    PatientCT(medicalRecord: MedicalRecord.MOCK_MedicalRecords[1])
 }

@@ -8,9 +8,9 @@
 import Foundation
  
 struct MedicalRecord: Identifiable, Hashable, Codable {
-    let id: String
+    var id: String
     
-    let patientId: String
+    var patientId: String
     
     let age: Int
     var weight: Double
@@ -25,16 +25,20 @@ struct MedicalRecord: Identifiable, Hashable, Codable {
     var weightLoss: Bool = false
     
     var disease: StomachCancer
+    var concomitantDisease: ConcomitantDisease
     
     var chemotherapy: Chemotherapy
     var radiationTherapy: RadiationTherapy
     
-    
+    var postoperativeCourse: PostoperativeCourse
+    var hospitalComplications: HospitalComplications
+    var surgery: [Surgery]?
+    var pathomorphology: Pathomorphology
 }
 
 extension MedicalRecord {
-    static let MOCK_MedicalRecord: [MedicalRecord] = [MedicalRecord(id: "0",
-                                                                    patientId: "0",
+    static let MOCK_MedicalRecords: [MedicalRecord] = [MedicalRecord(id: "0",
+                                                                    patientId: "3L6OnrNfrequ5aIbWQoy",
                                                                     age: 57,
                                                                     weight: 82,
                                                                     height: 178,
@@ -44,9 +48,12 @@ extension MedicalRecord {
                                                                     capriniIndex: 2,
                                                                     chrlsonIndex: 90,
                                                                     weightLoss: true,
-                                                                    disease: StomachCancer.MOCK_StomachCancer.first!,
+                                                                     disease: StomachCancer.MOCK_StomachCancer.first!, concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                                                     chemotherapy: Chemotherapy.MOCK_Chemotherapy[0],
-                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[0]),
+                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[0],
+                                                                    postoperativeCourse: PostoperativeCourse.MOCK_PostoperativeCourse, hospitalComplications: HospitalComplications.MOCK_HospitalComplications,
+                                                                    surgery: [Surgery.MOCK_Surgery],
+                                                                    pathomorphology: Pathomorphology.MOCK_Pathomorphology),
                                                       MedicalRecord(id: "1",
                                                                     patientId: "1",
                                                                     age: 43,
@@ -58,9 +65,11 @@ extension MedicalRecord {
                                                                     capriniIndex: 3,
                                                                     chrlsonIndex: 77,
                                                                     weightLoss: false,
-                                                                    disease: StomachCancer.MOCK_StomachCancer.first!,
+                                                                    disease: StomachCancer.MOCK_StomachCancer.first!, concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                                                     chemotherapy: Chemotherapy.MOCK_Chemotherapy[1],
-                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[1]),
+                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[1],
+                                                                    postoperativeCourse: PostoperativeCourse.MOCK_PostoperativeCourse,
+                                                                    hospitalComplications: HospitalComplications.MOCK_HospitalComplications, pathomorphology: Pathomorphology.MOCK_Pathomorphology),
                                                       MedicalRecord(id: "2",
                                                                     patientId: "2",
                                                                     age: 72,
@@ -72,7 +81,9 @@ extension MedicalRecord {
                                                                     capriniIndex: 3,
                                                                     chrlsonIndex: 77,
                                                                     weightLoss: false,
-                                                                    disease: StomachCancer.MOCK_StomachCancer.first!,
+                                                                    disease: StomachCancer.MOCK_StomachCancer.first!, concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                                                     chemotherapy: Chemotherapy.MOCK_Chemotherapy[2],
-                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[2])]
+                                                                    radiationTherapy: RadiationTherapy.MOCK_RadiationTherapy[2],
+                                                                    postoperativeCourse: PostoperativeCourse.MOCK_PostoperativeCourse,
+                                                                    hospitalComplications: HospitalComplications.MOCK_HospitalComplications, pathomorphology: Pathomorphology.MOCK_Pathomorphology)]
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum Diabetes: String, Codable, Hashable {
-    case none = ""
+enum Diabetes: String, Codable, Hashable, CaseIterable {
+    case none = "Нет"
     case type1Compensated = "СД 1 типа компенсированный"
     case type1Uncompensated = "СД 1 типа НЕ компенсированный"
     case type2Compensated = "СД 2 типа компенсированный"

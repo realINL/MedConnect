@@ -5,5 +5,15 @@
   Created by Илья Лебедев on 17.04.2025.
   
 */
-
+"after" = "After";
+"Confirm" = "Confirm";
+"day" = "day";
+"ExtubationOnTable" = "Extubation on table";
+"female" = "Female";
+"HospitalComplications" = "Hospital сomplications";
+"male" = "Male";
+"mg" = "mg";
+"ml" = "ml";
+"pc" = "pc.";
+"postoperativeCourse" = "Postoperative\ncourse";
 "weightloss" = "Weight loss!";

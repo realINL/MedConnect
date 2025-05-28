@@ -11,11 +11,12 @@ struct PatientDetailsCardTitle: View {
     let title: String
     @Binding var showDetails: Bool
     var body: some View {
-        HStack {Text(title)
+        HStack {
+            Text(title)
+                .layoutPriority(1)
                 .font(.title2)
                 .fontWeight(.semibold)
             
-           
             
             Button {
                 withAnimation {
@@ -31,5 +32,5 @@ struct PatientDetailsCardTitle: View {
 }
 
 #Preview {
-    PatientDetailsCardTitle(title: "Диагноз", showDetails: .constant(false))
+    PatientDetailsCardTitle(title: "Диагноз трава двор дрова", showDetails: .constant(false))
 }

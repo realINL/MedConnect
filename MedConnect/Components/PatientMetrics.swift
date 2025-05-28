@@ -87,5 +87,5 @@ struct PatientMetrics: View {
 }
 
 #Preview {
-    PatientMetrics(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!)
+    PatientMetrics(medicalRecord: MedicalRecord.MOCK_MedicalRecords.first!)
 }

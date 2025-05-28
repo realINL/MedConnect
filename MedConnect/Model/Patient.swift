@@ -8,20 +8,21 @@
 import Foundation
 
 struct Patient: Identifiable, Hashable, Codable {
-    let id: String
+    var id: String
+    var medicalRecordId: String = ""
     
-    let name: String
-    let surname: String
-    let patronymic: String
-    let birthDate: Date
+    var name: String
+    var surname: String
+    var patronymic: String
+    var birthDate: Date
     
-    let disease: String
-    let concomitantDisease: ConcomitantDisease
+    var disease: String
+    var concomitantDisease: ConcomitantDisease
     
     var hospital: String = ""
     var hospitalDepartment: String = ""
     
-    var sex: String = "Male"
+    var sex: Sex
     let age: Int
     var weight: Double = 0.0
     var height: Int = 0
@@ -39,11 +40,12 @@ extension Patient {
                                         name: "Иван",
                                         surname: "Иванов",
                                         patronymic: "Иванович",
-                                        birthDate: Date.now,
+                                        birthDate: Date.fromString("13.01.1956")!,
                                         disease: "Рак желудка",
                                         concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                         hospital: "МНИОИ им. П.А. Герцена", 
-                                        hospitalDepartment: "Торакальное отделение",
+                                        hospitalDepartment: "Торакальное отделение", 
+                                        sex: .male,
                                         age: 57,
                                         weight: 82.0,
                                         height: 178,
@@ -62,7 +64,8 @@ extension Patient {
                                         disease: "Рак желудка",
                                         concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                         hospital: "МНИОИ им. П.А. Герцена",
-                                        hospitalDepartment: "Торакальное отделение",
+                                        hospitalDepartment: "Торакальное отделение", 
+                                        sex: .male,
                                         age: 43),
                                 
                                 Patient(id: "2", 
@@ -73,6 +76,11 @@ extension Patient {
                                         disease: "Рак желудка",
                                         concomitantDisease: ConcomitantDisease.MOCK_ConcomitantDisease,
                                         hospital: "МНИОИ им. П.А. Герцена",
-                                        hospitalDepartment: "Торакальное отделение",
+                                        hospitalDepartment: "Торакальное отделение", 
+                                        sex: .male,
                                         age: 40)]
+    
+    var surnameInitials: String {
+        return "\(self.surname) \(self.name.firstLetter). \(self.patronymic.firstLetter)."
+    }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum YesNo: String, Codable, Hashable {
+enum YesNo: String, Codable, Hashable, CaseIterable {
     case yes = "Есть"
     case no = "Нет"
 }

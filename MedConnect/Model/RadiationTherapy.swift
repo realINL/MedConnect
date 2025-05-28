@@ -23,8 +23,8 @@ struct RadiationTherapy: Identifiable, Hashable, Codable {
 extension RadiationTherapy {
     static let MOCK_RadiationTherapy: [RadiationTherapy] = [RadiationTherapy(id: "0", 
                                                                              patientId: "0",
-                                                                             status: .completed(sfd: 5, tfd: 25),
-                                                                             startDate: Date.fromString("11.11.2021")!, 
+                                                                             status: .completed,
+                                                                             startDate: Date.fromString("11.11.2021")!,
                                                                              endDate: Date.fromString("11.12.2021")!,
                                                                              sfd: 5,
                                                                              tfd: 25),
@@ -47,17 +47,10 @@ extension RadiationTherapy {
 }
 
 
-enum RadiationTherapyStatus: Codable, Hashable {
-    case none
-    case partially
-    case completed(sfd: Double, tfd: Double)
+enum RadiationTherapyStatus: String, Codable, Hashable, CaseIterable {
+    case none = "Не проведена"
+    case partially = "Проведена частично"
+    case completed = "Проведена полностью"
     
-    var description: String {
-        switch self {
-        case .none: return "Не проведена"
-        case .partially: return "Проведена частично"
-        case .completed(sfd: let sfd, tfd: let tfd): return "Проведена полностью"
-        }
-    }
 }
 

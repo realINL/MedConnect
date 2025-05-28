@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PatientScrollCardView: View {
     let patient: Patient
+    var showImage: Bool = true
     var body: some View {
         VStack {
             HStack {
@@ -17,7 +18,9 @@ struct PatientScrollCardView: View {
                 Text(patient.name)
                 Text(patient.patronymic)
                 Spacer()
-                Image(systemName: "chevron.right")
+                if showImage {
+                    Image(systemName: "chevron.right")
+                }
             }
             HStack {
                 Image(systemName: "list.clipboard")
@@ -33,5 +36,5 @@ struct PatientScrollCardView: View {
 }
 
 //#Preview {
-//    PatientCardView()
+//    PatientCardView(patient: Patient.MOCK_Patients.first!)
 //}

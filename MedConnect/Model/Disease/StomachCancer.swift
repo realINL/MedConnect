@@ -28,6 +28,6 @@ struct StomachCancer: Disease {
 }
 
 extension StomachCancer {
-    static let MOCK_StomachCancer: [StomachCancer] = [StomachCancer(id: "0", size: "5 х 5", histology: .glandularSquamousCellCarcinoma, tumorDifferentiation: .g1, tumorLocalization: TumorLocalization(siewert: .I, bottom: "", tumorBody: .middle, pyloric: ""), lauren: .diffuse, mainDiseaseConcomitant: .stenosisWithoutStenting, cTNM: CTNM(ct: .t1, cn: .n0, cm: .m0))
+    static let MOCK_StomachCancer: [StomachCancer] = [StomachCancer(id: "0", size: "5 х 5", histology: .glandularSquamousCellCarcinoma, tumorDifferentiation: .g1, tumorLocalization: TumorLocalization(localization: .ker, desription: "Siewert II (центр опухоли расположен в пределах 1 см выше и 2 см ниже от Z-линии)"), lauren: .diffuse, mainDiseaseConcomitant: .stenosisWithoutStenting, cTNM: CTNM(ct: .t1, cn: .n0, cm: .m0))
     ]
 }

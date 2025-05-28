@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Hypertension: String, Codable, Hashable {
+enum Hypertension: String, Codable, Hashable, CaseIterable {
     case none = "Нет"
     case stage1 = "I стадия"
     case stage2 = "II стадия"

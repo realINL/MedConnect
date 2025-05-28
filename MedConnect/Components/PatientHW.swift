@@ -50,6 +50,6 @@ struct PatientHW: View {
 }
 
 #Preview {
-    PatientHW(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!)
+    PatientHW(medicalRecord: MedicalRecord.MOCK_MedicalRecords.first!)
 }
 

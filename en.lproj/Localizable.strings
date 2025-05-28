@@ -6,4 +6,15 @@
   
 */
 
+"after" = "Через";
+"Confirm" = "Подтвердить";
+"day" = "день";
+"ExtubationOnTable" = "Экстубация на столе";
+"female" = "Женщина";
+"HospitalComplications" = "Госпитальные осложжнения";
+"male" = "Мужчина";
+"mg" = "мг";
+"ml" = "мл.";
+"postoperativeCourse" = "Послеоперационное\nтечение";
+"pc" = "шт.";
 "weightloss" = "Потеря веса!";

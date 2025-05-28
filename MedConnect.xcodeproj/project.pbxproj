@@ -23,6 +23,10 @@
 		116E5D1E2DB930F400498DA4 /* Chemotherapy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D1D2DB930F400498DA4 /* Chemotherapy.swift */; };
 		116E5D202DB9372700498DA4 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D1F2DB9372700498DA4 /* Date+Extension.swift */; };
 		116E5D222DB93EE500498DA4 /* RadiationTherapy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D212DB93EE500498DA4 /* RadiationTherapy.swift */; };
+		116E5D242DB9615800498DA4 /* MedCardEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D232DB9615800498DA4 /* MedCardEditView.swift */; };
+		116E5D262DB9617700498DA4 /* MedCardEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D252DB9617700498DA4 /* MedCardEditViewModel.swift */; };
+		116E5D282DB9637C00498DA4 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D272DB9637C00498DA4 /* Sex.swift */; };
+		116E5D2A2DB973A800498DA4 /* MedicalInstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5D292DB973A800498DA4 /* MedicalInstitution.swift */; };
 		1192962E2DB194D700E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296302DB194D700E2ED21 /* Localizable.strings */; };
 		119296332DB1954800E2ED21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 119296352DB1954800E2ED21 /* Localizable.strings */; };
 		119296392DB286C500E2ED21 /*  CardiacConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119296382DB286C500E2ED21 /*  CardiacConditions.swift */; };
@@ -79,6 +83,56 @@
 		85E76EF52DB85525004F37CA /* RiskLevelsInfoIUComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EF42DB85525004F37CA /* RiskLevelsInfoIUComponent.swift */; };
 		85E76EF72DB85577004F37CA /* InfoRowUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EF62DB85577004F37CA /* InfoRowUIComponent.swift */; };
 		85E76EF92DB85646004F37CA /* ListButtonCentredTextUIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E76EF82DB85646004F37CA /* ListButtonCentredTextUIComponent.swift */; };
+		85E90D832DCD1DD60076C200 /* PostoperativeCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D822DCD1DD60076C200 /* PostoperativeCourse.swift */; };
+		85E90D852DCD29630076C200 /* Postoperative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D842DCD29630076C200 /* Postoperative.swift */; };
+		85E90D872DCD2B840076C200 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D862DCD2B840076C200 /* View+Extension.swift */; };
+		85E90D8B2DCD54270076C200 /* HospitalComplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D8A2DCD54270076C200 /* HospitalComplications.swift */; };
+		85E90D8D2DCE6DD70076C200 /* HospitalComplicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D8C2DCE6DD70076C200 /* HospitalComplicationsView.swift */; };
+		85E90D8F2DCE6F2F0076C200 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D8E2DCE6F2F0076C200 /* CardView.swift */; };
+		85E90D922DCEBD2B0076C200 /* Surgery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D912DCEBD2B0076C200 /* Surgery.swift */; };
+		85E90D942DCFD1CA0076C200 /* SurgeryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D932DCFD1CA0076C200 /* SurgeryDetails.swift */; };
+		85E90D992DD0D42C0076C200 /* Pathomorphology.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D982DD0D42C0076C200 /* Pathomorphology.swift */; };
+		85E90D9B2DD0E2A60076C200 /* PathomorphologyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D9A2DD0E2A60076C200 /* PathomorphologyDetails.swift */; };
+		85E90D9D2DD0FA3A0076C200 /* SurgeriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D9C2DD0FA3A0076C200 /* SurgeriesListView.swift */; };
+		85E90D9F2DD10CA90076C200 /* CreateSurgeryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90D9E2DD10CA90076C200 /* CreateSurgeryView.swift */; };
+		85E90DA12DD10CE50076C200 /* CreateSurgeryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DA02DD10CE50076C200 /* CreateSurgeryViewModel.swift */; };
+		85E90DA32DD22DDE0076C200 /* PopUpPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DA22DD22DDE0076C200 /* PopUpPickerView.swift */; };
+		85E90DA52DD247F00076C200 /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DA42DD247F00076C200 /* NumberTextField.swift */; };
+		85E90DA72DD257240076C200 /* MultilineInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DA62DD257240076C200 /* MultilineInputField.swift */; };
+		85E90DA92DD265440076C200 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DA82DD265440076C200 /* NetworkManagerProtocol.swift */; };
+		85E90DAB2DD266410076C200 /* PatientPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DAA2DD266410076C200 /* PatientPickerView.swift */; };
+		85E90DAD2DD272240076C200 /* SurgeryScrollCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DAC2DD272230076C200 /* SurgeryScrollCardView.swift */; };
+		85E90DB12DD274D20076C200 /* SurgeriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DB02DD274D20076C200 /* SurgeriesListViewModel.swift */; };
+		85E90DB32DD279A70076C200 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DB22DD279A70076C200 /* AppViewModel.swift */; };
+		85E90DBB2DD2958D0076C200 /* SurgeriesView 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DBA2DD2958D0076C200 /* SurgeriesView 2.swift */; };
+		85E90DBD2DD297B70076C200 /* SurgeryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DBC2DD297B70076C200 /* SurgeryView.swift */; };
+		85E90DBF2DD29D110076C200 /* DraftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DBE2DD29D110076C200 /* DraftListView.swift */; };
+		85E90DC12DD2A09D0076C200 /* LocalManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DC02DD2A09D0076C200 /* LocalManagerProtocol.swift */; };
+		85E90DC32DD2B22F0076C200 /* EditSurgeryDraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DC22DD2B22F0076C200 /* EditSurgeryDraftView.swift */; };
+		85E90DC52DD2C9EE0076C200 /* TextInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DC42DD2C9EE0076C200 /* TextInputField.swift */; };
+		85E90DC72DD2D49E0076C200 /* DoubleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DC62DD2D49E0076C200 /* DoubleTextField.swift */; };
+		85E90DC92DD2D6E30076C200 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DC82DD2D6E30076C200 /* StatView.swift */; };
+		85E90DCB2DD2DCDF0076C200 /* ColoredLabeledValueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90DCA2DD2DCDF0076C200 /* ColoredLabeledValueRow.swift */; };
+		85E90E122DE501AB0076C200 /* SchemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E112DE501AB0076C200 /* SchemeSelectionView.swift */; };
+		85E90E142DE5C5730076C200 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E132DE5C5730076C200 /* Binding+Extension.swift */; };
+		85E90E172DE5D25A0076C200 /* RadiationTherapySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E162DE5D25A0076C200 /* RadiationTherapySection.swift */; };
+		85E90E192DE5DB620076C200 /* ConcomitantDiseaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E182DE5DB620076C200 /* ConcomitantDiseaseSection.swift */; };
+		85E90E1B2DE5E6750076C200 /* PostoperativeCourseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E1A2DE5E6750076C200 /* PostoperativeCourseSection.swift */; };
+		85E90E1D2DE5EF610076C200 /* HospitalComplicationsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E1C2DE5EF610076C200 /* HospitalComplicationsSection.swift */; };
+		85E90E1F2DE639B30076C200 /* PathomorphologySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E1E2DE639B30076C200 /* PathomorphologySection.swift */; };
+		85E90E212DE6411E0076C200 /* pTNMSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E202DE6411E0076C200 /* pTNMSection.swift */; };
+		85E90E232DE643EF0076C200 /* AdjuvantChemotherapySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E222DE643EF0076C200 /* AdjuvantChemotherapySection.swift */; };
+		85E90E262DE64BB00076C200 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85E90E252DE64BB00076C200 /* GoogleService-Info.plist */; };
+		85E90E292DE651D70076C200 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 85E90E282DE651D70076C200 /* FirebaseAuth */; };
+		85E90E2B2DE651D70076C200 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 85E90E2A2DE651D70076C200 /* FirebaseCore */; };
+		85E90E2D2DE651D70076C200 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 85E90E2C2DE651D70076C200 /* FirebaseDatabase */; };
+		85E90E2F2DE651D70076C200 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 85E90E2E2DE651D70076C200 /* FirebaseFirestore */; };
+		85E90E312DE651D70076C200 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 85E90E302DE651D70076C200 /* FirebaseFirestoreCombine-Community */; };
+		85E90E332DE651D70076C200 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 85E90E322DE651D70076C200 /* FirebaseStorage */; };
+		85E90E352DE651D70076C200 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 85E90E342DE651D70076C200 /* FirebaseStorageCombine-Community */; };
+		85E90E372DE659830076C200 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E362DE659830076C200 /* NetworkManager.swift */; };
+		85E90E3B2DE670300076C200 /* PatientCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E3A2DE670300076C200 /* PatientCardViewModel.swift */; };
+		85E90E3D2DE685880076C200 /* ConfirmationEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E90E3C2DE685880076C200 /* ConfirmationEdit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +152,10 @@
 		116E5D1D2DB930F400498DA4 /* Chemotherapy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chemotherapy.swift; sourceTree = "<group>"; };
 		116E5D1F2DB9372700498DA4 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		116E5D212DB93EE500498DA4 /* RadiationTherapy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiationTherapy.swift; sourceTree = "<group>"; };
+		116E5D232DB9615800498DA4 /* MedCardEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedCardEditView.swift; sourceTree = "<group>"; };
+		116E5D252DB9617700498DA4 /* MedCardEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedCardEditViewModel.swift; sourceTree = "<group>"; };
+		116E5D272DB9637C00498DA4 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
+		116E5D292DB973A800498DA4 /* MedicalInstitution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalInstitution.swift; sourceTree = "<group>"; };
 		1192962F2DB194D700E2ED21 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296342DB1954800E2ED21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		119296382DB286C500E2ED21 /*  CardiacConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CardiacConditions.swift"; sourceTree = "<group>"; };
@@ -155,6 +213,49 @@
 		85E76EF42DB85525004F37CA /* RiskLevelsInfoIUComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskLevelsInfoIUComponent.swift; sourceTree = "<group>"; };
 		85E76EF62DB85577004F37CA /* InfoRowUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRowUIComponent.swift; sourceTree = "<group>"; };
 		85E76EF82DB85646004F37CA /* ListButtonCentredTextUIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListButtonCentredTextUIComponent.swift; sourceTree = "<group>"; };
+		85E90D822DCD1DD60076C200 /* PostoperativeCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoperativeCourse.swift; sourceTree = "<group>"; };
+		85E90D842DCD29630076C200 /* Postoperative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Postoperative.swift; sourceTree = "<group>"; };
+		85E90D862DCD2B840076C200 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		85E90D8A2DCD54270076C200 /* HospitalComplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalComplications.swift; sourceTree = "<group>"; };
+		85E90D8C2DCE6DD70076C200 /* HospitalComplicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalComplicationsView.swift; sourceTree = "<group>"; };
+		85E90D8E2DCE6F2F0076C200 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		85E90D912DCEBD2B0076C200 /* Surgery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Surgery.swift; sourceTree = "<group>"; };
+		85E90D932DCFD1CA0076C200 /* SurgeryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurgeryDetails.swift; sourceTree = "<group>"; };
+		85E90D982DD0D42C0076C200 /* Pathomorphology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pathomorphology.swift; sourceTree = "<group>"; };
+		85E90D9A2DD0E2A60076C200 /* PathomorphologyDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathomorphologyDetails.swift; sourceTree = "<group>"; };
+		85E90D9C2DD0FA3A0076C200 /* SurgeriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurgeriesListView.swift; sourceTree = "<group>"; };
+		85E90D9E2DD10CA90076C200 /* CreateSurgeryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurgeryView.swift; sourceTree = "<group>"; };
+		85E90DA02DD10CE50076C200 /* CreateSurgeryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurgeryViewModel.swift; sourceTree = "<group>"; };
+		85E90DA22DD22DDE0076C200 /* PopUpPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpPickerView.swift; sourceTree = "<group>"; };
+		85E90DA42DD247F00076C200 /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
+		85E90DA62DD257240076C200 /* MultilineInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineInputField.swift; sourceTree = "<group>"; };
+		85E90DA82DD265440076C200 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		85E90DAA2DD266410076C200 /* PatientPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientPickerView.swift; sourceTree = "<group>"; };
+		85E90DAC2DD272230076C200 /* SurgeryScrollCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurgeryScrollCardView.swift; sourceTree = "<group>"; };
+		85E90DB02DD274D20076C200 /* SurgeriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurgeriesListViewModel.swift; sourceTree = "<group>"; };
+		85E90DB22DD279A70076C200 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		85E90DBA2DD2958D0076C200 /* SurgeriesView 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SurgeriesView 2.swift"; sourceTree = "<group>"; };
+		85E90DBC2DD297B70076C200 /* SurgeryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurgeryView.swift; sourceTree = "<group>"; };
+		85E90DBE2DD29D110076C200 /* DraftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftListView.swift; sourceTree = "<group>"; };
+		85E90DC02DD2A09D0076C200 /* LocalManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalManagerProtocol.swift; sourceTree = "<group>"; };
+		85E90DC22DD2B22F0076C200 /* EditSurgeryDraftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSurgeryDraftView.swift; sourceTree = "<group>"; };
+		85E90DC42DD2C9EE0076C200 /* TextInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputField.swift; sourceTree = "<group>"; };
+		85E90DC62DD2D49E0076C200 /* DoubleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTextField.swift; sourceTree = "<group>"; };
+		85E90DC82DD2D6E30076C200 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
+		85E90DCA2DD2DCDF0076C200 /* ColoredLabeledValueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredLabeledValueRow.swift; sourceTree = "<group>"; };
+		85E90E112DE501AB0076C200 /* SchemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeSelectionView.swift; sourceTree = "<group>"; };
+		85E90E132DE5C5730076C200 /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
+		85E90E162DE5D25A0076C200 /* RadiationTherapySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiationTherapySection.swift; sourceTree = "<group>"; };
+		85E90E182DE5DB620076C200 /* ConcomitantDiseaseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcomitantDiseaseSection.swift; sourceTree = "<group>"; };
+		85E90E1A2DE5E6750076C200 /* PostoperativeCourseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostoperativeCourseSection.swift; sourceTree = "<group>"; };
+		85E90E1C2DE5EF610076C200 /* HospitalComplicationsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalComplicationsSection.swift; sourceTree = "<group>"; };
+		85E90E1E2DE639B30076C200 /* PathomorphologySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathomorphologySection.swift; sourceTree = "<group>"; };
+		85E90E202DE6411E0076C200 /* pTNMSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pTNMSection.swift; sourceTree = "<group>"; };
+		85E90E222DE643EF0076C200 /* AdjuvantChemotherapySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjuvantChemotherapySection.swift; sourceTree = "<group>"; };
+		85E90E252DE64BB00076C200 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		85E90E362DE659830076C200 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		85E90E3A2DE670300076C200 /* PatientCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientCardViewModel.swift; sourceTree = "<group>"; };
+		85E90E3C2DE685880076C200 /* ConfirmationEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationEdit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +263,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E90E2D2DE651D70076C200 /* FirebaseDatabase in Frameworks */,
+				85E90E352DE651D70076C200 /* FirebaseStorageCombine-Community in Frameworks */,
+				85E90E2F2DE651D70076C200 /* FirebaseFirestore in Frameworks */,
+				85E90E2B2DE651D70076C200 /* FirebaseCore in Frameworks */,
+				85E90E312DE651D70076C200 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				85E90E292DE651D70076C200 /* FirebaseAuth in Frameworks */,
+				85E90E332DE651D70076C200 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,17 +384,20 @@
 		11C13E202D527E57007040E3 /* MedConnect */ = {
 			isa = PBXGroup;
 			children = (
+				85E90E392DE659900076C200 /* Networking */,
+				85E90E252DE64BB00076C200 /* GoogleService-Info.plist */,
 				116E5CFD2DB8D93900498DA4 /* CharlsonCalculator */,
 				85E76EE52DB8456C004F37CA /* CapriniCalculator */,
 				85E76EC82DB3E789004F37CA /* Extensions */,
 				857993422DAFD68500AE07F3 /* Components */,
-				11C13E312D527E92007040E3 /* ViewModel */,
 				11C13E302D527E8C007040E3 /* View */,
+				11C13E312D527E92007040E3 /* ViewModel */,
 				11C13E2F2D527E7F007040E3 /* Model */,
 				11C13E212D527E57007040E3 /* MedConnectApp.swift */,
 				11C13E232D527E57007040E3 /* ContentView.swift */,
 				11C13E252D527E59007040E3 /* Assets.xcassets */,
 				11C13E272D527E59007040E3 /* Preview Content */,
+				85E90DC02DD2A09D0076C200 /* LocalManagerProtocol.swift */,
 			);
 			path = MedConnect;
 			sourceTree = "<group>";
@@ -302,12 +413,18 @@
 		11C13E2F2D527E7F007040E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				85E90D972DD0D41E0076C200 /* Pathomorphology */,
+				85E90D902DCEBCE80076C200 /* Surgery */,
+				85E90D892DCD54030076C200 /* PostoperativeCourse */,
+				85E90D882DCD53F70076C200 /* HospitalComplications */,
 				119296522DB2E9AD00E2ED21 /* ConcomitantDisease */,
 				11C13E3A2D528433007040E3 /* Patient.swift */,
 				116E5D0E2DB9126A00498DA4 /* MedicalRecord.swift */,
 				116E5D122DB9152F00498DA4 /* Disease */,
 				116E5D1D2DB930F400498DA4 /* Chemotherapy.swift */,
 				116E5D212DB93EE500498DA4 /* RadiationTherapy.swift */,
+				116E5D272DB9637C00498DA4 /* Sex.swift */,
+				116E5D292DB973A800498DA4 /* MedicalInstitution.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,11 +433,21 @@
 			isa = PBXGroup;
 			children = (
 				11C13E322D527EAC007040E3 /* LoginView.swift */,
+				85E90DA22DD22DDE0076C200 /* PopUpPickerView.swift */,
 				11C13E362D5282A7007040E3 /* HomeView.swift */,
 				11C13E3C2D52868B007040E3 /* PatientScrollCardView.swift */,
 				11C13E3E2D528D8D007040E3 /* PatientCardView.swift */,
 				11C13E422D52A93C007040E3 /* SideMenuHeaderView.swift */,
 				11C13E402D529EE4007040E3 /* SideMenuView.swift */,
+				116E5D232DB9615800498DA4 /* MedCardEditView.swift */,
+				116E5D252DB9617700498DA4 /* MedCardEditViewModel.swift */,
+				85E90D842DCD29630076C200 /* Postoperative.swift */,
+				85E90D8C2DCE6DD70076C200 /* HospitalComplicationsView.swift */,
+				85E90D8E2DCE6F2F0076C200 /* CardView.swift */,
+				85E90D9A2DD0E2A60076C200 /* PathomorphologyDetails.swift */,
+				85E90DB72DD292490076C200 /* Surgery */,
+				85E90DBE2DD29D110076C200 /* DraftListView.swift */,
+				85E90DC82DD2D6E30076C200 /* StatView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +457,10 @@
 			children = (
 				11C13E342D5280E7007040E3 /* LoginViewModel.swift */,
 				11C13E382D52836B007040E3 /* HomeViewModel.swift */,
+				85E90DA02DD10CE50076C200 /* CreateSurgeryViewModel.swift */,
+				85E90DB02DD274D20076C200 /* SurgeriesListViewModel.swift */,
+				85E90DB22DD279A70076C200 /* AppViewModel.swift */,
+				85E90E3A2DE670300076C200 /* PatientCardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -337,6 +468,7 @@
 		857993422DAFD68500AE07F3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				85E90E152DE5D2470076C200 /* EditMedicalRecord */,
 				857993432DAFD6A800AE07F3 /* PatienHeaderInfo.swift */,
 				857993452DAFD6DD00AE07F3 /* PatientCaprini.swift */,
 				857993472DAFD6EC00AE07F3 /* PatientCharlson.swift */,
@@ -350,6 +482,13 @@
 				85E76ED52DB4E7EC004F37CA /* ConcomitantDiseaseView.swift */,
 				85E76ED72DB4EAD2004F37CA /* LabeledValueRow.swift */,
 				85E76EDB2DB54993004F37CA /* PatientDetailsCardTitle.swift */,
+				85E90DA42DD247F00076C200 /* NumberTextField.swift */,
+				85E90DC62DD2D49E0076C200 /* DoubleTextField.swift */,
+				85E90DA62DD257240076C200 /* MultilineInputField.swift */,
+				85E90DC42DD2C9EE0076C200 /* TextInputField.swift */,
+				85E90DAA2DD266410076C200 /* PatientPickerView.swift */,
+				85E90DCA2DD2DCDF0076C200 /* ColoredLabeledValueRow.swift */,
+				85E90E112DE501AB0076C200 /* SchemeSelectionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -361,6 +500,8 @@
 				85E76ECB2DB3EB70004F37CA /* String+Extension.swift */,
 				85E76ECD2DB40838004F37CA /* Double+Extension.swift */,
 				116E5D1F2DB9372700498DA4 /* Date+Extension.swift */,
+				85E90D862DCD2B840076C200 /* View+Extension.swift */,
+				85E90E132DE5C5730076C200 /* Binding+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -415,6 +556,76 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		85E90D882DCD53F70076C200 /* HospitalComplications */ = {
+			isa = PBXGroup;
+			children = (
+				85E90D8A2DCD54270076C200 /* HospitalComplications.swift */,
+			);
+			path = HospitalComplications;
+			sourceTree = "<group>";
+		};
+		85E90D892DCD54030076C200 /* PostoperativeCourse */ = {
+			isa = PBXGroup;
+			children = (
+				85E90D822DCD1DD60076C200 /* PostoperativeCourse.swift */,
+			);
+			path = PostoperativeCourse;
+			sourceTree = "<group>";
+		};
+		85E90D902DCEBCE80076C200 /* Surgery */ = {
+			isa = PBXGroup;
+			children = (
+				85E90D912DCEBD2B0076C200 /* Surgery.swift */,
+			);
+			path = Surgery;
+			sourceTree = "<group>";
+		};
+		85E90D972DD0D41E0076C200 /* Pathomorphology */ = {
+			isa = PBXGroup;
+			children = (
+				85E90D982DD0D42C0076C200 /* Pathomorphology.swift */,
+			);
+			path = Pathomorphology;
+			sourceTree = "<group>";
+		};
+		85E90DB72DD292490076C200 /* Surgery */ = {
+			isa = PBXGroup;
+			children = (
+				85E90DAC2DD272230076C200 /* SurgeryScrollCardView.swift */,
+				85E90D932DCFD1CA0076C200 /* SurgeryDetails.swift */,
+				85E90DBA2DD2958D0076C200 /* SurgeriesView 2.swift */,
+				85E90D9C2DD0FA3A0076C200 /* SurgeriesListView.swift */,
+				85E90D9E2DD10CA90076C200 /* CreateSurgeryView.swift */,
+				85E90DBC2DD297B70076C200 /* SurgeryView.swift */,
+				85E90DC22DD2B22F0076C200 /* EditSurgeryDraftView.swift */,
+			);
+			path = Surgery;
+			sourceTree = "<group>";
+		};
+		85E90E152DE5D2470076C200 /* EditMedicalRecord */ = {
+			isa = PBXGroup;
+			children = (
+				85E90E162DE5D25A0076C200 /* RadiationTherapySection.swift */,
+				85E90E182DE5DB620076C200 /* ConcomitantDiseaseSection.swift */,
+				85E90E1A2DE5E6750076C200 /* PostoperativeCourseSection.swift */,
+				85E90E1C2DE5EF610076C200 /* HospitalComplicationsSection.swift */,
+				85E90E1E2DE639B30076C200 /* PathomorphologySection.swift */,
+				85E90E202DE6411E0076C200 /* pTNMSection.swift */,
+				85E90E222DE643EF0076C200 /* AdjuvantChemotherapySection.swift */,
+				85E90E3C2DE685880076C200 /* ConfirmationEdit.swift */,
+			);
+			path = EditMedicalRecord;
+			sourceTree = "<group>";
+		};
+		85E90E392DE659900076C200 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				85E90DA82DD265440076C200 /* NetworkManagerProtocol.swift */,
+				85E90E362DE659830076C200 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -460,6 +671,9 @@
 				ru,
 			);
 			mainGroup = 11C13E152D527E57007040E3;
+			packageReferences = (
+				85E90E272DE651D70076C200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 11C13E1F2D527E57007040E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -479,6 +693,7 @@
 				1192962E2DB194D700E2ED21 /* Localizable.strings in Resources */,
 				85E76EC72DB3E2B9004F37CA /* Localizable.stringsdict in Resources */,
 				11C13E262D527E59007040E3 /* Assets.xcassets in Resources */,
+				85E90E262DE64BB00076C200 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,68 +704,114 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E90E122DE501AB0076C200 /* SchemeSelectionView.swift in Sources */,
+				85E90DBD2DD297B70076C200 /* SurgeryView.swift in Sources */,
 				1192964F2DB2E77800E2ED21 /* EndocrineDiseases.swift in Sources */,
 				85E76ED22DB43662004F37CA /* PatientCT.swift in Sources */,
 				1192963C2DB2DBDD00E2ED21 /* IschemicHeartDisease.swift in Sources */,
 				85E76EE02DB5930A004F37CA /* CapriniCalculatorView.swift in Sources */,
 				119296422DB2DDA100E2ED21 /* PeripheralAtherosclerosis.swift in Sources */,
 				85E76EE42DB82DAA004F37CA /* RiskFactor.swift in Sources */,
+				85E90D9B2DD0E2A60076C200 /* PathomorphologyDetails.swift in Sources */,
+				85E90E1D2DE5EF610076C200 /* HospitalComplicationsSection.swift in Sources */,
 				1192964A2DB2E2B800E2ED21 /* ConcomitantDisease.swift in Sources */,
+				85E90E232DE643EF0076C200 /* AdjuvantChemotherapySection.swift in Sources */,
 				11C13E352D5280E7007040E3 /* LoginViewModel.swift in Sources */,
+				85E90DAB2DD266410076C200 /* PatientPickerView.swift in Sources */,
+				85E90DB32DD279A70076C200 /* AppViewModel.swift in Sources */,
 				116E5D0F2DB9126A00498DA4 /* MedicalRecord.swift in Sources */,
 				116E5D092DB8DFAF00498DA4 /* CharlsonCalculatorViewModel.swift in Sources */,
+				85E90E212DE6411E0076C200 /* pTNMSection.swift in Sources */,
+				85E90DCB2DD2DCDF0076C200 /* ColoredLabeledValueRow.swift in Sources */,
+				85E90D832DCD1DD60076C200 /* PostoperativeCourse.swift in Sources */,
 				85E76ED62DB4E7EC004F37CA /* ConcomitantDiseaseView.swift in Sources */,
 				85E76ECE2DB40838004F37CA /* Double+Extension.swift in Sources */,
 				116E5D022DB8DB6200498DA4 /* CharlsonCalculatorView.swift in Sources */,
+				85E90DBF2DD29D110076C200 /* DraftListView.swift in Sources */,
 				85E76EF12DB8546B004F37CA /* TotalScoreUIComponent.swift in Sources */,
 				119296482DB2DE5600E2ED21 /* ValveDefects.swift in Sources */,
 				116E5D182DB9174D00498DA4 /* DiseaseEnums.swift in Sources */,
 				857993482DAFD6EC00AE07F3 /* PatientCharlson.swift in Sources */,
+				85E90D872DCD2B840076C200 /* View+Extension.swift in Sources */,
 				116E5D1E2DB930F400498DA4 /* Chemotherapy.swift in Sources */,
+				85E90DC32DD2B22F0076C200 /* EditSurgeryDraftView.swift in Sources */,
 				85E76ED42DB4E5A8004F37CA /* PatientRT.swift in Sources */,
+				85E90DA72DD257240076C200 /* MultilineInputField.swift in Sources */,
+				85E90E1B2DE5E6750076C200 /* PostoperativeCourseSection.swift in Sources */,
+				116E5D262DB9617700498DA4 /* MedCardEditViewModel.swift in Sources */,
 				85E76EDE2DB5761C004F37CA /* YesNo.swift in Sources */,
 				85E76ECA2DB3E7A0004F37CA /* Int+Extension.swift in Sources */,
 				11C13E392D52836B007040E3 /* HomeViewModel.swift in Sources */,
 				116E5D1A2DB91B8F00498DA4 /* CTNM.swift in Sources */,
 				116E5D202DB9372700498DA4 /* Date+Extension.swift in Sources */,
 				11C13E412D529EE4007040E3 /* SideMenuView.swift in Sources */,
+				85E90E172DE5D25A0076C200 /* RadiationTherapySection.swift in Sources */,
 				85E76EF52DB85525004F37CA /* RiskLevelsInfoIUComponent.swift in Sources */,
 				116E5D112DB914FF00498DA4 /* Disease.swift in Sources */,
+				85E90DA32DD22DDE0076C200 /* PopUpPickerView.swift in Sources */,
+				85E90DC72DD2D49E0076C200 /* DoubleTextField.swift in Sources */,
 				116E5D222DB93EE500498DA4 /* RadiationTherapy.swift in Sources */,
+				85E90DB12DD274D20076C200 /* SurgeriesListViewModel.swift in Sources */,
 				11C13E3D2D52868B007040E3 /* PatientScrollCardView.swift in Sources */,
+				116E5D282DB9637C00498DA4 /* Sex.swift in Sources */,
 				85E76EDC2DB54993004F37CA /* PatientDetailsCardTitle.swift in Sources */,
 				85E76EF92DB85646004F37CA /* ListButtonCentredTextUIComponent.swift in Sources */,
+				116E5D2A2DB973A800498DA4 /* MedicalInstitution.swift in Sources */,
 				11C13E332D527EAC007040E3 /* LoginView.swift in Sources */,
 				8579934A2DAFD70800AE07F3 /* PatientDisease.swift in Sources */,
 				11C13E432D52A93C007040E3 /* SideMenuHeaderView.swift in Sources */,
 				116E5D052DB8DBA900498DA4 /* CharsonRiskFactor.swift in Sources */,
 				11C13E242D527E57007040E3 /* ContentView.swift in Sources */,
 				1192963E2DB2DC9E00E2ED21 /* Hypertension.swift in Sources */,
+				85E90DC92DD2D6E30076C200 /* StatView.swift in Sources */,
+				85E90DA92DD265440076C200 /* NetworkManagerProtocol.swift in Sources */,
+				85E90D8F2DCE6F2F0076C200 /* CardView.swift in Sources */,
 				85E76EEB2DB851E2004F37CA /* ToggleRow.swift in Sources */,
+				85E90E3D2DE685880076C200 /* ConfirmationEdit.swift in Sources */,
+				85E90DC52DD2C9EE0076C200 /* TextInputField.swift in Sources */,
+				85E90E3B2DE670300076C200 /* PatientCardViewModel.swift in Sources */,
+				85E90E142DE5C5730076C200 /* Binding+Extension.swift in Sources */,
 				85E76ECC2DB3EB70004F37CA /* String+Extension.swift in Sources */,
 				857993462DAFD6DD00AE07F3 /* PatientCaprini.swift in Sources */,
 				119296442DB2DDDF00E2ED21 /* AorticAneurysm.swift in Sources */,
+				85E90D8D2DCE6DD70076C200 /* HospitalComplicationsView.swift in Sources */,
 				85E76EF72DB85577004F37CA /* InfoRowUIComponent.swift in Sources */,
+				85E90D942DCFD1CA0076C200 /* SurgeryDetails.swift in Sources */,
+				85E90D922DCEBD2B0076C200 /* Surgery.swift in Sources */,
 				116E5D0B2DB8E2BF00498DA4 /* CharsonScoreUIComponent.swift in Sources */,
+				85E90E192DE5DB620076C200 /* ConcomitantDiseaseSection.swift in Sources */,
 				11C13E3F2D528D8D007040E3 /* PatientCardView.swift in Sources */,
 				116E5D0D2DB8E2F800498DA4 /* SurvivalLevel.swift in Sources */,
+				85E90DA12DD10CE50076C200 /* CreateSurgeryViewModel.swift in Sources */,
+				116E5D242DB9615800498DA4 /* MedCardEditView.swift in Sources */,
 				116E5D072DB8DE6D00498DA4 /* CharlsonRiskFactorsUIComponent.swift in Sources */,
 				85E76EEF2DB8540C004F37CA /* TraumaFactrosView.swift in Sources */,
+				85E90D9D2DD0FA3A0076C200 /* SurgeriesListView.swift in Sources */,
+				85E90DBB2DD2958D0076C200 /* SurgeriesView 2.swift in Sources */,
 				116E5D162DB9161B00498DA4 /* StomachCancer.swift in Sources */,
 				85E76EED2DB852F9004F37CA /* OrganismStateFactorsView.swift in Sources */,
 				119296512DB2E81B00E2ED21 /* Diabetes.swift in Sources */,
+				85E90D852DCD29630076C200 /* Postoperative.swift in Sources */,
 				119296462DB2DE1900E2ED21 /* HeartFailure.swift in Sources */,
 				857993502DAFD72600AE07F3 /* PatientMetrics.swift in Sources */,
+				85E90D992DD0D42C0076C200 /* Pathomorphology.swift in Sources */,
 				11C13E3B2D528433007040E3 /* Patient.swift in Sources */,
+				85E90E1F2DE639B30076C200 /* PathomorphologySection.swift in Sources */,
 				116E5D1C2DB91EDD00498DA4 /* TumorLocalization.swift in Sources */,
+				85E90D9F2DD10CA90076C200 /* CreateSurgeryView.swift in Sources */,
+				85E90E372DE659830076C200 /* NetworkManager.swift in Sources */,
 				8579934E2DAFD71900AE07F3 /* PatientMetric.swift in Sources */,
+				85E90D8B2DCD54270076C200 /* HospitalComplications.swift in Sources */,
+				85E90DA52DD247F00076C200 /* NumberTextField.swift in Sources */,
 				85E76ED02DB40B5C004F37CA /* PatientMetrics2.swift in Sources */,
+				85E90DC12DD2A09D0076C200 /* LocalManagerProtocol.swift in Sources */,
 				85E76EF32DB854C9004F37CA /* RiskLevelUIComonent.swift in Sources */,
 				1192964D2DB2E38900E2ED21 /* PulmonaryDiseasesEnum.swift in Sources */,
 				119296392DB286C500E2ED21 /*  CardiacConditions.swift in Sources */,
 				85E76EE22DB593D0004F37CA /* CapriniCalculatorViewModel.swift in Sources */,
 				11C13E372D5282A7007040E3 /* HomeView.swift in Sources */,
 				11C13E222D527E57007040E3 /* MedConnectApp.swift in Sources */,
+				85E90DAD2DD272240076C200 /* SurgeryScrollCardView.swift in Sources */,
 				85E76ED82DB4EAD2004F37CA /* LabeledValueRow.swift in Sources */,
 				116E5D142DB9158000498DA4 /* DiseaseType.swift in Sources */,
 				119296402DB2DD0200E2ED21 /* ConductionDisorders.swift in Sources */,
@@ -790,6 +1051,55 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		85E90E272DE651D70076C200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://www.github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.13.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		85E90E282DE651D70076C200 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85E90E272DE651D70076C200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		85E90E2A2DE651D70076C200 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85E90E272DE651D70076C200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		85E90E2C2DE651D70076C200 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85E90E272DE651D70076C200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		85E90E2E2DE651D70076C200 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85E90E272DE651D70076C200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		85E90E302DE651D70076C200 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85E90E272DE651D70076C200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		85E90E322DE651D70076C200 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85E90E272DE651D70076C200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		85E90E342DE651D70076C200 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85E90E272DE651D70076C200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 11C13E162D527E57007040E3 /* Project object */;
 }

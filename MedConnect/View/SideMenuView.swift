@@ -8,43 +8,66 @@
 import SwiftUI
 
 struct SideMenuView: View {
+    var appViewModel: AppViewModel
     @Binding var isShownig: Bool
+    
     var body: some View {
-        ZStack {
-            if isShownig {
-                Rectangle()
-                    .opacity(0.3)
-                    .ignoresSafeArea()
-                    .onTapGesture { isShownig.toggle() }
-                HStack {
-                    VStack(alignment: .leading, spacing: 32) {
-                        SideMenuHeaderView()
-                        Label("Черновики", systemImage: "square.and.pencil")
-                        Label("Моя статистика", systemImage: "chart.bar.xaxis")
-                        Label("Добавить операцию", systemImage: "syringe")
-                        Spacer()
-                        Button {
-                            UserDefaults.standard.set(false, forKey: "isLogin")
-                        } label: {
-                            Label("Выйти из аккаунта", systemImage: "door.left.hand.open")
-                                .foregroundColor(.red)
+        NavigationStack {
+            ZStack {
+                if true {
+                    Rectangle()
+                        .opacity(0.0001)
+                        .ignoresSafeArea()
+                        .onTapGesture { isShownig.toggle() }
+                    HStack {
+                        VStack(alignment: .leading, spacing: 32) {
+                            SideMenuHeaderView()
+                            NavigationLink {
+                                StatView()
+                            } label: {
+                                Label("Моя статистика", systemImage: "chart.bar.xaxis")
+                            }
+                          
+                            NavigationLink {
+                                SurgeriesListView(viewModel: appViewModel.surgeriesListViewModel)
+                            } label: {
+                                Label("Операции", systemImage: "stethoscope")
+                            }
+                            NavigationLink{
+                                CreateSurgeryView(viewModel: appViewModel.createSurgeryViewModel)
+                            }label: {
+                                Label("Добавить операцию", systemImage: "syringe")
+                            }
+                            NavigationLink {
+                                DraftListView(appViewModel: appViewModel, viewModel: appViewModel.draftListViewModel)
+                            } label: {
+                                Label("Черновики", systemImage: "square.and.pencil")
+                            }
+                            Spacer()
+                            Button {
+                                UserDefaults.standard.set(false, forKey: "isLogin")
+                            } label: {
+                                Label("Выйти из аккаунта", systemImage: "door.left.hand.open")
+                                    .foregroundColor(.red)
+                            }
                         }
+                        .padding()
+                        .frame(width: 270, alignment: .leading)
+                        .background(Color(.systemBackground))
+                        .buttonStyle(.plain)
+                        
+                        Spacer()
                     }
-                    .padding()
-                    .frame(width: 270, alignment: .leading)
-                    .background(Color(.systemBackground))
                     
-                    Spacer()
+                    
                 }
-                
-                
             }
+            .transition(.move(edge: .leading))
+            .animation(.easeInOut, value: isShownig)
         }
-        .transition(.move(edge: .leading))
-        .animation(.easeInOut, value: isShownig)
     }
 }
 
-#Preview {
-    SideMenuView(isShownig: .constant(true))
-}
+//#Preview {
+//    SideMenuView(isShownig: .constant(true))
+//}

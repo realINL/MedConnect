@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HeartFailure: String, Codable, Hashable {
+enum HeartFailure: String, Codable, Hashable, CaseIterable {
     case none = "Нет"
     case lvefBelow40 = "Фракция выброса ЛЖ менее 40%"
     case lvef41to49 = "Фракция выброса ЛЖ (41-49%)"

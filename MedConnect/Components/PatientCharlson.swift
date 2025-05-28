@@ -44,5 +44,5 @@ struct PatientCharlson: View {
 }
 
 #Preview {
-    PatientCharlson(medicalRecord: MedicalRecord.MOCK_MedicalRecord.first!, charlosIsPresented: .constant(false))
+    PatientCharlson(medicalRecord: MedicalRecord.MOCK_MedicalRecords.first!, charlosIsPresented: .constant(false))
 }
